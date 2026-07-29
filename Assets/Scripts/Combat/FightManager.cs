@@ -17,6 +17,9 @@ public class FightManager : MonoBehaviour
     [Header("IA del rival")]
     [SerializeField] private RivalAI rivalAI;
 
+    [Header("HUD")]
+    [SerializeField] private HUDController hud;
+
     private bool fightOver = false;
 
     // Guardamos los handlers para poder desuscribirlos limpiamente
@@ -56,6 +59,9 @@ public class FightManager : MonoBehaviour
 
         // Detener la IA para que el rival no siga atacando después del KO
         rivalAI?.Deactivate();
+
+        // Detener el temporizador del HUD
+        hud?.DetenerPelea();
 
         Debug.Log(ganadorEsWally ? "KO! WALLY GANA!" : "KO! WALLY PIERDE!");
     }
