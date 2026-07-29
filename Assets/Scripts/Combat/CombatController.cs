@@ -12,8 +12,8 @@ public class CombatController : MonoBehaviour
     [SerializeField] private Stamina stamina;
     [SerializeField] private Animator animator;
 
-    // El rival al que este peleador puede golpear
-    private Health targetHealth;
+    [Header("Objetivo")]
+    [SerializeField] private Health targetHealth;  // quién recibe el daño de los golpes
 
     // Posición de esquive actual del objetivo (Neutro = puede recibir golpes)
     private DodgePosition targetDodge = DodgePosition.Neutral;
@@ -48,6 +48,7 @@ public class CombatController : MonoBehaviour
     {
         if (isAttacking) return;
         if (attack == null) return;
+        if (stamina == null) return;
         if (!stamina.UseStamina(attack.staminaCost)) return;
 
         StartCoroutine(ExecuteAttack(attack));

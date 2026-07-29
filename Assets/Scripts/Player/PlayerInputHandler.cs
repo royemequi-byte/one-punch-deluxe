@@ -28,7 +28,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void LeerAtaques()
     {
-        // Solo permite atacar si no hay otra acción en curso
+        if (Keyboard.current == null) return;
+
         if (Keyboard.current.jKey.wasPressedThisFrame)
             combatController.TryAttack(jabData);
 

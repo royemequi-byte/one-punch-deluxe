@@ -10,8 +10,8 @@ public class Health : MonoBehaviour
     [Header("Configuración")]
     [SerializeField] private int maxHealth = 100;
 
-    // Vida actual en este momento
-    private int currentHealth;
+    // Vida actual — [SerializeField] solo para verla en el Inspector durante Play
+    [SerializeField] private int currentHealth;
 
     // Otros scripts se suscriben a estos eventos para enterarse de los cambios
     public event System.Action<int, int> OnHealthChanged;  // (vidaActual, vidaMaxima)
