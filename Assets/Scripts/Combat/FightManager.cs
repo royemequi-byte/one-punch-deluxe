@@ -60,10 +60,8 @@ public class FightManager : MonoBehaviour
         // Detener la IA para que el rival no siga atacando después del KO
         rivalAI?.Deactivate();
 
-        // Detener el temporizador del HUD
-        hud?.DetenerPelea();
-
-        Debug.Log(ganadorEsWally ? "KO! WALLY GANA!" : "KO! WALLY PIERDE!");
+        // Mostrar pantalla de resultado
+        hud?.MostrarResultado(ganadorEsWally);
     }
 
     private void OnDestroy()

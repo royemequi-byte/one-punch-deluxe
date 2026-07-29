@@ -22,6 +22,10 @@ public class HUDController : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text roundText;
 
+    [Header("Pantalla de resultado")]
+    [SerializeField] private GameObject resultPanel;
+    [SerializeField] private TMP_Text resultText;
+
     [Header("Configuración")]
     [SerializeField] private float roundDuration = 120f;
 
@@ -62,11 +66,17 @@ public class HUDController : MonoBehaviour
     }
 
     /// <summary>
-    /// Detiene el temporizador. Lo llama FightManager cuando hay KO.
+    /// Detiene el timer y muestra el resultado. Lo llama FightManager cuando hay KO.
     /// </summary>
-    public void DetenerPelea()
+    public void MostrarResultado(bool wallyGana)
     {
         peleaActiva = false;
+
+        if (resultPanel != null)
+            resultPanel.SetActive(true);
+
+        if (resultText != null)
+            resultText.text = wallyGana ? "¡WALLY GANA!" : "¡KO!\nWALLY PIERDE";
     }
 
     private void ActualizarVidaWally(int actual, int maximo)
