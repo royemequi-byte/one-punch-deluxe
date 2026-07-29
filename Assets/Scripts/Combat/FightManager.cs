@@ -49,6 +49,11 @@ public class FightManager : MonoBehaviour
         // Activar la IA del rival
         rivalAI?.Activate();
 
+        // Iniciar música de combate y campana de round
+        AudioLibrary lib = AudioManager.Instance?.Library;
+        AudioManager.Instance?.PlaySFX(lib?.sfxCampana);
+        AudioManager.Instance?.PlayMusic(lib?.musicaCombate);
+
         Debug.Log("¡Pelea iniciada! WASD=esquive, Space=bloqueo, J/K/L=golpes");
     }
 
@@ -60,8 +65,15 @@ public class FightManager : MonoBehaviour
         // Detener la IA para que el rival no siga atacando después del KO
         rivalAI?.Deactivate();
 
+        // Guardar resultado antes de mostrar la pantalla
+        SaveManager.Instance?.RegistrarResultado(ganadorEsWally);
+
         // Mostrar pantalla de resultado
         hud?.MostrarResultado(ganadorEsWally);
+
+        // Música de resultado
+        AudioLibrary lib = AudioManager.Instance?.Library;
+        AudioManager.Instance?.PlayMusic(ganadorEsWally ? lib?.musicaVictoria : lib?.musicaCombate);
     }
 
     private void OnDestroy()

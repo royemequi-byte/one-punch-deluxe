@@ -79,6 +79,9 @@ public class CombatController : MonoBehaviour
         // Fase Windup: preparación, aún no golpea
         yield return new WaitForSeconds(attack.windupTime);
 
+        // Reproducir sonido del golpe al lanzarlo
+        AudioManager.Instance?.PlaySFX(attack.hitSound);
+
         // Fase Active: ventana donde el golpe puede impactar
         bool impacta = EvaluarImpacto(attack);
         if (impacta && targetHealth != null)
@@ -92,6 +95,15 @@ public class CombatController : MonoBehaviour
             Debug.Log($"[Combate] {attack.attackName} impacta {targetHealth.name} → {danoFinal} daño {estado}");
 
             targetHealth.TakeDamage(danoFinal);
+
+            // Sonido de impacto: diferente si bloqueó o recibió el golpe limpio
+            AudioLibrary lib = AudioManager.Instance?.Library;
+            AudioManager.Instance?.PlaySFX(targetIsBlocking ? lib?.sfxBloqueo : lib?.sfxImpacto);
+        }
+        else if (!impacta)
+        {
+            // El objetivo esquivó — sonido de golpe al aire
+            AudioManager.Instance?.PlaySFX(AudioManager.Instance?.Library?.sfxWhiff);
         }
 
         yield return new WaitForSeconds(attack.activeTime);
