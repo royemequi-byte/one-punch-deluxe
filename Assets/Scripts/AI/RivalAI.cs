@@ -10,6 +10,7 @@ public class RivalAI : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] private CombatController combatController;
+    [SerializeField] private GameObject telegraphIndicator;
 
     [Header("Perfil de comportamiento")]
     [SerializeField] private AIProfile profile;
@@ -41,6 +42,10 @@ public class RivalAI : MonoBehaviour
             StopCoroutine(aiCoroutine);
             aiCoroutine = null;
         }
+
+        // Ocultar el indicador si la pelea termina durante un telegraph
+        if (telegraphIndicator != null)
+            telegraphIndicator.SetActive(false);
     }
 
     private IEnumerator AILoop()
@@ -57,11 +62,17 @@ public class RivalAI : MonoBehaviour
             // Elegir un ataque al azar
             AttackData ataque = profile.attacks[Random.Range(0, profile.attacks.Length)];
 
-            // Fase telegraph: el jugador ve que viene un golpe (aquí irá la animación de aviso)
+            // Fase telegraph: mostrar el "!" para avisar al jugador
+            if (telegraphIndicator != null)
+                telegraphIndicator.SetActive(true);
+
             Debug.Log($"[IA] {profile.rivalName} TELEGRAFÍA: {ataque.attackName} ({profile.telegraphDuration}s)");
             yield return new WaitForSeconds(profile.telegraphDuration);
 
-            // Ejecutar el ataque
+            // Ocultar el aviso y ejecutar el golpe
+            if (telegraphIndicator != null)
+                telegraphIndicator.SetActive(false);
+
             combatController.TryAttack(ataque);
         }
     }

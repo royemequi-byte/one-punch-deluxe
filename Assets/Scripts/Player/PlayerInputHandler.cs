@@ -11,6 +11,7 @@ public class PlayerInputHandler : MonoBehaviour
     [Header("Combate de Wally")]
     [SerializeField] private CombatController wallyCombat;
     [SerializeField] private Stamina wallyStamina;
+    [SerializeField] private Animator wallyAnimator;
 
     [Header("Ataques")]
     [SerializeField] private AttackData jabData;       // tecla J
@@ -90,8 +91,9 @@ public class PlayerInputHandler : MonoBehaviour
         // Informar al rival la posición actual de Wally
         rivalCombat?.SetTargetDodge(currentDodge);
 
+        // Disparar animación de esquive (el nombre del trigger coincide con el enum)
         if (dodge != DodgePosition.Neutral)
-            Debug.Log($"[Esquive] Wally → {dodge}");
+            wallyAnimator?.SetTrigger(dodge.ToString());
     }
 
     /// <summary>

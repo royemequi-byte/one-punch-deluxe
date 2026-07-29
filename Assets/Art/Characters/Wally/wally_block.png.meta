@@ -1,0 +1,387 @@
+fileFormatVersion: 2
+guid: 14ce8cd4cd807ff499ea8e42256ad139
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5069599871012632895
+    second: wally_block_0
+  - first:
+      213: -2685769407704678649
+    second: wally_block_1
+  - first:
+      213: 680311627048444359
+    second: wally_block_2
+  - first:
+      213: -7084098307562286952
+    second: wally_block_3
+  - first:
+      213: -2669260816177155852
+    second: wally_block_4
+  - first:
+      213: 4042886039172449173
+    second: wally_block_5
+  - first:
+      213: 4954291844649037991
+    second: wally_block_6
+  - first:
+      213: -7319839537692172132
+    second: wally_block_7
+  - first:
+      213: -2395021509596363623
+    second: wally_block_8
+  - first:
+      213: 675359651732853675
+    second: wally_block_9
+  - first:
+      213: 6160497759241232601
+    second: wally_block_10
+  - first:
+      213: -6518801383956563537
+    second: wally_block_11
+  - first:
+      213: 2405653342909856164
+    second: wally_block_12
+  - first:
+      213: 5141030940240182375
+    second: wally_block_13
+  - first:
+      213: -1813745211973689444
+    second: wally_block_14
+  - first:
+      213: -6289724351159324506
+    second: wally_block_15
+  - first:
+      213: -1827552713751284808
+    second: wally_block_16
+  - first:
+      213: 3128414933329277385
+    second: wally_block_17
+  - first:
+      213: 7399435333935318584
+    second: wally_block_18
+  - first:
+      213: 3790147182471846218
+    second: wally_block_19
+  - first:
+      213: -222398128814006611
+    second: wally_block_20
+  - first:
+      213: 2742947009545883362
+    second: wally_block_21
+  - first:
+      213: 7135387260282129064
+    second: wally_block_22
+  - first:
+      213: -8226606442652887917
+    second: wally_block_23
+  - first:
+      213: 3337507279165960143
+    second: wally_block_24
+  - first:
+      213: 7224471855511205585
+    second: wally_block_25
+  - first:
+      213: -7232263929899548787
+    second: wally_block_26
+  - first:
+      213: -6364137063393724392
+    second: wally_block_27
+  - first:
+      213: 4842163498739872378
+    second: wally_block_28
+  - first:
+      213: -4268031101823564293
+    second: wally_block_29
+  - first:
+      213: 2060800777498468075
+    second: wally_block_30
+  - first:
+      213: 8514836180668113401
+    second: wally_block_31
+  - first:
+      213: -203727305939685719
+    second: wally_block_32
+  - first:
+      213: -5176184936514403562
+    second: wally_block_33
+  - first:
+      213: -3539344039268723745
+    second: wally_block_34
+  - first:
+      213: -1257868649321325364
+    second: wally_block_35
+  - first:
+      213: 475543155536536036
+    second: wally_block_36
+  - first:
+      213: 5102167676772295193
+    second: wally_block_37
+  - first:
+      213: 199762005212045614
+    second: wally_block_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wally_block_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f39f2190936da5640800000000000000
+      internalID: 5069599871012632895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wally_block_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70fb62914fa3abad0800000000000000
+      internalID: -2685769407704678649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wally_block_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c16ac202d3f07900800000000000000
+      internalID: 680311627048444359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wally_block_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 890ddc75f1a30bd90800000000000000
+      internalID: -7084098307562286952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wally_block_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f034e61e61e4fad0800000000000000
+      internalID: -2669260816177155852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wally_block_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5938248be673b1830800000000000000
+      internalID: 4042886039172449173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1fd3c10346bcbea4bba9f29cace784c7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      wally_block_0: 5069599871012632895
+      wally_block_1: -2685769407704678649
+      wally_block_2: 680311627048444359
+      wally_block_3: -7084098307562286952
+      wally_block_4: -2669260816177155852
+      wally_block_5: 4042886039172449173
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

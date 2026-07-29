@@ -1,0 +1,366 @@
+fileFormatVersion: 2
+guid: a6bed51b5667f5042b98d6c17abc383a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7326306433470872687
+    second: wally_knockdown_0
+  - first:
+      213: 3536100310390919084
+    second: wally_knockdown_1
+  - first:
+      213: -1788126149904077310
+    second: wally_knockdown_2
+  - first:
+      213: -6790496762149012574
+    second: wally_knockdown_3
+  - first:
+      213: 7951789587771997698
+    second: wally_knockdown_4
+  - first:
+      213: 8358305520265176909
+    second: wally_knockdown_5
+  - first:
+      213: -219354778481054719
+    second: wally_knockdown_6
+  - first:
+      213: 81051209246681163
+    second: wally_knockdown_7
+  - first:
+      213: 7235812402877261245
+    second: wally_knockdown_8
+  - first:
+      213: 733810168680862773
+    second: wally_knockdown_9
+  - first:
+      213: -3819164856564933836
+    second: wally_knockdown_10
+  - first:
+      213: 4671467255951014538
+    second: wally_knockdown_11
+  - first:
+      213: 5157805677189866985
+    second: wally_knockdown_12
+  - first:
+      213: -3903976720630518437
+    second: wally_knockdown_13
+  - first:
+      213: -4340589179325840521
+    second: wally_knockdown_14
+  - first:
+      213: 4655051527888867800
+    second: wally_knockdown_15
+  - first:
+      213: -2721884867945336053
+    second: wally_knockdown_16
+  - first:
+      213: -7792360329009438583
+    second: wally_knockdown_17
+  - first:
+      213: -3446570950206347764
+    second: wally_knockdown_18
+  - first:
+      213: 2347763601562473926
+    second: wally_knockdown_19
+  - first:
+      213: 6106906336380243365
+    second: wally_knockdown_20
+  - first:
+      213: 6761109943023190800
+    second: wally_knockdown_21
+  - first:
+      213: -3343333783987802011
+    second: wally_knockdown_22
+  - first:
+      213: 4083834670882926964
+    second: wally_knockdown_23
+  - first:
+      213: 530103342846641607
+    second: wally_knockdown_24
+  - first:
+      213: -1745466339708219841
+    second: wally_knockdown_25
+  - first:
+      213: -9033752477906979198
+    second: wally_knockdown_26
+  - first:
+      213: -5789994096024295928
+    second: wally_knockdown_27
+  - first:
+      213: 2084205328980472037
+    second: wally_knockdown_28
+  - first:
+      213: -9209147205604910895
+    second: wally_knockdown_29
+  - first:
+      213: -8569369143318195866
+    second: wally_knockdown_30
+  - first:
+      213: -4259093109369776741
+    second: wally_knockdown_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wally_knockdown_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6cb0b282e44ca560800000000000000
+      internalID: 7326306433470872687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wally_knockdown_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cafcffa4f70c21130800000000000000
+      internalID: 3536100310390919084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wally_knockdown_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20e61659dbc4f27e0800000000000000
+      internalID: -1788126149904077310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wally_knockdown_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2abfaa32c2f43c1a0800000000000000
+      internalID: -6790496762149012574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wally_knockdown_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20ebccbef7e6a5e60800000000000000
+      internalID: 7951789587771997698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wally_knockdown_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d47a793269aaef370800000000000000
+      internalID: 8358305520265176909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 61ef23c3b0afd8d40b748443fa42cc3d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      wally_knockdown_0: 7326306433470872687
+      wally_knockdown_1: 3536100310390919084
+      wally_knockdown_2: -1788126149904077310
+      wally_knockdown_3: -6790496762149012574
+      wally_knockdown_4: 7951789587771997698
+      wally_knockdown_5: 8358305520265176909
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
