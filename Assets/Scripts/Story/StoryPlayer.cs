@@ -7,8 +7,8 @@ using System.Collections;
 
 /// <summary>
 /// Muestra paneles de historia con efecto de máquina de escribir y paneo Ken Burns.
-/// La imagen se mueve suavemente de un lado al otro dando sensación de profundidad.
-/// Primera tecla: completa el texto. Segunda tecla: avanza al siguiente panel.
+/// Primera tecla: completa el texto al instante. Segunda tecla: avanza al panel.
+/// Al terminar todos los paneles carga la escena de pelea.
 /// </summary>
 public class StoryPlayer : MonoBehaviour
 {
@@ -24,128 +24,107 @@ public class StoryPlayer : MonoBehaviour
     [SerializeField] private string nombreEscenaPelea = "dia 1";
 
     [Header("Velocidad de escritura")]
-    [SerializeField] private float segundosPorLetra = 0.04f;
+    [SerializeField] private float segundosPorLetra = 0.02f;
 
     [Header("Efecto Ken Burns")]
-    [SerializeField] private float panDistance = 60f;   // píxeles que se desplaza la imagen
-    [SerializeField] private float panDuration = 8f;    // segundos de un lado al otro
+    [SerializeField] private float panDistance = 60f;
+    [SerializeField] private float panDuration = 8f;
 
-    private int indiceActual = 0;
-    private bool escribiendo = false;
-    private bool textoCompleto = false;
+    // Señal que llega desde Update a la corrutina
+    private bool teclaPulsada = false;
     private RectTransform imagenRect;
 
-    private void Start()
+    private void Awake()
     {
         if (imagenPanel != null)
         {
             imagenRect = imagenPanel.GetComponent<RectTransform>();
-            // Escalar ligeramente para que el paneo no muestre bordes
             imagenRect.localScale = new Vector3(1.12f, 1.12f, 1f);
         }
+    }
 
+    private void Start()
+    {
         if (textoAvanzar != null) textoAvanzar.gameObject.SetActive(false);
-        MostrarPanel(0);
+        StartCoroutine(SecuenciaPaneles());
     }
 
     private void Update()
     {
-        if (Keyboard.current == null) return;
-        if (!Keyboard.current.anyKey.wasPressedThisFrame) return;
-
-        if (escribiendo)
-            CompletarTexto();
-        else if (textoCompleto)
-            Avanzar();
-    }
-
-    private void MostrarPanel(int indice)
-    {
-        if (indice >= paneles.Length) return;
-
-        StoryPanel panel = paneles[indice];
-
-        if (imagenPanel != null && panel.imagen != null)
-            imagenPanel.sprite = panel.imagen;
-
-        if (textoAvanzar != null) textoAvanzar.gameObject.SetActive(false);
-
-        StopAllCoroutines();
-        StartCoroutine(EscribirTexto(panel.texto));
-        StartCoroutine(PaneoKenBurns(indice));
+        if (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
+            teclaPulsada = true;
     }
 
     /// <summary>
-    /// Mueve la imagen de izquierda a derecha (o al revés) alternando por panel.
+    /// Corrutina principal: recorre todos los paneles y luego carga la pelea.
     /// </summary>
-    private IEnumerator PaneoKenBurns(int indice)
+    private IEnumerator SecuenciaPaneles()
     {
-        if (imagenRect == null) yield break;
-
-        // Alternar dirección según el número de panel
-        float desde = indice % 2 == 0 ? -panDistance : panDistance;
-        float hasta = -desde;
-
-        float tiempo = 0f;
-        while (true)
+        for (int i = 0; i < paneles.Length; i++)
         {
-            tiempo += Time.deltaTime;
-            float t = Mathf.SmoothStep(0f, 1f, Mathf.PingPong(tiempo / panDuration, 1f));
-            float x = Mathf.Lerp(desde, hasta, t);
-            imagenRect.anchoredPosition = new Vector2(x, imagenRect.anchoredPosition.y);
-            yield return null;
+            StoryPanel panel = paneles[i];
+            // Mostrar imagen del panel
+            if (imagenPanel != null && panel.imagen != null)
+                imagenPanel.sprite = panel.imagen;
+
+            // Ocultar texto y avanzar, iniciar paneo
+            if (textoAvanzar != null) textoAvanzar.gameObject.SetActive(false);
+            teclaPulsada = false;
+
+            StartCoroutine(PaneoKenBurns(i));
+
+            // Escribir texto letra por letra
+            yield return StartCoroutine(EscribirTexto(panel.texto));
+
+            // Mostrar indicador y esperar tecla para avanzar
+            if (textoAvanzar != null) textoAvanzar.gameObject.SetActive(true);
+            teclaPulsada = false;
+            yield return new WaitUntil(() => teclaPulsada);
+            teclaPulsada = false;
+
+            StopCoroutine(nameof(PaneoKenBurns));
         }
+
+        SceneManager.LoadScene(nombreEscenaPelea);
     }
 
     private IEnumerator EscribirTexto(string texto)
     {
-        escribiendo = true;
-        textoCompleto = false;
-
         if (textoPanel == null) yield break;
 
         textoPanel.text = texto;
         textoPanel.maxVisibleCharacters = 0;
+        teclaPulsada = false;
 
         for (int i = 0; i <= texto.Length; i++)
         {
+            // Si el jugador pulsó tecla, mostrar todo de golpe y salir
+            if (teclaPulsada)
+            {
+                textoPanel.maxVisibleCharacters = int.MaxValue;
+                teclaPulsada = false;
+                yield break;
+            }
+
             textoPanel.maxVisibleCharacters = i;
             yield return new WaitForSeconds(segundosPorLetra);
-            if (!escribiendo) yield break;
         }
-
-        TerminarEscritura();
     }
 
-    private void CompletarTexto()
+    private IEnumerator PaneoKenBurns(int indice)
     {
-        escribiendo = false;
-        StopCoroutine(nameof(EscribirTexto));
+        if (imagenRect == null) yield break;
 
-        if (textoPanel != null)
-            textoPanel.maxVisibleCharacters = int.MaxValue;
+        float desde = indice % 2 == 0 ? -panDistance : panDistance;
+        float hasta = -desde;
+        float tiempo = 0f;
 
-        TerminarEscritura();
-    }
-
-    private void TerminarEscritura()
-    {
-        escribiendo = false;
-        textoCompleto = true;
-        if (textoAvanzar != null) textoAvanzar.gameObject.SetActive(true);
-    }
-
-    private void Avanzar()
-    {
-        indiceActual++;
-        textoCompleto = false;
-
-        if (indiceActual >= paneles.Length)
+        while (true)
         {
-            SceneManager.LoadScene(nombreEscenaPelea);
-            return;
+            tiempo += Time.deltaTime;
+            float t = Mathf.SmoothStep(0f, 1f, Mathf.PingPong(tiempo / panDuration, 1f));
+            imagenRect.anchoredPosition = new Vector2(Mathf.Lerp(desde, hasta, t), imagenRect.anchoredPosition.y);
+            yield return null;
         }
-
-        MostrarPanel(indiceActual);
     }
 }
