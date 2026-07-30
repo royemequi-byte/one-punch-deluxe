@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Audio;
 using System.Collections;
 
 /// <summary>
@@ -10,17 +9,16 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
-    [Header("Mixer")]
-    [SerializeField] private AudioMixer mixer;
-    [SerializeField] private AudioMixerGroup musicGroup;
-    [SerializeField] private AudioMixerGroup sfxGroup;
-
     [Header("Librería de clips")]
     [SerializeField] private AudioLibrary library;
     public AudioLibrary Library => library;
 
     [Header("Fuentes de audio")]
     [SerializeField] private AudioSource musicSource;
+
+    [Header("Volúmenes (0 a 1)")]
+    [SerializeField] [Range(0f, 1f)] private float musicVolume = 0.7f;
+    [SerializeField] [Range(0f, 1f)] private float sfxVolume = 1f;
 
     // Pool de fuentes para efectos — evita que dos golpes simultáneos se corten
     private AudioSource[] sfxPool;
@@ -38,11 +36,6 @@ public class AudioManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        // Asignar grupo del mixer a la fuente de música si está disponible
-        if (musicSource != null && musicGroup != null)
-            musicSource.outputAudioMixerGroup = musicGroup;
-
         CrearPoolDeSFX();
     }
 
@@ -55,7 +48,7 @@ public class AudioManager : MonoBehaviour
             obj.transform.SetParent(transform);
             sfxPool[i] = obj.AddComponent<AudioSource>();
             sfxPool[i].playOnAwake = false;
-            if (sfxGroup != null) sfxPool[i].outputAudioMixerGroup = sfxGroup;
+            sfxPool[i].volume = sfxVolume;
         }
     }
 
@@ -84,12 +77,11 @@ public class AudioManager : MonoBehaviour
 
     /// <summary>
     /// Cambia el volumen de la música. Valor entre 0 y 1.
-    /// Convierte a decibelios para que el slider se sienta lineal.
     /// </summary>
     public void SetMusicVolume(float valor)
     {
-        if (mixer == null) return;
-        mixer.SetFloat("MusicVolume", Mathf.Log10(Mathf.Clamp(valor, 0.0001f, 1f)) * 20f);
+        musicVolume = Mathf.Clamp01(valor);
+        if (musicSource != null) musicSource.volume = musicVolume;
     }
 
     /// <summary>
@@ -97,34 +89,40 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void SetSFXVolume(float valor)
     {
-        if (mixer == null) return;
-        mixer.SetFloat("SFXVolume", Mathf.Log10(Mathf.Clamp(valor, 0.0001f, 1f)) * 20f);
+        sfxVolume = Mathf.Clamp01(valor);
+        foreach (AudioSource s in sfxPool)
+            if (s != null) s.volume = sfxVolume;
     }
 
     private IEnumerator FadeMusic(AudioClip nuevoClip, float fadeTime)
     {
         // Bajar volumen del clip actual
         float tiempoInicial = Time.time;
-        float volumenInicial = musicSource.volume;
+        float volumenInicial = musicSource != null ? musicSource.volume : 0f;
 
         while (Time.time < tiempoInicial + fadeTime)
         {
-            musicSource.volume = Mathf.Lerp(volumenInicial, 0f, (Time.time - tiempoInicial) / fadeTime);
+            if (musicSource != null)
+                musicSource.volume = Mathf.Lerp(volumenInicial, 0f, (Time.time - tiempoInicial) / fadeTime);
             yield return null;
         }
 
         // Cambiar clip y subir volumen
-        musicSource.clip = nuevoClip;
-        musicSource.loop = true;
-        musicSource.Play();
+        if (musicSource != null)
+        {
+            musicSource.clip = nuevoClip;
+            musicSource.loop = true;
+            musicSource.Play();
+        }
 
         tiempoInicial = Time.time;
         while (Time.time < tiempoInicial + fadeTime)
         {
-            musicSource.volume = Mathf.Lerp(0f, volumenInicial, (Time.time - tiempoInicial) / fadeTime);
+            if (musicSource != null)
+                musicSource.volume = Mathf.Lerp(0f, musicVolume, (Time.time - tiempoInicial) / fadeTime);
             yield return null;
         }
 
-        musicSource.volume = volumenInicial;
+        if (musicSource != null) musicSource.volume = musicVolume;
     }
 }
