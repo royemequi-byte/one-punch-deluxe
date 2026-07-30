@@ -19,5 +19,5 @@ MonoBehaviour:
   activeTime: 0.1
   recoveryTime: 0.15
   animationTrigger: Jab
-  hitSound: {fileID: 0}
+  hitSound: {fileID: 8300000, guid: a165975e57bdb6c45827be96d2836a05, type: 3}
   dodgesThatAvoid: 

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4923edea653ecc5409b6ad0292db28cb, type: 3}
+  m_Name: AudioLibrary
+  m_EditorClassIdentifier: Assembly-CSharp::AudioLibrary
+  musicaCombate: {fileID: 0}
+  musicaVictoria: {fileID: 0}
+  musicaMenu: {fileID: 0}
+  sfxJab: {fileID: 8300000, guid: a165975e57bdb6c45827be96d2836a05, type: 3}
+  sfxStraight: {fileID: 8300000, guid: 2ce91e68634655e41bd5de97fc8c33f6, type: 3}
+  sfxHook: {fileID: 8300000, guid: 66a02b9c0082f304e8b3d83b530309a5, type: 3}
+  sfxImpacto: {fileID: 8300000, guid: 70a000b93b3bcc24a8e371d06f75a883, type: 3}
+  sfxBloqueo: {fileID: 8300000, guid: 2d5ee2fe5b9e1a74a85ad63941f6ce2f, type: 3}
+  sfxWhiff: {fileID: 8300000, guid: 659d66aa54173e44aab7a8c348ee4e98, type: 3}
+  sfxDanioRecibido: {fileID: 8300000, guid: b61a77e94941af2409575ddece6e79ee, type: 3}
+  sfxCaida: {fileID: 8300000, guid: 25b5c397c4f75e447b8910c61cf4251f, type: 3}
+  sfxCampana: {fileID: 8300000, guid: 425b7b11dc3024044972931bd283d0f2, type: 3}
+  sfxBotonClick: {fileID: 8300000, guid: 57c54ff3ec332934e84eacfb729f6807, type: 3}
+  sfxBotonHover: {fileID: 8300000, guid: 7cd437bef3015a44792cba4b830fadea, type: 3}

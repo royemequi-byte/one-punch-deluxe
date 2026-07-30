@@ -19,5 +19,5 @@ MonoBehaviour:
   activeTime: 1.15
   recoveryTime: 0.25
   animationTrigger: Hook
-  hitSound: {fileID: 0}
+  hitSound: {fileID: 8300000, guid: 66a02b9c0082f304e8b3d83b530309a5, type: 3}
   dodgesThatAvoid: 
