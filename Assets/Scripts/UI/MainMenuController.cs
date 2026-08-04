@@ -24,13 +24,23 @@ public class MainMenuController : MonoBehaviour
         if (botonContinuar != null)
             botonContinuar.interactable = hayProgreso;
 
-        // Conectar botones
+        // Conectar botones con sonido de clic
+        botonNuevaPartida?.onClick.AddListener(PlayClick);
         botonNuevaPartida?.onClick.AddListener(NuevaPartida);
+
+        botonContinuar?.onClick.AddListener(PlayClick);
         botonContinuar?.onClick.AddListener(Continuar);
+
+        botonSalir?.onClick.AddListener(PlayClick);
         botonSalir?.onClick.AddListener(Salir);
 
         // Reproducir música de menú
-        AudioManager.Instance?.PlayMusic(AudioManager.Instance.Library?.musicaMenu);
+        AudioManager.Instance?.PlayMusic(AudioManager.Instance?.Library?.musicaMenu);
+    }
+
+    private void PlayClick()
+    {
+        AudioManager.Instance?.PlaySFX(AudioManager.Instance?.Library?.sfxBotonClick);
     }
 
     private void NuevaPartida()

@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 /// <summary>
 /// Controla el HUD de combate.
 /// Escucha eventos de Health y Stamina para actualizar barras y lleva el timer del round.
+/// Cuando el tiempo llega a cero dispara OnTiempoAgotado para que FightManager declare al ganador.
 /// </summary>
 public class HUDController : MonoBehaviour
 {
@@ -25,12 +27,19 @@ public class HUDController : MonoBehaviour
     [Header("Pantalla de resultado")]
     [SerializeField] private GameObject resultPanel;
     [SerializeField] private TMP_Text resultText;
+    [SerializeField] private Button botonReintentar;
+    [SerializeField] private Button botonMenu;
 
     [Header("Configuración")]
     [SerializeField] private float roundDuration = 120f;
+    [SerializeField] private string nombreEscenaMenu = "menu";
+
+    // FightManager se suscribe a este evento para saber cuando se acaba el tiempo
+    public event System.Action OnTiempoAgotado;
 
     private float tiempoRestante;
     private bool peleaActiva = false;
+    private bool tiempoYaDisparado = false;
 
     private void Start()
     {
@@ -40,8 +49,16 @@ public class HUDController : MonoBehaviour
 
         tiempoRestante = roundDuration;
         peleaActiva = true;
+        tiempoYaDisparado = false;
 
         if (roundText != null) roundText.text = "Round 1";
+
+        // Conectar botones del panel de resultado
+        botonReintentar?.onClick.AddListener(Reintentar);
+        botonMenu?.onClick.AddListener(IrAlMenu);
+
+        // Ocultar panel de resultado al inicio
+        if (resultPanel != null) resultPanel.SetActive(false);
     }
 
     private void OnDestroy()
@@ -54,8 +71,8 @@ public class HUDController : MonoBehaviour
     private void Update()
     {
         if (!peleaActiva) return;
+
         tiempoRestante = Mathf.Max(0f, tiempoRestante - Time.deltaTime);
-        if (tiempoRestante == 0f) peleaActiva = false;
 
         if (timerText != null)
         {
@@ -63,20 +80,38 @@ public class HUDController : MonoBehaviour
             int seg = Mathf.FloorToInt(tiempoRestante % 60f);
             timerText.text = $"{min}:{seg:00}";
         }
+
+        // Cuando el tiempo llega a cero, avisar una sola vez
+        if (tiempoRestante <= 0f && !tiempoYaDisparado)
+        {
+            tiempoYaDisparado = true;
+            peleaActiva = false;
+            OnTiempoAgotado?.Invoke();
+        }
     }
 
     /// <summary>
-    /// Detiene el timer y muestra el resultado. Lo llama FightManager cuando hay KO.
+    /// Detiene el timer y muestra el resultado. Lo llama FightManager cuando hay KO o tiempo agotado.
     /// </summary>
     public void MostrarResultado(bool wallyGana)
     {
         peleaActiva = false;
 
-        if (resultPanel != null)
-            resultPanel.SetActive(true);
+        if (resultPanel != null) resultPanel.SetActive(true);
 
         if (resultText != null)
-            resultText.text = wallyGana ? "¡WALLY GANA!" : "¡KO!\nWALLY PIERDE";
+            resultText.text = wallyGana ? "¡WALLY GANA!\n¡KO!" : "¡KO!\nWALLY PIERDE";
+    }
+
+    private void Reintentar()
+    {
+        // Recargar la escena actual
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void IrAlMenu()
+    {
+        SceneManager.LoadScene(nombreEscenaMenu);
     }
 
     private void ActualizarVidaWally(int actual, int maximo)

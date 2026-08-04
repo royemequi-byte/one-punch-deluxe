@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
 
     // Otros scripts se suscriben a estos eventos para enterarse de los cambios
     public event System.Action<int, int> OnHealthChanged;  // (vidaActual, vidaMaxima)
+    public event System.Action OnDamage;
     public event System.Action OnDeath;
 
     // Propiedad de solo lectura para consultar la vida desde afuera
@@ -42,6 +43,9 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Max(0, currentHealth - damage);
 
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
+
+        if (currentHealth > 0)
+            OnDamage?.Invoke();
 
         if (currentHealth <= 0)
             OnDeath?.Invoke();

@@ -9,9 +9,10 @@ using UnityEngine;
 public class AudioLibrary : ScriptableObject
 {
     [Header("Música")]
+    public AudioClip musicaMenu;
+    public AudioClip musicaHistoria;
     public AudioClip musicaCombate;
     public AudioClip musicaVictoria;
-    public AudioClip musicaMenu;
 
     [Header("SFX — Golpes")]
     public AudioClip sfxJab;

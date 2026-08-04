@@ -81,6 +81,9 @@ public class PlayerInputHandler : MonoBehaviour
 
         // Informar al rival si Wally está bloqueando
         rivalCombat?.SetTargetBlocking(bloqueando);
+
+        // Mostrar pose de bloqueo en el Animator
+        wallyAnimator?.SetBool("IsBlocking", bloqueando);
     }
 
     private void SetDodge(DodgePosition dodge)

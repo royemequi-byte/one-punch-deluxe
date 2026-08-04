@@ -45,7 +45,16 @@ public class StoryPlayer : MonoBehaviour
 
     private void Start()
     {
-        if (textoAvanzar != null) textoAvanzar.gameObject.SetActive(false);
+        // Asegurar que el texto indicador muestre el mensaje correcto
+        if (textoAvanzar != null)
+        {
+            textoAvanzar.text = "— Presiona cualquier tecla —";
+            textoAvanzar.gameObject.SetActive(false);
+        }
+
+        // Música de historia
+        AudioManager.Instance?.PlayMusic(AudioManager.Instance?.Library?.musicaHistoria);
+
         StartCoroutine(SecuenciaPaneles());
     }
 
@@ -63,6 +72,7 @@ public class StoryPlayer : MonoBehaviour
         for (int i = 0; i < paneles.Length; i++)
         {
             StoryPanel panel = paneles[i];
+
             // Mostrar imagen del panel
             if (imagenPanel != null && panel.imagen != null)
                 imagenPanel.sprite = panel.imagen;
