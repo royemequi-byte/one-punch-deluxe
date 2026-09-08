@@ -51,7 +51,11 @@ public class HUDController : MonoBehaviour
         peleaActiva = true;
         tiempoYaDisparado = false;
 
-        if (roundText != null) roundText.text = "Round 1";
+        if (roundText != null)
+        {
+            roundText.text = "Round 1";
+            StartCoroutine(OcultarRoundText());
+        }
 
         // Conectar botones del panel de resultado
         botonReintentar?.onClick.AddListener(Reintentar);
@@ -112,6 +116,12 @@ public class HUDController : MonoBehaviour
     private void IrAlMenu()
     {
         SceneManager.LoadScene(nombreEscenaMenu);
+    }
+
+    private System.Collections.IEnumerator OcultarRoundText()
+    {
+        yield return new WaitForSeconds(2f);
+        if (roundText != null) roundText.gameObject.SetActive(false);
     }
 
     private void ActualizarVidaWally(int actual, int maximo)
