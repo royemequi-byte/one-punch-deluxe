@@ -105,7 +105,7 @@ public class FightManager : MonoBehaviour
         }
         else
         {
-            wallyAnimator?.SetTrigger("Defeat");
+            wallyAnimator?.SetTrigger("Knockdown");
             rivalAnimator?.SetTrigger("Victory");
         }
 
