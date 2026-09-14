@@ -2,11 +2,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 /// <summary>
-/// Controla el HUD de combate.
-/// Escucha eventos de Health y Stamina para actualizar barras y lleva el timer del round.
-/// Cuando el tiempo llega a cero dispara OnTiempoAgotado para que FightManager declare al ganador.
+/// Controla el HUD de combate: barras de vida/stamina, temporizador por round
+/// y paneles de resultado. FightManager es quien llama a IniciarRound() cada vez.
 /// </summary>
 public class HUDController : MonoBehaviour
 {
@@ -15,16 +15,20 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Health rivalHealth;
     [SerializeField] private Stamina wallyStamina;
 
-    [Header("Barras (asignar en Inspector)")]
+    [Header("Barras")]
     [SerializeField] private Image wallyHealthBar;
     [SerializeField] private Image rivalHealthBar;
     [SerializeField] private Image wallyStaminaBar;
 
-    [Header("Textos")]
+    [Header("Textos del combate")]
     [SerializeField] private TMP_Text timerText;
-    [SerializeField] private TMP_Text roundText;
+    [SerializeField] private TMP_Text roundText;       // muestra "Round 1", "Round 2"...
 
-    [Header("Pantalla de resultado")]
+    [Header("Panel entre rounds (marcador parcial)")]
+    [SerializeField] private GameObject entreRoundsPanel;
+    [SerializeField] private TMP_Text entreRoundsText;
+
+    [Header("Panel resultado final")]
     [SerializeField] private GameObject resultPanel;
     [SerializeField] private TMP_Text resultText;
     [SerializeField] private Button botonReintentar;
@@ -34,82 +38,127 @@ public class HUDController : MonoBehaviour
     [SerializeField] private float roundDuration = 120f;
     [SerializeField] private string nombreEscenaMenu = "menu";
 
-    // FightManager se suscribe a este evento para saber cuando se acaba el tiempo
+    // FightManager se suscribe para saber cuando el tiempo se acaba
     public event System.Action OnTiempoAgotado;
 
     private float tiempoRestante;
-    private bool peleaActiva = false;
-    private bool tiempoYaDisparado = false;
+    private bool  timerActivo        = false;
+    private bool  tiempoYaDisparado  = false;
 
     private void Start()
     {
-        if (wallyHealth != null) wallyHealth.OnHealthChanged += ActualizarVidaWally;
-        if (rivalHealth != null) rivalHealth.OnHealthChanged += ActualizarVidaRival;
+        // Suscribir las barras a los eventos de cambio
+        if (wallyHealth  != null) wallyHealth.OnHealthChanged  += ActualizarVidaWally;
+        if (rivalHealth  != null) rivalHealth.OnHealthChanged  += ActualizarVidaRival;
         if (wallyStamina != null) wallyStamina.OnStaminaChanged += ActualizarStamina;
 
-        tiempoRestante = roundDuration;
-        peleaActiva = true;
-        tiempoYaDisparado = false;
-
-        if (roundText != null)
-        {
-            roundText.text = "Round 1";
-            StartCoroutine(OcultarRoundText());
-        }
-
-        // Conectar botones del panel de resultado
         botonReintentar?.onClick.AddListener(Reintentar);
         botonMenu?.onClick.AddListener(IrAlMenu);
 
-        // Ocultar panel de resultado al inicio
-        if (resultPanel != null) resultPanel.SetActive(false);
+        // Ocultar paneles al inicio — FightManager los activará cuando corresponda
+        if (resultPanel     != null) resultPanel.SetActive(false);
+        if (entreRoundsPanel != null) entreRoundsPanel.SetActive(false);
+        if (roundText       != null) roundText.gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
-        if (wallyHealth != null) wallyHealth.OnHealthChanged -= ActualizarVidaWally;
-        if (rivalHealth != null) rivalHealth.OnHealthChanged -= ActualizarVidaRival;
+        if (wallyHealth  != null) wallyHealth.OnHealthChanged   -= ActualizarVidaWally;
+        if (rivalHealth  != null) rivalHealth.OnHealthChanged   -= ActualizarVidaRival;
         if (wallyStamina != null) wallyStamina.OnStaminaChanged -= ActualizarStamina;
     }
 
     private void Update()
     {
-        if (!peleaActiva) return;
+        if (!timerActivo) return;
 
         tiempoRestante = Mathf.Max(0f, tiempoRestante - Time.deltaTime);
 
         if (timerText != null)
-        {
-            int min = Mathf.FloorToInt(tiempoRestante / 60f);
-            int seg = Mathf.FloorToInt(tiempoRestante % 60f);
-            timerText.text = $"{min}:{seg:00}";
-        }
+            timerText.text = Mathf.CeilToInt(tiempoRestante).ToString();
 
-        // Cuando el tiempo llega a cero, avisar una sola vez
         if (tiempoRestante <= 0f && !tiempoYaDisparado)
         {
             tiempoYaDisparado = true;
-            peleaActiva = false;
+            timerActivo       = false;
             OnTiempoAgotado?.Invoke();
         }
     }
 
-    /// <summary>
-    /// Detiene el timer y muestra el resultado. Lo llama FightManager cuando hay KO o tiempo agotado.
-    /// </summary>
-    public void MostrarResultado(bool wallyGana)
-    {
-        peleaActiva = false;
+    // ── API PÚBLICA (usada por FightManager) ───────────────────
 
-        if (resultPanel != null) resultPanel.SetActive(true);
+    /// <summary>
+    /// Arranca el cronómetro y muestra el banner de round.
+    /// Llamado por FightManager al iniciar cada round.
+    /// </summary>
+    public void IniciarRound(int round, int wallyWins, int rivalWins)
+    {
+        tiempoRestante      = roundDuration;
+        timerActivo         = true;
+        tiempoYaDisparado   = false;
+
+        if (roundText != null)
+        {
+            roundText.gameObject.SetActive(true);
+            roundText.text = $"ROUND {round}";
+            StartCoroutine(OcultarRoundText());
+        }
+    }
+
+    /// <summary>
+    /// Muestra el marcador parcial entre rounds. Llamado por FightManager.
+    /// </summary>
+    public void MostrarEntreRounds(int roundTerminado, int wallyWins, int rivalWins)
+    {
+        timerActivo = false;
+        if (timerText != null) timerText.text = "--";
+
+        string texto = $"Round {roundTerminado} terminado\n" +
+                       $"Wally  {wallyWins}  -  {rivalWins}  Rival";
+
+        // Si hay panel dedicado lo usa; si no, usa el roundText como fallback
+        if (entreRoundsPanel != null)
+        {
+            entreRoundsPanel.SetActive(true);
+            if (entreRoundsText != null) entreRoundsText.text = texto;
+        }
+        else if (roundText != null)
+        {
+            roundText.gameObject.SetActive(true);
+            roundText.text = texto;
+        }
+    }
+
+    /// <summary>Oculta el panel de entre-rounds antes de empezar el siguiente.</summary>
+    public void OcultarEntreRounds()
+    {
+        if (entreRoundsPanel != null) entreRoundsPanel.SetActive(false);
+        if (roundText        != null) roundText.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Muestra el resultado final con el marcador de rounds.
+    /// Llamado por FightManager al terminar la pelea.
+    /// </summary>
+    public void MostrarResultado(bool wallyGana, int wallyWins, int rivalWins)
+    {
+        timerActivo = false;
+        if (entreRoundsPanel != null) entreRoundsPanel.SetActive(false);
+        if (resultPanel      != null) resultPanel.SetActive(true);
 
         if (resultText != null)
-            resultText.text = wallyGana ? "¡WALLY GANA!\n¡KO!" : "¡KO!\nWALLY PIERDE";
+        {
+            string marcador = $"{wallyWins} - {rivalWins}";
+            resultText.text = wallyGana
+                ? $"¡WALLY GANA!\n¡KO!  ({marcador})"
+                : $"¡DERROTA!\nSigue entrenando...  ({marcador})";
+        }
     }
+
+    // ── NAVEGACIÓN ──────────────────────────────────────────────
 
     private void Reintentar()
     {
-        // Recargar la escena actual
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -118,7 +167,9 @@ public class HUDController : MonoBehaviour
         SceneManager.LoadScene(nombreEscenaMenu);
     }
 
-    private System.Collections.IEnumerator OcultarRoundText()
+    // ── CALLBACKS DE EVENTOS ────────────────────────────────────
+
+    private IEnumerator OcultarRoundText()
     {
         yield return new WaitForSeconds(2f);
         if (roundText != null) roundText.gameObject.SetActive(false);
