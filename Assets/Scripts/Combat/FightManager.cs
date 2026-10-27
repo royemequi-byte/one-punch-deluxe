@@ -170,7 +170,7 @@ public class FightManager : MonoBehaviour
 
         // Volver al estado Idle en el Animator
         wallyAnimator?.Play("WallyIdle", 0, 0f);
-        rivalAnimator?.Play("Idle", 0, 0f);
+        rivalAnimator?.Play("RivalIdle", 0, 0f);
 
         if (playerInput != null) playerInput.enabled = true;
     }

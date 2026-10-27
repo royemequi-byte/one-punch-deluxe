@@ -31,6 +31,7 @@ public class VisualJuice : MonoBehaviour
 
     private void Awake()
     {
+        // Singleton: si ya existe una instancia válida, destruimos esta copia
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
 
@@ -39,6 +40,12 @@ public class VisualJuice : MonoBehaviour
 
         CrearFlashOverlay();
         CrearFondoRing();
+    }
+
+    private void OnDestroy()
+    {
+        // Limpiar la instancia al destruirse (fin de Play mode o cambio de escena)
+        if (Instance == this) Instance = null;
     }
 
     // ── MÉTODOS PÚBLICOS ──────────────────────────────────────
@@ -106,7 +113,7 @@ public class VisualJuice : MonoBehaviour
         Canvas canvas = canvasGO.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 999;
-        DontDestroyOnLoad(canvasGO);
+        // No usamos DontDestroyOnLoad — el canvas vive con la escena de combate
 
         // Imagen blanca semitransparente que cubre toda la pantalla
         GameObject imgGO = new GameObject("FlashImage");

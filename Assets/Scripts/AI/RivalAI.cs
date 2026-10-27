@@ -10,7 +10,6 @@ public class RivalAI : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] private CombatController combatController;
-    [SerializeField] private Animator kirikuAnimator;
     [SerializeField] private GameObject telegraphIndicator;
 
     [Header("Perfil de comportamiento")]
@@ -81,8 +80,7 @@ public class RivalAI : MonoBehaviour
                     ? profile.telegraphDuration
                     : profile.telegraphDuration * 0.4f;
 
-                // Mostrar pose de telegraph (sprite dedicado + indicador "!!")
-                kirikuAnimator?.Play("Telegraph");
+                // Mostrar indicador de telegraph
                 if (telegraphIndicator != null)
                     telegraphIndicator.SetActive(true);
 
