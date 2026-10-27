@@ -1,64 +1,88 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using System.Collections;
 
 /// <summary>
-/// Controla el HUD de combate: barras de vida/stamina, temporizador por round
-/// y paneles de resultado. FightManager es quien llama a IniciarRound() cada vez.
+/// HUD estilo KOF: barras de vida con ghost amarillo, gemas de ronda, timer central
+/// y anunciador de carteles. FightManager llama IniciarRound(), IniciarTimer() y MostrarResultado().
 /// </summary>
 public class HUDController : MonoBehaviour
 {
-    [Header("Referencias de combate")]
-    [SerializeField] private Health wallyHealth;
-    [SerializeField] private Health rivalHealth;
+    [Header("Combate")]
+    [SerializeField] private Health  wallyHealth;
+    [SerializeField] private Health  rivalHealth;
     [SerializeField] private Stamina wallyStamina;
 
-    [Header("Barras")]
-    [SerializeField] private Image wallyHealthBar;
-    [SerializeField] private Image rivalHealthBar;
+    [Header("Barras Wally — izquierda (fillOrigin=Left)")]
+    [SerializeField] private Image wallyBar;
+    [SerializeField] private Image wallyBarGhost;
+
+    [Header("Barras Rival — derecha (fillOrigin=Right)")]
+    [SerializeField] private Image rivalBar;
+    [SerializeField] private Image rivalBarGhost;
+
+    [Header("Stamina")]
     [SerializeField] private Image wallyStaminaBar;
 
-    [Header("Textos del combate")]
-    [SerializeField] private TMP_Text timerText;
-    [SerializeField] private TMP_Text roundText;       // muestra "Round 1", "Round 2"...
+    [Header("Gemas de ronda (2 por jugador)")]
+    [SerializeField] private Image[] wallyGemas = new Image[2];
+    [SerializeField] private Image[] rivalGemas = new Image[2];
 
-    [Header("Panel entre rounds (marcador parcial)")]
-    [SerializeField] private GameObject entreRoundsPanel;
-    [SerializeField] private TMP_Text entreRoundsText;
+    [Header("Timer")]
+    [SerializeField] private TMP_Text timerText;
+
+    [Header("Anunciador")]
+    [SerializeField] private AnunciadorRound anunciador;
 
     [Header("Panel resultado final")]
     [SerializeField] private GameObject resultPanel;
-    [SerializeField] private TMP_Text resultText;
-    [SerializeField] private Button botonReintentar;
-    [SerializeField] private Button botonMenu;
+    [SerializeField] private TMP_Text   resultText;
+    [SerializeField] private Button     botonReintentar;
+    [SerializeField] private Button     botonMenu;
 
-    [Header("Configuración")]
-    [SerializeField] private float roundDuration = 120f;
-    [SerializeField] private string nombreEscenaMenu = "menu";
+    [Header("Config")]
+    [SerializeField] private float roundDuration    = 99f;
+    [SerializeField] private float ghostSpeed       = 0.35f;
+    [SerializeField] private string escenaMenu      = "menu";
 
     // FightManager se suscribe para saber cuando el tiempo se acaba
     public event System.Action OnTiempoAgotado;
 
+    /// <summary>FightManager espera este tiempo antes de activar la IA después del cartel.</summary>
+    public float DuracionAnuncio => anunciador != null ? anunciador.DuracionTotal : 2.5f;
+
     private float tiempoRestante;
-    private bool  timerActivo        = false;
-    private bool  tiempoYaDisparado  = false;
+    private bool  timerActivo       = false;
+    private bool  tiempoYaDisparado = false;
+    private float wallyGhostFill    = 1f;
+    private float rivalGhostFill    = 1f;
+
+    // ── Colores KOF ──────────────────────────────────────────────
+    private static readonly Color cVidaAlta   = new Color(0.08f, 0.90f, 0.12f);
+    private static readonly Color cVidaMedia  = new Color(0.95f, 0.75f, 0.05f);
+    private static readonly Color cVidaBaja   = new Color(0.92f, 0.10f, 0.10f);
+    private static readonly Color cGhost      = new Color(0.95f, 0.85f, 0.10f);
+    private static readonly Color cGemaLlena  = new Color(1.00f, 0.80f, 0.10f);
+    private static readonly Color cGemaVacia  = new Color(0.18f, 0.18f, 0.18f);
+
+    // ── Unity ────────────────────────────────────────────────────
 
     private void Start()
     {
-        // Suscribir las barras a los eventos de cambio
-        if (wallyHealth  != null) wallyHealth.OnHealthChanged  += ActualizarVidaWally;
-        if (rivalHealth  != null) rivalHealth.OnHealthChanged  += ActualizarVidaRival;
+        if (wallyHealth  != null) wallyHealth.OnHealthChanged   += ActualizarVidaWally;
+        if (rivalHealth  != null) rivalHealth.OnHealthChanged   += ActualizarVidaRival;
         if (wallyStamina != null) wallyStamina.OnStaminaChanged += ActualizarStamina;
 
         botonReintentar?.onClick.AddListener(Reintentar);
         botonMenu?.onClick.AddListener(IrAlMenu);
 
-        // Ocultar paneles al inicio — FightManager los activará cuando corresponda
         if (resultPanel     != null) resultPanel.SetActive(false);
-        if (entreRoundsPanel != null) entreRoundsPanel.SetActive(false);
-        if (roundText       != null) roundText.gameObject.SetActive(false);
+        if (wallyBarGhost   != null) wallyBarGhost.color = cGhost;
+        if (rivalBarGhost   != null) rivalBarGhost.color = cGhost;
+
+        ActualizarGemas(0, 0);
     }
 
     private void OnDestroy()
@@ -70,121 +94,123 @@ public class HUDController : MonoBehaviour
 
     private void Update()
     {
+        // Ghost bars siguen a las barras reales con retraso
+        if (wallyBarGhost != null && wallyBar != null)
+        {
+            wallyGhostFill = Mathf.MoveTowards(wallyGhostFill, wallyBar.fillAmount,
+                                                ghostSpeed * Time.deltaTime);
+            wallyBarGhost.fillAmount = wallyGhostFill;
+        }
+        if (rivalBarGhost != null && rivalBar != null)
+        {
+            rivalGhostFill = Mathf.MoveTowards(rivalGhostFill, rivalBar.fillAmount,
+                                                ghostSpeed * Time.deltaTime);
+            rivalBarGhost.fillAmount = rivalGhostFill;
+        }
+
         if (!timerActivo) return;
 
         tiempoRestante = Mathf.Max(0f, tiempoRestante - Time.deltaTime);
-
         if (timerText != null)
-            timerText.text = Mathf.CeilToInt(tiempoRestante).ToString();
+        {
+            int seg = Mathf.CeilToInt(tiempoRestante);
+            timerText.text  = seg.ToString();
+            timerText.color = seg <= 10 ? cVidaBaja : Color.white;
+        }
 
         if (tiempoRestante <= 0f && !tiempoYaDisparado)
         {
             tiempoYaDisparado = true;
             timerActivo       = false;
+            anunciador?.MostrarTime();
             OnTiempoAgotado?.Invoke();
         }
     }
 
-    // ── API PÚBLICA (usada por FightManager) ───────────────────
+    // ── API PÚBLICA (usada por FightManager) ──────────────────────
 
-    /// <summary>
-    /// Arranca el cronómetro y muestra el banner de round.
-    /// Llamado por FightManager al iniciar cada round.
-    /// </summary>
+    /// <summary>Prepara el timer y dispara el cartel "ROUND X → FIGHT!". El timer NO arranca aún.</summary>
     public void IniciarRound(int round, int wallyWins, int rivalWins)
     {
-        tiempoRestante      = roundDuration;
-        timerActivo         = true;
-        tiempoYaDisparado   = false;
+        tiempoRestante    = roundDuration;
+        timerActivo       = false;
+        tiempoYaDisparado = false;
 
-        if (roundText != null)
-        {
-            roundText.gameObject.SetActive(true);
-            roundText.text = $"ROUND {round}";
-            StartCoroutine(OcultarRoundText());
-        }
+        // Ghost bars saltan al valor actual de las barras
+        wallyGhostFill = wallyBar != null ? wallyBar.fillAmount : 1f;
+        rivalGhostFill = rivalBar != null ? rivalBar.fillAmount : 1f;
+
+        ActualizarGemas(wallyWins, rivalWins);
+        anunciador?.MostrarRoundYFight(round);
     }
 
-    /// <summary>
-    /// Muestra el marcador parcial entre rounds. Llamado por FightManager.
-    /// </summary>
+    /// <summary>Arranca el contador. FightManager llama esto justo cuando activa la IA.</summary>
+    public void IniciarTimer()
+    {
+        timerActivo       = true;
+        tiempoYaDisparado = false;
+    }
+
+    /// <summary>Pausa el timer y actualiza gemas al terminar un round.</summary>
     public void MostrarEntreRounds(int roundTerminado, int wallyWins, int rivalWins)
     {
         timerActivo = false;
         if (timerText != null) timerText.text = "--";
-
-        string texto = $"Round {roundTerminado} terminado\n" +
-                       $"Wally  {wallyWins}  -  {rivalWins}  Rival";
-
-        // Si hay panel dedicado lo usa; si no, usa el roundText como fallback
-        if (entreRoundsPanel != null)
-        {
-            entreRoundsPanel.SetActive(true);
-            if (entreRoundsText != null) entreRoundsText.text = texto;
-        }
-        else if (roundText != null)
-        {
-            roundText.gameObject.SetActive(true);
-            roundText.text = texto;
-        }
+        ActualizarGemas(wallyWins, rivalWins);
     }
 
-    /// <summary>Oculta el panel de entre-rounds antes de empezar el siguiente.</summary>
-    public void OcultarEntreRounds()
-    {
-        if (entreRoundsPanel != null) entreRoundsPanel.SetActive(false);
-        if (roundText        != null) roundText.gameObject.SetActive(false);
-    }
+    public void OcultarEntreRounds() { /* gemas ya actualizadas, nada más que ocultar */ }
 
-    /// <summary>
-    /// Muestra el resultado final con el marcador de rounds.
-    /// Llamado por FightManager al terminar la pelea.
-    /// </summary>
+    /// <summary>Muestra el cartel de victoria/derrota y después el panel con botones.</summary>
     public void MostrarResultado(bool wallyGana, int wallyWins, int rivalWins)
     {
         timerActivo = false;
-        if (entreRoundsPanel != null) entreRoundsPanel.SetActive(false);
-        if (resultPanel      != null) resultPanel.SetActive(true);
+        if (timerText != null) timerText.text = "--";
+        ActualizarGemas(wallyWins, rivalWins);
 
-        if (resultText != null)
-        {
-            string marcador = $"{wallyWins} - {rivalWins}";
+        if (wallyGana) anunciador?.MostrarWin();
+        else           anunciador?.MostrarDerrota();
+
+        StartCoroutine(MostrarPanelConDelay(wallyGana, wallyWins, rivalWins));
+    }
+
+    // ── PRIVADOS ──────────────────────────────────────────────────
+
+    private IEnumerator MostrarPanelConDelay(bool wallyGana, int w, int r)
+    {
+        yield return new WaitForSeconds(2.2f);
+        if (resultPanel != null) resultPanel.SetActive(true);
+        if (resultText  != null)
             resultText.text = wallyGana
-                ? $"¡WALLY GANA!\n¡KO!  ({marcador})"
-                : $"¡DERROTA!\nSigue entrenando...  ({marcador})";
-        }
+                ? $"¡WALLY GANA!\n{w}  -  {r}"
+                : $"¡DERROTA!\n{w}  -  {r}";
     }
 
-    // ── NAVEGACIÓN ──────────────────────────────────────────────
-
-    private void Reintentar()
+    private void ActualizarGemas(int wallyWins, int rivalWins)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+        for (int i = 0; i < wallyGemas.Length; i++)
+            if (wallyGemas[i] != null)
+                wallyGemas[i].color = i < wallyWins ? cGemaLlena : cGemaVacia;
 
-    private void IrAlMenu()
-    {
-        SceneManager.LoadScene(nombreEscenaMenu);
-    }
-
-    // ── CALLBACKS DE EVENTOS ────────────────────────────────────
-
-    private IEnumerator OcultarRoundText()
-    {
-        yield return new WaitForSeconds(2f);
-        if (roundText != null) roundText.gameObject.SetActive(false);
+        for (int i = 0; i < rivalGemas.Length; i++)
+            if (rivalGemas[i] != null)
+                rivalGemas[i].color = i < rivalWins ? cGemaLlena : cGemaVacia;
     }
 
     private void ActualizarVidaWally(int actual, int maximo)
     {
-        if (wallyHealthBar != null)
-            wallyHealthBar.fillAmount = (float)actual / maximo;
+        if (wallyBar == null) return;
+        float f = (float)actual / maximo;
+        wallyBar.fillAmount = f;
+        wallyBar.color      = ColorVida(f);
     }
 
     private void ActualizarVidaRival(int actual, int maximo)
     {
-        if (rivalHealthBar != null)
-            rivalHealthBar.fillAmount = (float)actual / maximo;
+        if (rivalBar == null) return;
+        float f = (float)actual / maximo;
+        rivalBar.fillAmount = f;
+        rivalBar.color      = ColorVida(f);
     }
 
     private void ActualizarStamina(float actual, float maximo)
@@ -192,4 +218,14 @@ public class HUDController : MonoBehaviour
         if (wallyStaminaBar != null)
             wallyStaminaBar.fillAmount = actual / maximo;
     }
+
+    private Color ColorVida(float f)
+    {
+        if (f > 0.50f) return cVidaAlta;
+        if (f > 0.25f) return cVidaMedia;
+        return cVidaBaja;
+    }
+
+    private void Reintentar() => SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    private void IrAlMenu()   => SceneManager.LoadScene(escenaMenu);
 }

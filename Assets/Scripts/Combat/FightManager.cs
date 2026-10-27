@@ -3,7 +3,8 @@ using System.Collections;
 
 /// <summary>
 /// Árbitro de la pelea: maneja los 3 rounds en formato mejor-de-tres (ganar 2 rounds).
-/// Orquesta vida, stamina, IA, input y audio en cada round.
+/// IniciarRound es ahora una coroutine: espera el cartel "ROUND X → FIGHT!" antes de
+/// activar la IA y habilitar el input del jugador.
 /// </summary>
 public class FightManager : MonoBehaviour
 {
@@ -29,20 +30,18 @@ public class FightManager : MonoBehaviour
     [SerializeField] private PlayerInputHandler playerInput;
 
     [Header("Posiciones en escena")]
-    [SerializeField] private Vector3 wallyPosicion   = new Vector3(0.4f, -1.5f, 0.5f);
-    [SerializeField] private Vector3 wallyEscala     = new Vector3(1.7f, 1.7f, 1f);
+    [SerializeField] private Vector3 wallyPosicion = new Vector3(0.4f, -1.5f, 0.5f);
+    [SerializeField] private Vector3 wallyEscala   = new Vector3(1.7f, 1.7f, 1f);
 
     [Header("Configuración de rounds")]
-    [SerializeField] private int roundsParaGanar = 2;      // ganar 2 de 3 rounds
-    [SerializeField] private float pausaEntreRounds = 3.5f; // segundos de pausa antes del siguiente round
+    [SerializeField] private int   roundsParaGanar   = 2;
+    [SerializeField] private float pausaEntreRounds  = 3.5f;
 
-    // Marcador de la pelea
-    private int wallyRoundsWon = 0;
-    private int rivalRoundsWon = 0;
-    private int roundActual   = 0;
-    private bool roundActivo  = false;
+    private int  wallyRoundsWon = 0;
+    private int  rivalRoundsWon = 0;
+    private int  roundActual    = 0;
+    private bool roundActivo    = false;
 
-    // Handlers almacenados para poder desuscribirlos correctamente
     private System.Action wallyDeathHandler;
     private System.Action rivalDeathHandler;
     private System.Action wallyDamageHandler;
@@ -50,43 +49,52 @@ public class FightManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        // Esperar un frame para que todos los Start() terminen
-        yield return null;
+        yield return null; // esperar un frame a que todos los Start() terminen
 
-        // Conectar rivalCombat al InputHandler en runtime (la referencia puede estar null en el Inspector)
         if (playerInput != null && rivalAI != null)
         {
             CombatController rivalCC = rivalAI.GetCombatController();
             if (rivalCC != null) playerInput.SetRivalCombat(rivalCC);
         }
 
-        // Mostrar personajes en idle 3 segundos antes de que empiece el combate
         PrepararCombatientes();
         if (playerInput != null) playerInput.enabled = false;
 
-        yield return new WaitForSeconds(3f);
-
-        IniciarRound(1);
+        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(IniciarRound(1));
     }
 
-    // ── FLUJO PRINCIPAL ───────────────────────────────────────
+    // ── FLUJO PRINCIPAL ────────────────────────────────────────────
 
-    private void IniciarRound(int numeroRound)
+    /// <summary>
+    /// Muestra el cartel "ROUND X → FIGHT!", espera que termine y ENTONCES activa la IA.
+    /// </summary>
+    private IEnumerator IniciarRound(int numeroRound)
     {
         roundActual  = numeroRound;
-        roundActivo  = true;
+        roundActivo  = false;
 
         PrepararCombatientes();
-        SuscribirEventos();
+        if (playerInput != null) playerInput.enabled = false;
+        rivalAI?.Deactivate();
 
-        rivalAI?.Activate();
+        // Disparar cartel; el timer empieza cuando termina el cartel (IniciarTimer más abajo)
         hud?.IniciarRound(roundActual, wallyRoundsWon, rivalRoundsWon);
+        float espera = hud != null ? hud.DuracionAnuncio : 2.5f;
+        yield return new WaitForSeconds(espera);
+
+        // ¡Ahora comienza la pelea!
+        roundActivo = true;
+        SuscribirEventos();
+        rivalAI?.Activate();
+        hud?.IniciarTimer();
+        if (playerInput != null) playerInput.enabled = true;
 
         AudioLibrary lib = AudioManager.Instance?.Library;
         AudioManager.Instance?.PlaySFX(lib?.sfxCampana);
         AudioManager.Instance?.PlayMusic(lib?.musicaCombate);
 
-        Debug.Log($"[FightManager] ROUND {roundActual} — Marcador Wally:{wallyRoundsWon} Rival:{rivalRoundsWon}");
+        Debug.Log($"[FightManager] ROUND {roundActual} iniciado — Wally:{wallyRoundsWon} Rival:{rivalRoundsWon}");
     }
 
     /// <summary>Llamado por el HUD cuando el tiempo del round se agota.</summary>
@@ -94,7 +102,7 @@ public class FightManager : MonoBehaviour
     {
         if (!roundActivo) return;
         bool wallyGana = wallyHealth.CurrentHealth >= rivalHealth.CurrentHealth;
-        Debug.Log($"[FightManager] Tiempo agotado — Wally:{wallyHealth.CurrentHealth} Rival:{rivalHealth.CurrentHealth}");
+        Debug.Log($"[FightManager] Tiempo — Wally:{wallyHealth.CurrentHealth} Rival:{rivalHealth.CurrentHealth}");
         TerminarRound(wallyGana);
     }
 
@@ -120,30 +128,28 @@ public class FightManager : MonoBehaviour
             rivalAnimator?.SetTrigger("Victory");
         }
 
-        Debug.Log($"[FightManager] Round {roundActual} terminado — Wally:{wallyRoundsWon} Rival:{rivalRoundsWon}");
+        VisualJuice.Instance?.KnockOut();
+        Debug.Log($"[FightManager] Round {roundActual} — Wally:{wallyRoundsWon} Rival:{rivalRoundsWon}");
 
         bool peleatTerminada = wallyRoundsWon >= roundsParaGanar || rivalRoundsWon >= roundsParaGanar;
 
-        if (peleatTerminada)
-            StartCoroutine(FinalizarPelea(wallyRoundsWon >= roundsParaGanar));
-        else
-            StartCoroutine(SiguienteRound());
+        if (peleatTerminada) StartCoroutine(FinalizarPelea(wallyRoundsWon >= roundsParaGanar));
+        else                 StartCoroutine(SiguienteRound());
     }
 
-    // ── COROUTINES ─────────────────────────────────────────────
+    // ── COROUTINES ──────────────────────────────────────────────────
 
     private IEnumerator SiguienteRound()
     {
         hud?.MostrarEntreRounds(roundActual, wallyRoundsWon, rivalRoundsWon);
         yield return new WaitForSeconds(pausaEntreRounds);
         hud?.OcultarEntreRounds();
-        IniciarRound(roundActual + 1);
+        yield return StartCoroutine(IniciarRound(roundActual + 1));
     }
 
     private IEnumerator FinalizarPelea(bool wallyGanaFinal)
     {
         yield return new WaitForSeconds(2f);
-
         SaveManager.Instance?.RegistrarResultado(wallyGanaFinal);
         hud?.MostrarResultado(wallyGanaFinal, wallyRoundsWon, rivalRoundsWon);
 
@@ -151,24 +157,21 @@ public class FightManager : MonoBehaviour
         AudioManager.Instance?.PlayMusic(wallyGanaFinal ? lib?.musicaVictoria : lib?.musicaCombate);
     }
 
-    // ── HELPERS ────────────────────────────────────────────────
+    // ── HELPERS ────────────────────────────────────────────────────
 
     private void PrepararCombatientes()
     {
-        // Restaurar vida y stamina al máximo al inicio de cada round
         wallyHealth?.ResetHealth();
         rivalHealth?.ResetHealth();
         wallyStamina?.ResetStamina();
         rivalStamina?.ResetStamina();
 
-        // Aplicar posición y escala solo a Wally
         if (wallyHealth != null)
         {
             wallyHealth.transform.position   = wallyPosicion;
             wallyHealth.transform.localScale = wallyEscala;
         }
 
-        // Volver al estado Idle en el Animator
         wallyAnimator?.Play("WallyIdle", 0, 0f);
         rivalAnimator?.Play("RivalIdle", 0, 0f);
 
@@ -192,11 +195,9 @@ public class FightManager : MonoBehaviour
 
     private void DesuscribirEventos()
     {
-        if (wallyHealth != null)  wallyHealth.OnDeath  -= wallyDeathHandler;
-        if (rivalHealth != null)  rivalHealth.OnDeath  -= rivalDeathHandler;
-        if (wallyHealth != null)  wallyHealth.OnDamage -= wallyDamageHandler;
-        if (rivalHealth != null)  rivalHealth.OnDamage -= rivalDamageHandler;
-        if (hud != null)          hud.OnTiempoAgotado  -= FueraDeTiempo;
+        if (wallyHealth != null) { wallyHealth.OnDeath -= wallyDeathHandler; wallyHealth.OnDamage -= wallyDamageHandler; }
+        if (rivalHealth != null) { rivalHealth.OnDeath -= rivalDeathHandler; rivalHealth.OnDamage -= rivalDamageHandler; }
+        if (hud != null) hud.OnTiempoAgotado -= FueraDeTiempo;
     }
 
     private void OnDestroy() => DesuscribirEventos();
