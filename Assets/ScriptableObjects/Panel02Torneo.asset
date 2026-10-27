@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Panel02Torneo
   m_EditorClassIdentifier: Assembly-CSharp::StoryPanel
   imagen: {fileID: 8408677168798169275, guid: fbfc374e7a841954da459070bf13f002, type: 3}
-  texto: Un torneo clandestino. Los mejores peleadores de la ciudad. Una sola oportunidad.
+  texto: "Bajo la gu\xEDa de Danpei, Wally ascendi\xF3 como pocos. Torneo tras torneo,
+    rival tras rival. El cintur\xF3n nacional cay\xF3 en sus manos. Pero el verdadero
+    enemigo a\xFAn no hab\xEDa mostrado su rostro."

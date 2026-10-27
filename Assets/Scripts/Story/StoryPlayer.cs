@@ -33,6 +33,7 @@ public class StoryPlayer : MonoBehaviour
     // Señal que llega desde Update a la corrutina
     private bool teclaPulsada = false;
     private RectTransform imagenRect;
+    private Coroutine paneoActivo; // referencia para poder detenerlo correctamente
 
     private void Awake()
     {
@@ -81,7 +82,8 @@ public class StoryPlayer : MonoBehaviour
             if (textoAvanzar != null) textoAvanzar.gameObject.SetActive(false);
             teclaPulsada = false;
 
-            StartCoroutine(PaneoKenBurns(i));
+            if (paneoActivo != null) StopCoroutine(paneoActivo);
+            paneoActivo = StartCoroutine(PaneoKenBurns(i));
 
             // Escribir texto letra por letra
             yield return StartCoroutine(EscribirTexto(panel.texto));
@@ -92,7 +94,7 @@ public class StoryPlayer : MonoBehaviour
             yield return new WaitUntil(() => teclaPulsada);
             teclaPulsada = false;
 
-            StopCoroutine(nameof(PaneoKenBurns));
+            if (paneoActivo != null) { StopCoroutine(paneoActivo); paneoActivo = null; }
         }
 
         SceneManager.LoadScene(nombreEscenaPelea);

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f2c7c3d7cffaff409405b2fcf5956ad, type: 3}
   m_Name: StraightData
   m_EditorClassIdentifier: Assembly-CSharp::AttackData
-  attackName: Straight
-  damage: 15
-  staminaCost: 20
+  attackName: Recto
+  damage: 18
+  staminaCost: 18
   windupTime: 0.15
-  activeTime: 0.1
+  activeTime: 0.15
   recoveryTime: 0.2
   animationTrigger: Straight
   hitSound: {fileID: 8300000, guid: 2ce91e68634655e41bd5de97fc8c33f6, type: 3}
-  dodgesThatAvoid: 
+  dodgesThatAvoid: 040000000100000002000000

@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Panel03Arena
   m_EditorClassIdentifier: Assembly-CSharp::StoryPanel
   imagen: {fileID: -7158654928520101500, guid: e46662b9f521e164c820e8af2977fe1f, type: 3}
-  texto: "Esta noche, Wally entra al ring por primera vez. No hay vuelta atr\xE1s."
+  texto: "\nKirik\xFA. Campe\xF3n del mundo. El hombre que manten\xEDa a toda una
+    ciudad sumida en la miseria. Esta noche Wally pelea por su madre, por su ciudad,
+    por todo. Lo que nadie sabe es el precio que pagar\xE1."

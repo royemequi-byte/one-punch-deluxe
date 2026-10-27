@@ -28,6 +28,10 @@ public class FightManager : MonoBehaviour
     [Header("Input del jugador")]
     [SerializeField] private PlayerInputHandler playerInput;
 
+    [Header("Posiciones en escena")]
+    [SerializeField] private Vector3 wallyPosicion   = new Vector3(0.4f, -1.5f, 0.5f);
+    [SerializeField] private Vector3 wallyEscala     = new Vector3(1.7f, 1.7f, 1f);
+
     [Header("Configuración de rounds")]
     [SerializeField] private int roundsParaGanar = 2;      // ganar 2 de 3 rounds
     [SerializeField] private float pausaEntreRounds = 3.5f; // segundos de pausa antes del siguiente round
@@ -46,8 +50,15 @@ public class FightManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        // Esperar un frame para que todos los Start() del resto de scripts terminen
+        // Esperar un frame para que todos los Start() terminen
         yield return null;
+
+        // Mostrar personajes en idle 3 segundos antes de que empiece el combate
+        PrepararCombatientes();
+        if (playerInput != null) playerInput.enabled = false;
+
+        yield return new WaitForSeconds(3f);
+
         IniciarRound(1);
     }
 
@@ -138,13 +149,20 @@ public class FightManager : MonoBehaviour
     private void PrepararCombatientes()
     {
         // Restaurar vida y stamina al máximo al inicio de cada round
-        wallyHealth.ResetHealth();
-        rivalHealth.ResetHealth();
+        wallyHealth?.ResetHealth();
+        rivalHealth?.ResetHealth();
         wallyStamina?.ResetStamina();
         rivalStamina?.ResetStamina();
 
+        // Aplicar posición y escala solo a Wally
+        if (wallyHealth != null)
+        {
+            wallyHealth.transform.position   = wallyPosicion;
+            wallyHealth.transform.localScale = wallyEscala;
+        }
+
         // Volver al estado Idle en el Animator
-        wallyAnimator?.Play("Idle", 0, 0f);
+        wallyAnimator?.Play("WallyIdle", 0, 0f);
         rivalAnimator?.Play("Idle", 0, 0f);
 
         if (playerInput != null) playerInput.enabled = true;

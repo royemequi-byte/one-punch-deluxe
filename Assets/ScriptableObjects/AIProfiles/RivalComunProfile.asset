@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2388a2d44ff1034c946afe1ed6787ef, type: 3}
   m_Name: RivalComunProfile
   m_EditorClassIdentifier: Assembly-CSharp::AIProfile
-  rivalName: "Rival Com\xFAn"
-  telegraphDuration: 3
-  minCooldown: 1
-  maxCooldown: 2.5
+  rivalName: Rival
+  telegraphDuration: 1.5
+  minCooldown: 2
+  maxCooldown: 4
   attacks:
-  - {fileID: 11400000, guid: e27e020e14784914c8cc9add9a7f86f6, type: 2}
   - {fileID: 11400000, guid: 2baf7cecddbf9274baff01b27ec23704, type: 2}
   - {fileID: 11400000, guid: a6ea5125b24f1014c8743cfd72739cd9, type: 2}
+  - {fileID: 11400000, guid: e27e020e14784914c8cc9add9a7f86f6, type: 2}

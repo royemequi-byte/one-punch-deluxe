@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Panel01Gimnasio
   m_EditorClassIdentifier: Assembly-CSharp::StoryPanel
   imagen: {fileID: -8319213891646879811, guid: a674aebe5215bf044bd2d382dd650451, type: 3}
-  texto: " Wally Dempsey lleva a\xF1os entrenando en silencio. Nadie lo conoce...
-    todav\xEDa."
+  texto: "La madre de Wally estaba enferma. El dinero se acababa. Entr\xF3 a pelear
+    por necesidad, no por gloria. Pero entre la multitud de aquella pelea clandestina,
+    alguien lo vio diferente. Tange Danpei hab\xEDa encontrado lo que buscaba toda
+    su vida."

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: JabData
   m_EditorClassIdentifier: Assembly-CSharp::AttackData
   attackName: Jab
-  damage: 10
-  staminaCost: 15
-  windupTime: 0.1
+  damage: 12
+  staminaCost: 12
+  windupTime: 0.08
   activeTime: 0.1
   recoveryTime: 0.15
   animationTrigger: Jab
   hitSound: {fileID: 8300000, guid: a165975e57bdb6c45827be96d2836a05, type: 3}
-  dodgesThatAvoid: 
+  dodgesThatAvoid: 02000000
