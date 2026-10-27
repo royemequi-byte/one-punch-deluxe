@@ -33,6 +33,9 @@ public class RivalAI : MonoBehaviour
         aiCoroutine = StartCoroutine(AILoop());
     }
 
+    /// <summary>Expone el CombatController para que FightManager lo conecte a PlayerInputHandler.</summary>
+    public CombatController GetCombatController() => combatController;
+
     /// <summary>
     /// Detiene el loop de IA. Lo llama FightManager cuando alguien cae KO.
     /// </summary>

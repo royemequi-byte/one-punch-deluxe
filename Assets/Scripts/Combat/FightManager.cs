@@ -53,6 +53,13 @@ public class FightManager : MonoBehaviour
         // Esperar un frame para que todos los Start() terminen
         yield return null;
 
+        // Conectar rivalCombat al InputHandler en runtime (la referencia puede estar null en el Inspector)
+        if (playerInput != null && rivalAI != null)
+        {
+            CombatController rivalCC = rivalAI.GetCombatController();
+            if (rivalCC != null) playerInput.SetRivalCombat(rivalCC);
+        }
+
         // Mostrar personajes en idle 3 segundos antes de que empiece el combate
         PrepararCombatientes();
         if (playerInput != null) playerInput.enabled = false;

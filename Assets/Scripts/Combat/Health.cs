@@ -10,6 +10,9 @@ public class Health : MonoBehaviour
     [Header("Configuración")]
     [SerializeField] private int maxHealth = 100;
 
+    [Header("Efectos visuales")]
+    [SerializeField] private bool esJugador = false;  // true=Wally, false=Rival
+
     // Vida actual — [SerializeField] solo para verla en el Inspector durante Play
     [SerializeField] private int currentHealth;
 
@@ -45,10 +48,19 @@ public class Health : MonoBehaviour
         OnHealthChanged?.Invoke(currentHealth, maxHealth);
 
         if (currentHealth > 0)
+        {
             OnDamage?.Invoke();
+            if (esJugador)
+                VisualJuice.Instance?.JugadorRecibioGolpe();
+            else
+                VisualJuice.Instance?.RivalRecibioGolpe();
+        }
 
         if (currentHealth <= 0)
+        {
+            VisualJuice.Instance?.KnockOut();
             OnDeath?.Invoke();
+        }
     }
 
     /// <summary>

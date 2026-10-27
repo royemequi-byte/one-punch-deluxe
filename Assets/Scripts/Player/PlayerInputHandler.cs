@@ -103,4 +103,10 @@ public class PlayerInputHandler : MonoBehaviour
     /// Devuelve la posición de esquive actual. La consulta la IA del rival.
     /// </summary>
     public DodgePosition GetCurrentDodge() => currentDodge;
+
+    /// <summary>
+    /// Permite que FightManager conecte el CombatController del rival en runtime.
+    /// Necesario porque la referencia no siempre está en el Inspector.
+    /// </summary>
+    public void SetRivalCombat(CombatController cc) { rivalCombat = cc; }
 }
