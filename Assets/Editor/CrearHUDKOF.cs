@@ -194,12 +194,24 @@ public static class CrearHUDKOF
         // ── CONECTAR TODAS LAS REFERENCIAS AUTOMÁTICAMENTE ────────
         ConectarReferencias(hud);
         ConectarFightManager(hud);
+        AsegurarVisualJuice();
 
         EditorUtility.SetDirty(canvasGO);
         Debug.Log("[HUD KOF] ¡Canvas creado y referencias conectadas automáticamente!");
     }
 
     // ── HELPERS ───────────────────────────────────────────────────
+
+    static void AsegurarVisualJuice()
+    {
+        if (Object.FindObjectOfType<VisualJuice>() != null) return;
+
+        GameObject vj = new GameObject("VisualJuice");
+        Undo.RegisterCreatedObjectUndo(vj, "Crear VisualJuice");
+        vj.AddComponent<VisualJuice>();
+        EditorUtility.SetDirty(vj);
+        Debug.Log("[HUD KOF] VisualJuice agregado a la escena — creará el fondo del ring en Play.");
+    }
 
     static void ConectarReferencias(HUDController hud)
     {
