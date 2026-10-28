@@ -69,6 +69,36 @@ public class HUDController : MonoBehaviour
 
     // ── Unity ────────────────────────────────────────────────────
 
+    private void Awake()
+    {
+        // Auto-conectar si el Inspector dejó referencias vacías
+        if (wallyBar        == null) wallyBar        = Img("WallyHealthBar");
+        if (wallyBarGhost   == null) wallyBarGhost   = Img("WallyHealthBarGhost");
+        if (rivalBar        == null) rivalBar        = Img("RivalHealthBar");
+        if (rivalBarGhost   == null) rivalBarGhost   = Img("RivalHealthBarGhost");
+        if (wallyStaminaBar == null) wallyStaminaBar = Img("WallyStaminaBar");
+        if (timerText       == null) timerText       = Tmp("TimerText");
+
+        if (wallyHealth == null)
+        {
+            var pip = Object.FindFirstObjectByType<PlayerInputHandler>();
+            if (pip != null) wallyHealth = pip.GetComponent<Health>();
+        }
+        if (rivalHealth == null)
+        {
+            var rai = Object.FindFirstObjectByType<RivalAI>();
+            if (rai != null) rivalHealth = rai.GetComponent<Health>();
+        }
+        if (wallyStamina == null)
+        {
+            var pip = Object.FindFirstObjectByType<PlayerInputHandler>();
+            if (pip != null) wallyStamina = pip.GetComponent<Stamina>();
+        }
+    }
+
+    static Image   Img(string n) => GameObject.Find(n)?.GetComponent<Image>();
+    static TMP_Text Tmp(string n) => GameObject.Find(n)?.GetComponent<TMP_Text>();
+
     private void Start()
     {
         if (wallyHealth  != null) wallyHealth.OnHealthChanged   += ActualizarVidaWally;

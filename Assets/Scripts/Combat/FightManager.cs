@@ -51,6 +51,27 @@ public class FightManager : MonoBehaviour
     private System.Action wallyDamageHandler;
     private System.Action rivalDamageHandler;
 
+    private void Awake()
+    {
+        // Auto-conectar referencias si el Inspector las dejó vacías
+        if (rivalAI      == null) rivalAI      = Object.FindFirstObjectByType<RivalAI>();
+        if (playerInput  == null) playerInput  = Object.FindFirstObjectByType<PlayerInputHandler>();
+        if (hud          == null) hud          = Object.FindFirstObjectByType<HUDController>();
+
+        if (rivalAI != null)
+        {
+            if (rivalHealth   == null) rivalHealth   = rivalAI.GetComponent<Health>();
+            if (rivalStamina  == null) rivalStamina  = rivalAI.GetComponent<Stamina>();
+            if (rivalAnimator == null) rivalAnimator = rivalAI.GetComponent<Animator>();
+        }
+        if (playerInput != null)
+        {
+            if (wallyHealth   == null) wallyHealth   = playerInput.GetComponent<Health>();
+            if (wallyStamina  == null) wallyStamina  = playerInput.GetComponent<Stamina>();
+            if (wallyAnimator == null) wallyAnimator = playerInput.GetComponent<Animator>();
+        }
+    }
+
     private IEnumerator Start()
     {
         yield return null; // esperar un frame a que todos los Start() terminen
