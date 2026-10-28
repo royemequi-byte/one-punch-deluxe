@@ -203,45 +203,36 @@ public static class CrearHUDKOF
 
     static void ConectarReferencias(HUDController hud)
     {
-        var so = new SerializedObject(hud);
+        var hudSO = new SerializedObject(hud);
 
-        // Buscar todos los Health en escena y asignar por nombre de GameObject
-        var healths = Object.FindObjectsOfType<Health>(true);
-        foreach (var h in healths)
+        // Estrategia 1: leer wallyHealth y rivalHealth del FightManager (ya los tiene conectados)
+        var fm = Object.FindObjectOfType<FightManager>();
+        if (fm != null)
         {
-            string n = h.gameObject.name.ToLower();
-            if (n.Contains("wally"))
-            {
-                so.FindProperty("wallyHealth").objectReferenceValue = h;
-                Debug.Log($"[HUD KOF] wallyHealth → {h.gameObject.name}");
-            }
-            else if (n.Contains("rival") || n.Contains("kiriku") || n.Contains("enemy"))
-            {
-                so.FindProperty("rivalHealth").objectReferenceValue = h;
-                Debug.Log($"[HUD KOF] rivalHealth → {h.gameObject.name}");
-            }
+            var fmSO = new SerializedObject(fm);
+            var wh = fmSO.FindProperty("wallyHealth").objectReferenceValue;
+            var rh = fmSO.FindProperty("rivalHealth").objectReferenceValue;
+            if (wh != null) { hudSO.FindProperty("wallyHealth").objectReferenceValue = wh; Debug.Log($"[HUD KOF] wallyHealth → {wh.name}"); }
+            if (rh != null) { hudSO.FindProperty("rivalHealth").objectReferenceValue = rh; Debug.Log($"[HUD KOF] rivalHealth → {rh.name}"); }
         }
 
-        // Buscar Stamina en escena (solo Wally la tiene)
+        // Estrategia 2: Stamina — buscar la única Stamina en escena (solo Wally la tiene)
         var staminas = Object.FindObjectsOfType<Stamina>(true);
-        foreach (var s in staminas)
+        if (staminas.Length > 0)
         {
-            string n = s.gameObject.name.ToLower();
-            if (n.Contains("wally"))
-            {
-                so.FindProperty("wallyStamina").objectReferenceValue = s;
-                Debug.Log($"[HUD KOF] wallyStamina → {s.gameObject.name}");
-                break;
-            }
-        }
-        // Si solo hay una Stamina en escena, usarla directamente
-        if (so.FindProperty("wallyStamina").objectReferenceValue == null && staminas.Length == 1)
-        {
-            so.FindProperty("wallyStamina").objectReferenceValue = staminas[0];
-            Debug.Log($"[HUD KOF] wallyStamina → {staminas[0].gameObject.name} (única en escena)");
+            // Preferir la del mismo GameObject que wallyHealth
+            var wallyHealthRef = hudSO.FindProperty("wallyHealth").objectReferenceValue as Health;
+            Stamina elegida = null;
+            if (wallyHealthRef != null)
+                elegida = wallyHealthRef.GetComponent<Stamina>();
+            if (elegida == null)
+                elegida = staminas[0];
+
+            hudSO.FindProperty("wallyStamina").objectReferenceValue = elegida;
+            Debug.Log($"[HUD KOF] wallyStamina → {elegida.gameObject.name}");
         }
 
-        so.ApplyModifiedProperties();
+        hudSO.ApplyModifiedProperties();
         EditorUtility.SetDirty(hud);
     }
 
