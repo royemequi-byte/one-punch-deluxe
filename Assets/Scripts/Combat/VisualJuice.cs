@@ -132,8 +132,19 @@ public class VisualJuice : MonoBehaviour
 
     private void CrearFondoRing()
     {
-        // Si ya existe un fondo en la escena, no crear otro
-        if (GameObject.Find("BackgroundRing") != null) return;
+        // Escala correcta: ring_bg es 1920x1080 a PPU=100 → 19.2x10.8 unidades.
+        // Cámara ortográfica size=5 cubre 17.78x10 unidades. Escala 0.93 lo llena perfectamente.
+        Vector3 escalaCorrecta = new Vector3(0.93f, 0.93f, 1f);
+        Vector3 posCorrecta    = new Vector3(0f, 0f, 10f);
+
+        // Si ya existe, corregir su escala y terminar
+        GameObject existente = GameObject.Find("BackgroundRing");
+        if (existente != null)
+        {
+            existente.transform.position   = posCorrecta;
+            existente.transform.localScale = escalaCorrecta;
+            return;
+        }
 
         Sprite ringSprite = Resources.Load<Sprite>("ring_bg");
         if (ringSprite == null)
@@ -146,12 +157,8 @@ public class VisualJuice : MonoBehaviour
         SpriteRenderer sr = fondo.AddComponent<SpriteRenderer>();
         sr.sprite       = ringSprite;
         sr.sortingOrder = -10;
-
-        // Escalar para cubrir la vista de cámara ortográfica size=5, aspect 16:9
-        // El sprite es 1920x1080. Con PPU=100 mide 19.2x10.8 unidades Unity.
-        // La cámara cubre ~17.78x10 unidades. Escala 0.93 lo ajusta perfectamente.
-        fondo.transform.position   = new Vector3(0f, 0f, 10f);
-        fondo.transform.localScale = new Vector3(0.93f, 0.93f, 1f);
+        fondo.transform.position   = posCorrecta;
+        fondo.transform.localScale = escalaCorrecta;
 
         Debug.Log("[VisualJuice] BackgroundRing creado desde Resources.");
     }
