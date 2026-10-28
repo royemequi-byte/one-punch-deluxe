@@ -50,83 +50,80 @@ public static class CrearHUDKOF
 
         canvasGO.AddComponent<GraphicRaycaster>();
 
-        // ── FRANJA TOP (fondo oscuro) ─────────────────────────────
+        // ── FRANJA TOP (fondo oscuro, 120px) ─────────────────────────
+        // Layout vertical (y=0 abajo, y=1 arriba del panel):
+        //   0.00 - 0.14 → gemas de ronda
+        //   0.14 - 0.28 → stamina (solo P1)
+        //   0.28 - 0.62 → barra de vida
+        //   0.62 - 1.00 → nombre del personaje
         GameObject topBG = Panel("TopBackground", canvasGO.transform,
-            new Vector2(0, 1), new Vector2(1, 1), new Vector2(0, -110), new Vector2(0, 0),
-            new Color(0f, 0f, 0f, 0.78f));
+            new Vector2(0, 1), new Vector2(1, 1), new Vector2(0, -120), new Vector2(0, 0),
+            new Color(0f, 0f, 0f, 0.80f));
 
         // ── LADO P1 (Wally — izquierda) ───────────────────────────
-        // Nombre
         TMP_Text wallyName = Texto("P1Name", topBG.transform,
-            new Vector2(0, 0.55f), new Vector2(0.38f, 1f), new Vector2(14, 0), new Vector2(0, -4),
-            "WALLY", 28, Color.white, TextAlignmentOptions.Left);
+            new Vector2(0f, 0.62f), new Vector2(0.42f, 1f), new Vector2(12, 0), new Vector2(-4, -3),
+            "WALLY", 26, Color.white, TextAlignmentOptions.Left);
         wallyName.fontStyle = FontStyles.Bold;
 
-        // Barra de vida ghost (amarillo, detrás)
         GameObject wallyHealthBG = Panel("P1HealthBG", topBG.transform,
-            new Vector2(0, 0.05f), new Vector2(0.40f, 0.52f), new Vector2(10, 0), new Vector2(-8, 0),
-            new Color(0.08f, 0.08f, 0.08f, 1f));
-
+            new Vector2(0f, 0.28f), new Vector2(0.42f, 0.60f), new Vector2(10, 2), new Vector2(-6, -2),
+            new Color(0.06f, 0.06f, 0.06f, 1f));
         Image wallyGhost = BarraVida("P1HealthGhost", wallyHealthBG.transform,
             new Color(0.95f, 0.85f, 0.10f), 0);
         Image wallyBar   = BarraVida("P1Health",      wallyHealthBG.transform,
             new Color(0.08f, 0.90f, 0.12f), 1);
 
-        // Stamina (delgada, debajo de la vida)
         GameObject wallyStaminaBG = Panel("P1StaminaBG", topBG.transform,
-            new Vector2(0, 0f), new Vector2(0.30f, 0.07f), new Vector2(10, 2), new Vector2(-8, -2),
-            new Color(0.05f, 0.05f, 0.05f, 1f));
+            new Vector2(0f, 0.14f), new Vector2(0.32f, 0.26f), new Vector2(10, 2), new Vector2(-6, -2),
+            new Color(0.04f, 0.04f, 0.04f, 1f));
         Image wallyStaminaBar = BarraVida("P1Stamina", wallyStaminaBG.transform,
             new Color(0.0f, 0.75f, 1f), 0);
 
-        // Gemas de ronda P1 (2 cuadraditos dorados)
+        // Gemas P1 — fila inferior, claramente separadas del nombre y la barra
         Image[] wallyGemas = new Image[2];
         for (int i = 0; i < 2; i++)
         {
-            GameObject g = Panel($"P1Gema{i+1}", topBG.transform,
-                new Vector2(0.01f + i * 0.022f, 0f),
-                new Vector2(0.01f + i * 0.022f + 0.018f, 0.0f),
-                new Vector2(0, 3), new Vector2(0, -3),
-                new Color(0.18f, 0.18f, 0.18f));
+            GameObject g = new GameObject($"P1Gema{i+1}", typeof(RectTransform));
+            g.transform.SetParent(topBG.transform, false);
             var rt = g.GetComponent<RectTransform>();
-            rt.anchorMin = new Vector2(0.01f + i * 0.025f, 0.65f);
-            rt.anchorMax = new Vector2(0.01f + i * 0.025f + 0.018f, 0.95f);
+            rt.anchorMin = new Vector2(0.012f + i * 0.030f, 0.04f);
+            rt.anchorMax = new Vector2(0.012f + i * 0.030f + 0.022f, 0.13f);
             rt.offsetMin = rt.offsetMax = Vector2.zero;
-            wallyGemas[i] = g.GetComponent<Image>();
+            var img = g.AddComponent<Image>();
+            img.color = new Color(0.18f, 0.18f, 0.18f);
+            wallyGemas[i] = img;
         }
 
         // ── TIMER CENTRAL ─────────────────────────────────────────
         TMP_Text timerText = Texto("TimerText", topBG.transform,
-            new Vector2(0.40f, 0f), new Vector2(0.60f, 1f), Vector2.zero, Vector2.zero,
-            "99", 52, Color.white, TextAlignmentOptions.Center);
+            new Vector2(0.42f, 0f), new Vector2(0.58f, 1f), Vector2.zero, Vector2.zero,
+            "99", 56, Color.white, TextAlignmentOptions.Center);
         timerText.fontStyle = FontStyles.Bold;
 
         // ── LADO P2 (Rival — derecha) ──────────────────────────────
-        // Nombre
         TMP_Text rivalName = Texto("P2Name", topBG.transform,
-            new Vector2(0.62f, 0.55f), new Vector2(1f, 1f), new Vector2(0, 0), new Vector2(-14, -4),
-            "RIVAL", 28, Color.white, TextAlignmentOptions.Right);
+            new Vector2(0.58f, 0.62f), new Vector2(1f, 1f), new Vector2(4, 0), new Vector2(-12, -3),
+            "RIVAL", 26, Color.white, TextAlignmentOptions.Right);
         rivalName.fontStyle = FontStyles.Bold;
 
-        // Barra de vida rival (fillOrigin=Right para deplecionar desde la izquierda)
         GameObject rivalHealthBG = Panel("P2HealthBG", topBG.transform,
-            new Vector2(0.60f, 0.05f), new Vector2(1f, 0.52f), new Vector2(8, 0), new Vector2(-10, 0),
-            new Color(0.08f, 0.08f, 0.08f, 1f));
-
+            new Vector2(0.58f, 0.28f), new Vector2(1f, 0.60f), new Vector2(6, 2), new Vector2(-10, -2),
+            new Color(0.06f, 0.06f, 0.06f, 1f));
         Image rivalGhost = BarraVida("P2HealthGhost", rivalHealthBG.transform,
             new Color(0.95f, 0.85f, 0.10f), 0, fillFromRight: true);
         Image rivalBar   = BarraVida("P2Health",      rivalHealthBG.transform,
             new Color(0.08f, 0.90f, 0.12f), 1, fillFromRight: true);
 
-        // Gemas de ronda P2
+        // Gemas P2 — fila inferior lado derecho
         Image[] rivalGemas = new Image[2];
         for (int i = 0; i < 2; i++)
         {
             GameObject g = new GameObject($"P2Gema{i+1}", typeof(RectTransform));
             g.transform.SetParent(topBG.transform, false);
             var rt = g.GetComponent<RectTransform>();
-            rt.anchorMin = new Vector2(0.985f - (i + 1) * 0.025f, 0.65f);
-            rt.anchorMax = new Vector2(0.985f - i * 0.025f - 0.007f, 0.95f);
+            rt.anchorMin = new Vector2(0.966f - i * 0.030f - 0.022f, 0.04f);
+            rt.anchorMax = new Vector2(0.966f - i * 0.030f,           0.13f);
             rt.offsetMin = rt.offsetMax = Vector2.zero;
             var img = g.AddComponent<Image>();
             img.color = new Color(0.18f, 0.18f, 0.18f);
