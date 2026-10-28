@@ -352,8 +352,8 @@ Transform:
   m_GameObject: {fileID: 145522337}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7, y: -1, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -2.2, z: 10}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1251662581}
@@ -405,7 +405,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: dcf44d90695c4bc4c84abec309642e6e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1077,8 +1077,8 @@ Transform:
   m_GameObject: {fileID: 1142705455}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1.2, z: 10}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1251662581}
@@ -1141,7 +1141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RivalAI
   combatController: {fileID: 1142705459}
-  kirikuAnimator: {fileID: 0}
   telegraphIndicator: {fileID: 127128627}
   profile: {fileID: 11400000, guid: c3f43ea9e19271246af05bd1c634b94c, type: 2}
 --- !u!212 &1142705461
@@ -1191,9 +1190,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 6f67bca12b7a47049822d19bf8f0cf65, type: 3}
+  m_Sprite: {fileID: -4533389254625993299, guid: 73fc4518377f9564489dbcf568924539, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1214,7 +1213,7 @@ Animator:
   m_GameObject: {fileID: 1142705455}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 222c8366f51766c4d9419ebf1fb8d719, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1534,19 +1533,26 @@ MonoBehaviour:
   wallyHealth: {fileID: 145522341}
   rivalHealth: {fileID: 1142705457}
   wallyStamina: {fileID: 145522340}
-  wallyHealthBar: {fileID: 1695211382}
-  rivalHealthBar: {fileID: 1636187280}
+  wallyBar: {fileID: 0}
+  wallyBarGhost: {fileID: 0}
+  rivalBar: {fileID: 1636187280}
+  rivalBarGhost: {fileID: 0}
   wallyStaminaBar: {fileID: 163395389}
+  wallyGemas:
+  - {fileID: 0}
+  - {fileID: 0}
+  rivalGemas:
+  - {fileID: 0}
+  - {fileID: 0}
   timerText: {fileID: 780011144}
-  roundText: {fileID: 1955175223}
-  entreRoundsPanel: {fileID: 0}
-  entreRoundsText: {fileID: 0}
+  anunciador: {fileID: 0}
   resultPanel: {fileID: 1692475699}
   resultText: {fileID: 0}
   botonReintentar: {fileID: 935574088}
   botonMenu: {fileID: 2135000215}
   roundDuration: 120
-  nombreEscenaMenu: menu
+  ghostSpeed: 0.35
+  escenaMenu: menu
 --- !u!4 &1310769011
 Transform:
   m_ObjectHideFlags: 0
@@ -1626,7 +1632,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -10
+  m_SortingOrder: -3
   m_MaskInteraction: 0
   m_Sprite: {fileID: -6631631217889516846, guid: 58bb93df30f3ad645a0d818480913ea1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1636,7 +1642,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!4 &1414014638
@@ -2191,7 +2197,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: e61c59e3c7f8e7040b54c9b023bf5fd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
