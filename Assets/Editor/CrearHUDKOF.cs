@@ -191,14 +191,59 @@ public static class CrearHUDKOF
         SetPrivate(hud, "botonReintentar", btnReintentar);
         SetPrivate(hud, "botonMenu",       btnMenu);
 
-        // ── CONECTAR AL FightManager EN ESCENA ────────────────────
+        // ── CONECTAR TODAS LAS REFERENCIAS AUTOMÁTICAMENTE ────────
+        ConectarReferencias(hud);
         ConectarFightManager(hud);
 
         EditorUtility.SetDirty(canvasGO);
-        Debug.Log("[HUD KOF] ¡Canvas creado! Recuerda conectar wallyHealth, rivalHealth y wallyStamina en el Inspector de HUDController.");
+        Debug.Log("[HUD KOF] ¡Canvas creado y referencias conectadas automáticamente!");
     }
 
     // ── HELPERS ───────────────────────────────────────────────────
+
+    static void ConectarReferencias(HUDController hud)
+    {
+        var so = new SerializedObject(hud);
+
+        // Buscar todos los Health en escena y asignar por nombre de GameObject
+        var healths = Object.FindObjectsOfType<Health>(true);
+        foreach (var h in healths)
+        {
+            string n = h.gameObject.name.ToLower();
+            if (n.Contains("wally"))
+            {
+                so.FindProperty("wallyHealth").objectReferenceValue = h;
+                Debug.Log($"[HUD KOF] wallyHealth → {h.gameObject.name}");
+            }
+            else if (n.Contains("rival") || n.Contains("kiriku") || n.Contains("enemy"))
+            {
+                so.FindProperty("rivalHealth").objectReferenceValue = h;
+                Debug.Log($"[HUD KOF] rivalHealth → {h.gameObject.name}");
+            }
+        }
+
+        // Buscar Stamina en escena (solo Wally la tiene)
+        var staminas = Object.FindObjectsOfType<Stamina>(true);
+        foreach (var s in staminas)
+        {
+            string n = s.gameObject.name.ToLower();
+            if (n.Contains("wally"))
+            {
+                so.FindProperty("wallyStamina").objectReferenceValue = s;
+                Debug.Log($"[HUD KOF] wallyStamina → {s.gameObject.name}");
+                break;
+            }
+        }
+        // Si solo hay una Stamina en escena, usarla directamente
+        if (so.FindProperty("wallyStamina").objectReferenceValue == null && staminas.Length == 1)
+        {
+            so.FindProperty("wallyStamina").objectReferenceValue = staminas[0];
+            Debug.Log($"[HUD KOF] wallyStamina → {staminas[0].gameObject.name} (única en escena)");
+        }
+
+        so.ApplyModifiedProperties();
+        EditorUtility.SetDirty(hud);
+    }
 
     static void ConectarFightManager(HUDController hud)
     {
