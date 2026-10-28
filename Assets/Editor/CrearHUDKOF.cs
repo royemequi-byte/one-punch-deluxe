@@ -14,12 +14,24 @@ public static class CrearHUDKOF
     [MenuItem("Tools/22 Crear HUD KOF")]
     public static void Crear()
     {
-        // 1. Eliminar canvas HUD anterior si existe
-        var anterior = GameObject.Find("HUD_Canvas");
-        if (anterior != null)
+        // 1. Eliminar TODOS los Canvas existentes en la escena (el viejo y cualquier duplicado)
+        var todosLosCanvas = Object.FindObjectsOfType<Canvas>(true);
+        foreach (var c in todosLosCanvas)
         {
-            Undo.DestroyObjectImmediate(anterior);
-            Debug.Log("[HUD KOF] Canvas anterior eliminado.");
+            // Solo borrar los que son raíz (no sub-canvas dentro de prefabs de TMP, etc.)
+            if (c.transform.parent == null)
+            {
+                Debug.Log($"[HUD KOF] Eliminando Canvas: {c.gameObject.name}");
+                Undo.DestroyObjectImmediate(c.gameObject);
+            }
+        }
+
+        // Eliminar también el objeto HUD separado si existe (tenía HUDController suelto)
+        var hudViejo = GameObject.Find("HUD");
+        if (hudViejo != null)
+        {
+            Undo.DestroyObjectImmediate(hudViejo);
+            Debug.Log("[HUD KOF] Objeto HUD viejo eliminado.");
         }
 
         // 2. Canvas principal
