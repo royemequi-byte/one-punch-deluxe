@@ -7,16 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class FixKOF
 {
-    // Posiciones finales estilo KOF
-    // Pantalla: alto=-5..+5, ancho=-8.9..+8.9 (camara ortho size=5, aspect 16:9)
-    // Wally (1024x1536px, PPU=200) -> natural 5.12x7.68u -> scale 0.45 -> 2.3x3.46u
-    static readonly Vector3 WALLY_POS   = new Vector3(-2.5f, -4.5f, 0f);
-    static readonly Vector3 WALLY_SCALE = new Vector3(0.45f, 0.45f, 1f);
+    // Layout KOF: ambos al mismo nivel de suelo del ring (y=-4)
+    // Wally NUEVO (313x390px PPU=200 = 1.565x1.95u) escala 2 -> 3.13x3.9u, izquierda
+    static readonly Vector3 WALLY_POS   = new Vector3(-3f, -4f, 0f);
+    static readonly Vector3 WALLY_SCALE = new Vector3(2f, 2f, 1f);
 
-    // Kiriku (frame 254x353px, PPU=200) -> natural 1.27x1.765u -> scale 3.5 -> 4.45x6.18u
-    // flipX con scale.x negativo para que mire hacia Wally (izquierda)
-    static readonly Vector3 RIVAL_POS   = new Vector3(2.5f, -1.2f, 0f);
-    static readonly Vector3 RIVAL_SCALE = new Vector3(-3.5f, 3.5f, 1f);
+    // Kiriku (254x353px PPU=200 = 1.27x1.765u) escala 2.3 -> 2.92x4.06u, derecha, flipX
+    static readonly Vector3 RIVAL_POS   = new Vector3(3f, -4f, 0f);
+    static readonly Vector3 RIVAL_SCALE = new Vector3(-2.3f, 2.3f, 1f);
 
     [MenuItem("Tools/25 Fix KOF - Abrir y Montar")]
     public static void AbrirYMontar()
@@ -64,8 +62,23 @@ public class FixKOF
             wally.transform.position   = WALLY_POS;
             wally.transform.localScale = WALLY_SCALE;
             SpriteRenderer sr = wally.GetComponent<SpriteRenderer>();
-            if (sr != null) { sr.sortingOrder = 2; sr.enabled = true; }
-            log += "Wally: posicion (-2.5, -4.5) escala 0.45\n";
+            if (sr != null)
+            {
+                sr.sortingOrder = 2;
+                sr.enabled = true;
+                // Sprite nuevo de lado (wally_idle_0 de Wally_Nuevos)
+                Object[] wallyAssets = AssetDatabase.LoadAllAssetsAtPath(
+                    "Assets/Art/Personajes/Wally_Nuevos/wally_idle.png");
+                foreach (Object a in wallyAssets)
+                    if (a is Sprite s) { sr.sprite = s; break; }
+            }
+            // Animator de Wally
+            RuntimeAnimatorController wallyCtrl = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(
+                "Assets/Animations/Wally/WallyAnimator.controller");
+            Animator anim = wally.GetComponent<Animator>();
+            if (anim != null && wallyCtrl != null) anim.runtimeAnimatorController = wallyCtrl;
+
+            log += "Wally: sprite nuevo lado, pos (-3,-4) escala 2\n";
         }
 
         // ── KIRIKU (RIVAL) ─────────────────────────────────────────
@@ -88,7 +101,7 @@ public class FixKOF
             Animator anim = rival.GetComponent<Animator>();
             if (anim != null && ctrl != null) anim.runtimeAnimatorController = ctrl;
 
-            log += "Kiriku: posicion (2.5, -1.2) escala 3.5 flipX\n";
+            log += "Kiriku: posicion (3,-4) escala 2.3 flipX\n";
         }
 
         // ── FIGHTMANAGER: actualizar wallyPosicion/wallyEscala ─────
