@@ -29,9 +29,13 @@ public class FightManager : MonoBehaviour
     [Header("Input del jugador")]
     [SerializeField] private PlayerInputHandler playerInput;
 
-    [Header("Posiciones en escena")]
-    [SerializeField] private Vector3 wallyPosicion = new Vector3(0.4f, -1.5f, 0.5f);
-    [SerializeField] private Vector3 wallyEscala   = new Vector3(1.7f, 1.7f, 1f);
+    // Pantalla: ortho size=5 → alto -5..+5, ancho -8.9..+8.9
+    // Wally (1024x1536px PPU=200): escala 0.45 → 2.3x3.46 unidades, izquierda
+    // Kiriku (254x353px PPU=200): escala 3.5 → 4.4x6.18 unidades, derecha (flipX negativo)
+    private readonly Vector3 wallyPosicion = new Vector3(-2.5f, -4.5f, 0f);
+    private readonly Vector3 wallyEscala   = new Vector3(0.45f, 0.45f, 1f);
+    private readonly Vector3 rivalPosicion = new Vector3(2.5f, -1.2f, 0f);
+    private readonly Vector3 rivalEscala   = new Vector3(-3.5f, 3.5f, 1f);
 
     [Header("Configuración de rounds")]
     [SerializeField] private int   roundsParaGanar   = 2;
@@ -170,6 +174,12 @@ public class FightManager : MonoBehaviour
         {
             wallyHealth.transform.position   = wallyPosicion;
             wallyHealth.transform.localScale = wallyEscala;
+        }
+
+        if (rivalHealth != null)
+        {
+            rivalHealth.transform.position   = rivalPosicion;
+            rivalHealth.transform.localScale = rivalEscala;
         }
 
         wallyAnimator?.Play("WallyIdle", 0, 0f);
