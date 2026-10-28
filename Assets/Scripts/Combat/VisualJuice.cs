@@ -132,10 +132,10 @@ public class VisualJuice : MonoBehaviour
 
     private void CrearFondoRing()
     {
-        // Escala correcta: bg_menu es 1254x1254 a PPU=100 → 12.54x12.54 unidades.
-        // Cámara ortográfica size=5 cubre 17.78x10 unidades (16:9).
-        // Escala 1.42 → imagen 17.78x17.78, llena el ancho sin barras negras.
-        Vector3 escalaCorrecta = new Vector3(1.42f, 1.42f, 1f);
+        // ring_bg.png: 1920x1080 a PPU=100 → 19.2x10.8 unidades.
+        // Cámara ortográfica size=5 cubre 17.78x10 unidades (16:9 aspect).
+        // Escala 0.926 → imagen 17.78x10 u, llena la pantalla exactamente.
+        Vector3 escalaCorrecta = new Vector3(0.926f, 0.926f, 1f);
         Vector3 posCorrecta    = new Vector3(0f, 0f, 10f);
 
         // Si ya existe, corregir su escala y terminar
