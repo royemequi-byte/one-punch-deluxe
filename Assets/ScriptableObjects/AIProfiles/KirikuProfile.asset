@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2388a2d44ff1034c946afe1ed6787ef, type: 3}
+  m_Name: KirikuProfile
+  m_EditorClassIdentifier: Assembly-CSharp::AIProfile
+  rivalName: "Kirik\xFA"
+  telegraphDuration: 0.5
+  minCooldown: 1.2
+  maxCooldown: 2.8
+  attacks:
+  - {fileID: 11400000, guid: 2baf7cecddbf9274baff01b27ec23704, type: 2}
+  - {fileID: 11400000, guid: a6ea5125b24f1014c8743cfd72739cd9, type: 2}
+  - {fileID: 11400000, guid: e27e020e14784914c8cc9add9a7f86f6, type: 2}
