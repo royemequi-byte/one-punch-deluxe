@@ -72,9 +72,9 @@ public class FixKOF
                 foreach (Object a in wallyAssets)
                     if (a is Sprite s) { sr.sprite = s; break; }
             }
-            // Animator de Wally
+            // Animator de Wally (ruta real del controller)
             RuntimeAnimatorController wallyCtrl = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(
-                "Assets/Animations/Wally/WallyAnimator.controller");
+                "Assets/es/Wally/Characters/Wally/WallyAnimator.controller");
             Animator anim = wally.GetComponent<Animator>();
             if (anim != null && wallyCtrl != null) anim.runtimeAnimatorController = wallyCtrl;
 
