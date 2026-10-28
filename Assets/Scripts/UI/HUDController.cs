@@ -71,14 +71,26 @@ public class HUDController : MonoBehaviour
 
     private void Awake()
     {
-        // Auto-conectar si el Inspector dejó referencias vacías
-        if (wallyBar        == null) wallyBar        = Img("WallyHealthBar");
-        if (wallyBarGhost   == null) wallyBarGhost   = Img("WallyHealthBarGhost");
-        if (rivalBar        == null) rivalBar        = Img("RivalHealthBar");
-        if (rivalBarGhost   == null) rivalBarGhost   = Img("RivalHealthBarGhost");
-        if (wallyStaminaBar == null) wallyStaminaBar = Img("WallyStaminaBar");
-        if (timerText       == null) timerText       = Tmp("TimerText");
+        // ── Buscar contenedores ───────────────────────────────────
+        // BuscarGO tolera el espacio al inicio que deja el Inspector a veces
+        GameObject wallyBarGO   = BuscarGO("WallyHealthBar");
+        GameObject rivalBarGO   = BuscarGO("RivalHealthBar");
+        GameObject staminaBarGO = BuscarGO("WallyStaminaBar");
+        GameObject timerGO      = BuscarGO("TimerText");
 
+        // ── Conectar referencias de UI ────────────────────────────
+        if (wallyBar      == null && wallyBarGO   != null)
+            wallyBar      = wallyBarGO.GetComponent<Image>()   ?? wallyBarGO.GetComponentInChildren<Image>();
+        if (wallyBarGhost == null) wallyBarGhost  = ImgHijo(BuscarGO("WallyHealthBarGhost"));
+        if (rivalBar      == null && rivalBarGO   != null)
+            rivalBar      = rivalBarGO.GetComponent<Image>()   ?? rivalBarGO.GetComponentInChildren<Image>();
+        if (rivalBarGhost == null) rivalBarGhost  = ImgHijo(BuscarGO("RivalHealthBarGhost"));
+        if (wallyStaminaBar == null && staminaBarGO != null)
+            wallyStaminaBar = staminaBarGO.GetComponent<Image>() ?? staminaBarGO.GetComponentInChildren<Image>();
+        if (timerText     == null && timerGO      != null)
+            timerText     = timerGO.GetComponent<TMP_Text>();
+
+        // ── Conectar Health / Stamina de los peleadores ───────────
         if (wallyHealth == null)
         {
             var pip = Object.FindFirstObjectByType<PlayerInputHandler>();
@@ -94,10 +106,56 @@ public class HUDController : MonoBehaviour
             var pip = Object.FindFirstObjectByType<PlayerInputHandler>();
             if (pip != null) wallyStamina = pip.GetComponent<Stamina>();
         }
+
+        // ── Layout KOF XV: barras arriba, timer centro ────────────
+        // Se aplica en runtime para no depender del FixKOF editor
+        AplicarRect(wallyBarGO,   new Vector2(0.03f, 0.87f), new Vector2(0.47f, 0.95f));
+        AplicarRect(rivalBarGO,   new Vector2(0.53f, 0.87f), new Vector2(0.97f, 0.95f));
+        AplicarRect(staminaBarGO, new Vector2(0.03f, 0.82f), new Vector2(0.38f, 0.87f));
+        AplicarRect(timerGO,      new Vector2(0.44f, 0.89f), new Vector2(0.56f, 0.97f));
+
+        // Rival: la barra se consume de derecha a izquierda
+        if (rivalBar != null) rivalBar.fillOrigin = (int)Image.OriginHorizontal.Right;
     }
 
-    static Image   Img(string n) => GameObject.Find(n)?.GetComponent<Image>();
-    static TMP_Text Tmp(string n) => GameObject.Find(n)?.GetComponent<TMP_Text>();
+    // Encuentra un GO tolerando espacio al inicio en el nombre (bug del Inspector)
+    static GameObject BuscarGO(string n)
+    {
+        var go = GameObject.Find(n);
+        if (go != null) return go;
+        go = GameObject.Find(" " + n);
+        if (go != null) go.name = n; // corrige el nombre en runtime
+        return go;
+    }
+
+    // Aplica anclaje stretch al RectTransform de un contenedor UI
+    static void AplicarRect(GameObject go, Vector2 anchorMin, Vector2 anchorMax)
+    {
+        if (go == null) return;
+        RectTransform rt = go.GetComponent<RectTransform>();
+        if (rt == null) return;
+        rt.anchorMin        = anchorMin;
+        rt.anchorMax        = anchorMax;
+        rt.anchoredPosition = Vector2.zero;
+        rt.sizeDelta        = Vector2.zero;
+    }
+
+    static Image    ImgHijo(GameObject go) => go == null ? null : (go.GetComponent<Image>() ?? go.GetComponentInChildren<Image>());
+    static TMP_Text Tmp(string n)          => BuscarGO(n)?.GetComponent<TMP_Text>();
+
+    // Busca Image por nombre, tolera espacio al inicio (bug del Inspector)
+    // y verifica también hijos (la Image puede estar en un child del contenedor)
+    static Image Img(string n)
+    {
+        var go = BuscarGO(n);
+        if (go == null)
+        {
+            foreach (var c in Object.FindObjectsByType<Image>(FindObjectsSortMode.None))
+                if (c.gameObject.name.Trim() == n) return c;
+            return null;
+        }
+        return go.GetComponent<Image>() ?? go.GetComponentInChildren<Image>();
+    }
 
     private void Start()
     {

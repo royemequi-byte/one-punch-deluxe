@@ -29,13 +29,14 @@ public class FightManager : MonoBehaviour
     [Header("Input del jugador")]
     [SerializeField] private PlayerInputHandler playerInput;
 
-    // Layout KOF: ambos personajes al mismo nivel en el suelo del ring
-    // Wally nuevo (313x390px PPU=200 = 1.565x1.95u): escala 2 → 3.13x3.9u, lado izquierdo
-    // Kiriku (254x353px PPU=200 = 1.27x1.765u): escala 2.3 → 2.92x4.06u, lado derecho (flipX)
-    private readonly Vector3 wallyPosicion = new Vector3(-3f, -4f, 0f);
-    private readonly Vector3 wallyEscala   = new Vector3(2f, 2f, 1f);
-    private readonly Vector3 rivalPosicion = new Vector3(3f, -4f, 0f);
-    private readonly Vector3 rivalEscala   = new Vector3(-2.3f, 2.3f, 1f);
+    // Layout KOF XV: igual que la referencia
+    // Wally nuevo (1.565x1.95u/frame): escala 3 → 4.7x5.85u, cabeza en y=2.85
+    // Kiriku (1.27x1.765u/frame): escala 3 → 3.81x5.3u, cabeza en y=2.3
+    // Ambos con pies en y=-3 (suelo del ring), x=-2 / +2 enfrentados
+    private readonly Vector3 wallyPosicion = new Vector3(-2f, -3f, 0f);
+    private readonly Vector3 wallyEscala   = new Vector3(3f, 3f, 1f);
+    private readonly Vector3 rivalPosicion = new Vector3(2f, -3f, 0f);
+    private readonly Vector3 rivalEscala   = new Vector3(-3f, 3f, 1f);
 
     [Header("Configuración de rounds")]
     [SerializeField] private int   roundsParaGanar   = 2;

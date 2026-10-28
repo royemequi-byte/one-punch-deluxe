@@ -4,17 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class FixKOF
 {
-    // Layout KOF: ambos al mismo nivel de suelo del ring (y=-4)
-    // Wally NUEVO (313x390px PPU=200 = 1.565x1.95u) escala 2 -> 3.13x3.9u, izquierda
-    static readonly Vector3 WALLY_POS   = new Vector3(-3f, -4f, 0f);
-    static readonly Vector3 WALLY_SCALE = new Vector3(2f, 2f, 1f);
+    // Layout KOF XV: mismo suelo, escala igual para ambos
+    // Wally nuevo (1.565x1.95u/frame) escala 3 → 4.7x5.85u, cabeza y=2.85
+    static readonly Vector3 WALLY_POS   = new Vector3(-2f, -3f, 0f);
+    static readonly Vector3 WALLY_SCALE = new Vector3(3f, 3f, 1f);
 
-    // Kiriku (254x353px PPU=200 = 1.27x1.765u) escala 2.3 -> 2.92x4.06u, derecha, flipX
-    static readonly Vector3 RIVAL_POS   = new Vector3(3f, -4f, 0f);
-    static readonly Vector3 RIVAL_SCALE = new Vector3(-2.3f, 2.3f, 1f);
+    // Kiriku (1.27x1.765u/frame) escala -3 → flipX, lado derecho
+    static readonly Vector3 RIVAL_POS   = new Vector3(2f, -3f, 0f);
+    static readonly Vector3 RIVAL_SCALE = new Vector3(-3f, 3f, 1f);
 
     [MenuItem("Tools/25 Fix KOF - Abrir y Montar")]
     public static void AbrirYMontar()
@@ -66,72 +67,38 @@ public class FixKOF
             {
                 sr.sortingOrder = 2;
                 sr.enabled = true;
-                // Sprite nuevo de lado (wally_idle_0 de Wally_Nuevos)
                 Object[] wallyAssets = AssetDatabase.LoadAllAssetsAtPath(
                     "Assets/Art/Personajes/Wally_Nuevos/wally_idle.png");
                 foreach (Object a in wallyAssets)
                     if (a is Sprite s) { sr.sprite = s; break; }
             }
-            // Animator de Wally (ruta real del controller)
             RuntimeAnimatorController wallyCtrl = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(
                 "Assets/es/Wally/Characters/Wally/WallyAnimator.controller");
             Animator anim = wally.GetComponent<Animator>();
             if (anim != null && wallyCtrl != null) anim.runtimeAnimatorController = wallyCtrl;
 
-            log += "Wally: sprite nuevo lado, pos (-3,-4) escala 2\n";
+            log += "Wally: sprite lado, pos (-2,-3) escala 3\n";
         }
 
         // ── KIRIKU (RIVAL) ─────────────────────────────────────────
         if (rival != null)
         {
             rival.transform.position   = RIVAL_POS;
-            rival.transform.localScale = RIVAL_SCALE;  // scale.x negativo = flipX
+            rival.transform.localScale = RIVAL_SCALE;
             SpriteRenderer sr = rival.GetComponent<SpriteRenderer>();
             if (sr != null) { sr.sortingOrder = 1; sr.enabled = true; }
 
-            // Asignar sprite idle de Kiriku (primer frame del sheet)
             Object[] assets = AssetDatabase.LoadAllAssetsAtPath(
                 "Assets/Art/Personajes/Kiriku/kiriku_idle.png");
             foreach (Object a in assets)
                 if (a is Sprite s && sr != null) { sr.sprite = s; break; }
 
-            // Asignar KirikuAnimator.controller
             RuntimeAnimatorController ctrl = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>(
                 "Assets/Animations/Kiriku/KirikuAnimator.controller");
             Animator anim = rival.GetComponent<Animator>();
             if (anim != null && ctrl != null) anim.runtimeAnimatorController = ctrl;
 
-            log += "Kiriku: posicion (3,-4) escala 2.3 flipX\n";
-        }
-
-        // ── FIGHTMANAGER: actualizar wallyPosicion/wallyEscala ─────
-        FightManager fm = Object.FindFirstObjectByType<FightManager>();
-        if (fm != null && wally != null)
-        {
-            SerializedObject soFm = new SerializedObject(fm);
-
-            var posProp = soFm.FindProperty("wallyPosicion");
-            if (posProp != null) posProp.vector3Value = WALLY_POS;
-
-            var scaleProp = soFm.FindProperty("wallyEscala");
-            if (scaleProp != null) scaleProp.vector3Value = WALLY_SCALE;
-
-            // Conectar wallyStamina y rivalStamina si son null
-            var ws = soFm.FindProperty("wallyStamina");
-            if (ws != null && ws.objectReferenceValue == null)
-            {
-                Stamina st = wally.GetComponent<Stamina>();
-                if (st != null) ws.objectReferenceValue = st;
-            }
-            var rs = soFm.FindProperty("rivalStamina");
-            if (rs != null && rs.objectReferenceValue == null && rival != null)
-            {
-                Stamina st = rival.GetComponent<Stamina>();
-                if (st != null) rs.objectReferenceValue = st;
-            }
-
-            soFm.ApplyModifiedProperties();
-            log += "FightManager: wallyPosicion y wallyEscala actualizados\n";
+            log += "Kiriku: pos (2,-3) escala -3 flipX\n";
         }
 
         // ── FONDO ──────────────────────────────────────────────────
@@ -144,17 +111,27 @@ public class FixKOF
         }
 
         // ── HUD ────────────────────────────────────────────────────
-        HUDController hud = Object.FindFirstObjectByType<HUDController>();
-        if (hud != null)
+        log += FixHUDLayout(todos);
+
+        // ── FIGHTMANAGER: conectar staminas ────────────────────────
+        FightManager fm = Object.FindFirstObjectByType<FightManager>();
+        if (fm != null && wally != null && rival != null)
         {
-            SerializedObject so = new SerializedObject(hud);
-            BindImg(so, "wallyBar",        "WallyHealthBar");
-            BindImg(so, "rivalBar",        "RivalHealthBar");
-            BindImg(so, "wallyStaminaBar", "WallyStaminaBar");
-            var ep = so.FindProperty("escenaMenu");
-            if (ep != null && string.IsNullOrEmpty(ep.stringValue)) ep.stringValue = "menu";
-            so.ApplyModifiedProperties();
-            log += "HUD: barras reconectadas\n";
+            SerializedObject soFm = new SerializedObject(fm);
+            var ws = soFm.FindProperty("wallyStamina");
+            if (ws != null && ws.objectReferenceValue == null)
+            {
+                Stamina st = wally.GetComponent<Stamina>();
+                if (st != null) ws.objectReferenceValue = st;
+            }
+            var rs = soFm.FindProperty("rivalStamina");
+            if (rs != null && rs.objectReferenceValue == null)
+            {
+                Stamina st = rival.GetComponent<Stamina>();
+                if (st != null) rs.objectReferenceValue = st;
+            }
+            soFm.ApplyModifiedProperties();
+            log += "FightManager: staminas conectadas\n";
         }
 
         EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
@@ -162,13 +139,138 @@ public class FixKOF
             log + "\nCtrl+S para guardar, luego Play.", "OK");
     }
 
-    static void BindImg(SerializedObject so, string field, string goName)
+    // ── LAYOUT KOF XV: barras arriba, timer centro, stamina debajo ─
+    static string FixHUDLayout(GameObject[] todos)
+    {
+        string log = "";
+
+        GameObject wallyBarGO  = null;
+        GameObject rivalBarGO  = null;
+        GameObject staminaGO   = null;
+        GameObject timerGO     = null;
+
+        // Busca por nombre exacto O con espacio al inicio (bug del Inspector)
+        foreach (var go in todos)
+        {
+            string n = go.name.Trim();
+            if (n == "WallyHealthBar")  { wallyBarGO = go;  go.name = "WallyHealthBar"; }
+            if (n == "RivalHealthBar")  { rivalBarGO = go; }
+            if (n == "WallyStaminaBar") { staminaGO  = go; }
+            if (n == "TimerText")       { timerGO    = go; }
+        }
+
+        // ── Barra vida Wally: esquina superior izquierda → centro ──
+        if (wallyBarGO != null)
+        {
+            SetRect(wallyBarGO, new Vector2(0.03f, 0.87f), new Vector2(0.47f, 0.95f));
+            Image img = wallyBarGO.GetComponentInChildren<Image>();
+            if (img != null)
+            {
+                img.type        = Image.Type.Filled;
+                img.fillMethod  = Image.FillMethod.Horizontal;
+                img.fillOrigin  = 0;   // rellena de izquierda a derecha
+                img.fillAmount  = 1f;
+                img.color       = new Color(0.08f, 0.90f, 0.12f);
+            }
+            log += "WallyHealthBar: top-left KOF\n";
+        }
+        else log += "⚠ WallyHealthBar no encontrado\n";
+
+        // ── Barra vida Rival: esquina superior derecha → centro ────
+        if (rivalBarGO != null)
+        {
+            SetRect(rivalBarGO, new Vector2(0.53f, 0.87f), new Vector2(0.97f, 0.95f));
+            Image img = rivalBarGO.GetComponentInChildren<Image>();
+            if (img != null)
+            {
+                img.type        = Image.Type.Filled;
+                img.fillMethod  = Image.FillMethod.Horizontal;
+                img.fillOrigin  = 1;   // rellena de derecha a izquierda
+                img.fillAmount  = 1f;
+                img.color       = new Color(0.08f, 0.90f, 0.12f);
+            }
+            log += "RivalHealthBar: top-right KOF\n";
+        }
+        else log += "⚠ RivalHealthBar no encontrado\n";
+
+        // ── Barra stamina Wally: debajo de vida, más estrecha ──────
+        if (staminaGO != null)
+        {
+            SetRect(staminaGO, new Vector2(0.03f, 0.82f), new Vector2(0.38f, 0.87f));
+            Image img = staminaGO.GetComponentInChildren<Image>();
+            if (img != null)
+            {
+                img.type        = Image.Type.Filled;
+                img.fillMethod  = Image.FillMethod.Horizontal;
+                img.fillOrigin  = 0;
+                img.fillAmount  = 1f;
+                img.color       = new Color(0.10f, 0.50f, 1.00f);
+            }
+            log += "WallyStaminaBar: below health KOF\n";
+        }
+
+        // ── Timer: centrado en la parte superior ───────────────────
+        if (timerGO != null)
+        {
+            SetRect(timerGO, new Vector2(0.44f, 0.89f), new Vector2(0.56f, 0.97f));
+            TMP_Text txt = timerGO.GetComponent<TMP_Text>();
+            if (txt != null)
+            {
+                txt.alignment  = TextAlignmentOptions.Center;
+                txt.fontSize   = 48;
+                txt.fontStyle  = FontStyles.Bold;
+                txt.color      = Color.white;
+            }
+            log += "TimerText: top-center KOF\n";
+        }
+        else log += "⚠ TimerText no encontrado\n";
+
+        // ── HUDController: reconectar barras ───────────────────────
+        HUDController hud = Object.FindFirstObjectByType<HUDController>();
+        if (hud != null)
+        {
+            SerializedObject so = new SerializedObject(hud);
+            BindImgChildren(so, "wallyBar",        "WallyHealthBar");
+            BindImgChildren(so, "rivalBar",        "RivalHealthBar");
+            BindImgChildren(so, "wallyStaminaBar", "WallyStaminaBar");
+            var ep = so.FindProperty("escenaMenu");
+            if (ep != null && string.IsNullOrEmpty(ep.stringValue)) ep.stringValue = "menu";
+            so.ApplyModifiedProperties();
+            log += "HUDController: barras reconectadas\n";
+        }
+
+        return log;
+    }
+
+    // Ancla con modo stretch (anclaje en porcentaje de pantalla)
+    static void SetRect(GameObject go, Vector2 anchorMin, Vector2 anchorMax)
+    {
+        RectTransform rt = go.GetComponent<RectTransform>();
+        if (rt == null) return;
+        rt.anchorMin        = anchorMin;
+        rt.anchorMax        = anchorMax;
+        rt.anchoredPosition = Vector2.zero;
+        rt.sizeDelta        = Vector2.zero;
+    }
+
+    // Busca por nombre (incluyendo el bug del espacio) y asigna el Image hijo
+    static void BindImgChildren(SerializedObject so, string field, string goName)
     {
         var p = so.FindProperty(field);
-        if (p == null || p.objectReferenceValue != null) return;
-        GameObject go = GameObject.Find(goName);
+        if (p == null) return;
+
+        // Busca el GO por nombre exacto o con espacio
+        GameObject go = GameObject.Find(goName) ?? GameObject.Find(" " + goName);
+        if (go == null)
+        {
+            // Último recurso: buscar por nombre trimado
+            foreach (var candidate in Object.FindObjectsByType<GameObject>(FindObjectsSortMode.None))
+                if (candidate.name.Trim() == goName) { go = candidate; break; }
+        }
         if (go == null) return;
-        Image img = go.GetComponent<Image>();
+
+        // Usa GetComponentInChildren en caso de que Image esté en un hijo
+        Image img = go.GetComponent<Image>() ?? go.GetComponentInChildren<Image>();
         if (img != null) p.objectReferenceValue = img;
     }
 }
