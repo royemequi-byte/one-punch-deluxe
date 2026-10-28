@@ -29,12 +29,11 @@ public class FightManager : MonoBehaviour
     [Header("Input del jugador")]
     [SerializeField] private PlayerInputHandler playerInput;
 
-    // Sprites realistas Wally: 1024x1536 a PPU=200 → 5.12x7.68u por escala-1
-    // Kiriku idle frame: 254x353 a PPU=200 → 1.27x1.765u por escala-1
-    // Wally escala=0.7 → 3.58x5.38u | Kiriku escala=3 → 3.81x5.30u  (misma altura ~54%)
-    // Pies en y≈-4.15, cabeza en y≈+1.15 — ring floor visible en la parte inferior
+    // WallyNuevos idle: 313x390 a PPU=200, pivot=base → 1.565x1.95u por escala-1
+    // Kiriku idle: 254x353 a PPU=200, escala=3 → 3.81x5.295u (pies y=-1.5, cabeza y=+3.8)
+    // Wally escala=2.5 → 3.91x4.875u (pies y=-1.5, cabeza y=+3.375) — alturas similares
     private readonly Vector3 wallyPosicion = new Vector3(-3f, -1.5f, 0f);
-    private readonly Vector3 wallyEscala   = new Vector3(0.7f, 0.7f, 1f);
+    private readonly Vector3 wallyEscala   = new Vector3(2.5f, 2.5f, 1f);
     private readonly Vector3 rivalPosicion = new Vector3(3f, -1.5f, 0f);
     private readonly Vector3 rivalEscala   = new Vector3(-3f, 3f, 1f);
 
