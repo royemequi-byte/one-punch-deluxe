@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AIProfile
   rivalName: "Kirik\xFA"
   telegraphDuration: 0.5
-  minCooldown: 1.2
-  maxCooldown: 2.8
+  minCooldown: 0.25
+  maxCooldown: 0.6
+  reactionTime: 0.14
+  aggressiveness: 0.5
+  blockChance: 0.45
+  dodgeChance: 0.25
+  comboLength: 3
   attacks:
   - {fileID: 11400000, guid: 2baf7cecddbf9274baff01b27ec23704, type: 2}
   - {fileID: 11400000, guid: a6ea5125b24f1014c8743cfd72739cd9, type: 2}

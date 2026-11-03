@@ -22,9 +22,15 @@ public class VisualJuice : MonoBehaviour
     [Header("Hit Flash")]
     [SerializeField] private float flashDuracion = 0.12f;
 
+    [Header("Zoom de impacto")]
+    [SerializeField] private float zoomFuerza = 0.1f;
+    [SerializeField] private float zoomDuracion = 0.12f;
+
     private Camera cam;
     private Vector3 camBasePos;
     private Coroutine shakeCoroutine;
+    private Coroutine zoomCoroutine;
+    private float baseOrthoSize = 5f;
 
     // Overlay de UI para el flash blanco
     private Image flashImage;
@@ -36,10 +42,13 @@ public class VisualJuice : MonoBehaviour
         Instance = this;
 
         cam = Camera.main;
-        if (cam != null) camBasePos = cam.transform.position;
+        if (cam != null)
+        {
+            camBasePos = cam.transform.position;
+            baseOrthoSize = cam.orthographicSize;
+        }
 
         CrearFlashOverlay();
-        CrearFondoRing();
     }
 
     private void OnDestroy()
@@ -69,7 +78,38 @@ public class VisualJuice : MonoBehaviour
     public void KnockOut()
     {
         Shake(shakeGrandeMagnitud * 2f, 0.45f);
-        StartCoroutine(ImpactFreeze());
+        StartCoroutine(SlowMotion());
+    }
+
+    // Cámara lenta breve al caer: da peso al K.O. sin congelar el juego
+    private IEnumerator SlowMotion()
+    {
+        float previous = Time.timeScale;
+        Time.timeScale = 0.3f;
+        yield return new WaitForSecondsRealtime(0.55f);
+        Time.timeScale = previous <= 0f ? 1f : previous;
+    }
+
+    /// <summary>Zoom corto hacia dentro al conectar un golpe. Da sensación de impacto.</summary>
+    public void ZoomPunch(float amount)
+    {
+        if (cam == null || !cam.orthographic) return;
+        if (zoomCoroutine != null) StopCoroutine(zoomCoroutine);
+        zoomCoroutine = StartCoroutine(ZoomCoroutine(amount <= 0f ? zoomFuerza : amount, zoomDuracion));
+    }
+
+    private IEnumerator ZoomCoroutine(float amount, float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float k = 1f - Mathf.Clamp01(elapsed / duration);
+            cam.orthographicSize = baseOrthoSize - amount * k;
+            yield return null;
+        }
+        cam.orthographicSize = baseOrthoSize;
+        zoomCoroutine = null;
     }
 
     // ── SHAKE ─────────────────────────────────────────────────
@@ -128,41 +168,9 @@ public class VisualJuice : MonoBehaviour
         rt.offsetMax = Vector2.zero;
     }
 
-    // ── FONDO DEL RING ────────────────────────────────────────
-
-    private void CrearFondoRing()
-    {
-        // ring_bg.png: 1920x1080 a PPU=100 → 19.2x10.8 unidades.
-        // Cámara ortográfica size=5 cubre 17.78x10 unidades (16:9 aspect).
-        // Escala 0.926 → imagen 17.78x10 u, llena la pantalla exactamente.
-        Vector3 escalaCorrecta = new Vector3(0.926f, 0.926f, 1f);
-        Vector3 posCorrecta    = new Vector3(0f, 0f, 10f);
-
-        // Si ya existe, corregir su escala y terminar
-        GameObject existente = GameObject.Find("BackgroundRing");
-        if (existente != null)
-        {
-            existente.transform.position   = posCorrecta;
-            existente.transform.localScale = escalaCorrecta;
-            return;
-        }
-
-        Sprite ringSprite = Resources.Load<Sprite>("ring_bg");
-        if (ringSprite == null)
-        {
-            Debug.LogWarning("[VisualJuice] ring_bg no encontrado en Resources/. El fondo del ring no se mostrará.");
-            return;
-        }
-
-        GameObject fondo = new GameObject("BackgroundRing");
-        SpriteRenderer sr = fondo.AddComponent<SpriteRenderer>();
-        sr.sprite       = ringSprite;
-        sr.sortingOrder = -10;
-        fondo.transform.position   = posCorrecta;
-        fondo.transform.localScale = escalaCorrecta;
-
-        Debug.Log("[VisualJuice] BackgroundRing creado desde Resources.");
-    }
+    // El fondo del ring vive en la escena (BackgroundRing).
+    // Este script NO lo crea ni lo mueve: así el escenario no desaparece
+    // ni se duplica al dar Play.
 
     private IEnumerator FlashCoroutine()
     {

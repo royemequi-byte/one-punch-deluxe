@@ -1,0 +1,494 @@
+fileFormatVersion: 2
+guid: f76b52112243ada448cc4fa31dfbfa27
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7906407206827762766
+    second: Kiriku_Knockdown_Sheet_0
+  - first:
+      213: -4992208701790777986
+    second: Kiriku_Knockdown_Sheet_1
+  - first:
+      213: 4763084770097976463
+    second: Kiriku_Knockdown_Sheet_2
+  - first:
+      213: 8920440330534259614
+    second: Kiriku_Knockdown_Sheet_3
+  - first:
+      213: 6891247589272657403
+    second: Kiriku_Knockdown_Sheet_4
+  - first:
+      213: 2818220677116885435
+    second: Kiriku_Knockdown_Sheet_5
+  - first:
+      213: 8533261183219406701
+    second: Kiriku_Knockdown_Sheet_6
+  - first:
+      213: -8679630077878626462
+    second: Kiriku_Knockdown_Sheet_7
+  - first:
+      213: -122227287745690168
+    second: Kiriku_Knockdown_Sheet_8
+  - first:
+      213: 9029828454107116368
+    second: Kiriku_Knockdown_Sheet_9
+  - first:
+      213: 1897848718819225288
+    second: Kiriku_Knockdown_Sheet_10
+  - first:
+      213: 2100765446724004924
+    second: Kiriku_Knockdown_Sheet_11
+  - first:
+      213: -2732237548288156660
+    second: Kiriku_Knockdown_Sheet_12
+  - first:
+      213: 7602662306297370529
+    second: Kiriku_Knockdown_Sheet_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 19
+        width: 163
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bb517b098cc64290800000000000000
+      internalID: -7906407206827762766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 19
+        width: 163
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d8525b2ac18bab0800000000000000
+      internalID: -4992208701790777986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 19
+        width: 201
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8453cccc50e91240800000000000000
+      internalID: 4763084770097976463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 161
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b0095d735cbcb70800000000000000
+      internalID: 8920440330534259614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 151
+        width: 9
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfd1dd9cb21a2af50800000000000000
+      internalID: 6891247589272657403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 19
+        width: 132
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb9763636c45c1720800000000000000
+      internalID: 2818220677116885435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 171
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d671c61c5db3c6670800000000000000
+      internalID: 8533261183219406701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 159
+        width: 9
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2679f3a4e62cb8780800000000000000
+      internalID: -8679630077878626462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 175
+        width: 6
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c50f0cede2cd4ef0800000000000000
+      internalID: -122227287745690168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 19
+        width: 101
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 053f4cd0325605d70800000000000000
+      internalID: 9029828454107116368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 150
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ce66a2ca53865a10800000000000000
+      internalID: 1897848718819225288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 32
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3c26602b0b672d10800000000000000
+      internalID: 2100765446724004924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 31
+        width: 23
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0cdc440d64251ad0800000000000000
+      internalID: -2732237548288156660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kiriku_Knockdown_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 38
+        width: 31
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a75b124615128960800000000000000
+      internalID: 7602662306297370529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Kiriku_Knockdown_Sheet_0: -7906407206827762766
+      Kiriku_Knockdown_Sheet_1: -4992208701790777986
+      Kiriku_Knockdown_Sheet_10: 1897848718819225288
+      Kiriku_Knockdown_Sheet_11: 2100765446724004924
+      Kiriku_Knockdown_Sheet_12: -2732237548288156660
+      Kiriku_Knockdown_Sheet_13: 7602662306297370529
+      Kiriku_Knockdown_Sheet_2: 4763084770097976463
+      Kiriku_Knockdown_Sheet_3: 8920440330534259614
+      Kiriku_Knockdown_Sheet_4: 6891247589272657403
+      Kiriku_Knockdown_Sheet_5: 2818220677116885435
+      Kiriku_Knockdown_Sheet_6: 8533261183219406701
+      Kiriku_Knockdown_Sheet_7: -8679630077878626462
+      Kiriku_Knockdown_Sheet_8: -122227287745690168
+      Kiriku_Knockdown_Sheet_9: 9029828454107116368
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

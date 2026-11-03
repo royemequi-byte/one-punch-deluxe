@@ -29,6 +29,10 @@ public class AudioLibrary : ScriptableObject
     public AudioClip sfxCaida;
     public AudioClip sfxCampana;
 
+    [Header("SFX — Extras")]
+    public AudioClip sfxPaso;
+    public AudioClip sfxSwing;
+
     [Header("SFX — UI")]
     public AudioClip sfxBotonClick;
     public AudioClip sfxBotonHover;

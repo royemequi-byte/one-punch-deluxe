@@ -34,6 +34,8 @@
 6. **Nunca toques archivos `.unity`, `.prefab`, `.asset` o `.meta` a mano.** Editarlos fuera del editor corrompe el proyecto. Si algo requiere el editor, entrega instrucciones paso a paso.
 7. **Al terminar cada script, pregunta:** *"¿Quieres que te explique cómo funciona antes de seguir?"*
 8. **No avances de hito sin autorización explícita.**
+9. **Prohibido crear scripts que reconstruyan la escena** (mover personajes, crear fondos, borrar Canvas o reescribir layouts al dar Play). La escena y los prefabs son la única fuente de verdad. Los scripts de "arreglo automático" ya causaron que el fondo y los objetos desaparecieran.
+10. **El arte del autor no se modifica.** Se puede re-recortar, alinear o cambiar el import, pero nunca repintar, reescalar el dibujo ni reemplazar un sprite por otro.
 
 ---
 

@@ -22,6 +22,7 @@ public class AudioManager : MonoBehaviour
 
     // Pool de fuentes para efectos — evita que dos golpes simultáneos se corten
     private AudioSource[] sfxPool;
+    private AudioSource ambienceSource;
     private int sfxPoolIndex = 0;
     private const int POOL_SIZE = 8;
 
@@ -37,6 +38,41 @@ public class AudioManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         CrearPoolDeSFX();
+    }
+
+    /// <summary>Conecta la librería cuando el manager se crea por código.</summary>
+    public void Initialize(AudioLibrary lib)
+    {
+        library = lib;
+
+        if (musicSource == null)
+        {
+            GameObject go = new GameObject("MusicSource");
+            go.transform.SetParent(transform, false);
+            musicSource = go.AddComponent<AudioSource>();
+            musicSource.playOnAwake = false;
+            musicSource.loop = true;
+            musicSource.volume = musicVolume;
+        }
+
+        if (sfxPool == null) CrearPoolDeSFX();
+
+        if (ambienceSource == null)
+        {
+            GameObject amb = new GameObject("AmbienceSource");
+            amb.transform.SetParent(transform, false);
+            ambienceSource = amb.AddComponent<AudioSource>();
+            ambienceSource.playOnAwake = false;
+            ambienceSource.loop = true;
+            ambienceSource.volume = 0f;
+        }
+
+        // Extras que viven en Resources para no tener que asignarlos
+        if (library != null)
+        {
+            if (library.sfxPaso == null) library.sfxPaso = Resources.Load<AudioClip>("Audio/footstep");
+            if (library.sfxSwing == null) library.sfxSwing = Resources.Load<AudioClip>("Audio/swing");
+        }
     }
 
     private void CrearPoolDeSFX()
@@ -64,15 +100,40 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// Reproduce un efecto de sonido desde el pool. No interrumpe otros SFX.
     /// </summary>
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFX(AudioClip clip, float volume = 1f, float pitch = 1f)
     {
-        if (clip == null) return;
+        if (clip == null || sfxPool == null) return;
 
         // Avanzar al siguiente AudioSource del pool (circular)
         sfxPoolIndex = (sfxPoolIndex + 1) % POOL_SIZE;
         AudioSource source = sfxPool[sfxPoolIndex];
+        source.pitch = Mathf.Clamp(pitch, 0.5f, 2f);
+        source.volume = sfxVolume * Mathf.Clamp01(volume);
         source.clip = clip;
         source.Play();
+    }
+
+    /// <summary>Ambiente de fondo (multitud, lluvia, etc.).</summary>
+    public void PlayAmbience(AudioClip clip, float volume = 0.25f)
+    {
+        if (ambienceSource == null) return;
+        if (clip == null) { StopAmbience(); return; }
+
+        ambienceSource.clip = clip;
+        ambienceSource.loop = true;
+        ambienceSource.volume = Mathf.Clamp01(volume);
+        ambienceSource.Play();
+    }
+
+    public void StopAmbience()
+    {
+        if (ambienceSource != null) ambienceSource.Stop();
+    }
+
+    /// <summary>Detiene la música actual.</summary>
+    public void StopMusic()
+    {
+        if (musicSource != null) musicSource.Stop();
     }
 
     /// <summary>

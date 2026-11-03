@@ -1,0 +1,18 @@
+MÚSICA Y AMBIENTE DEL JUEGO
+===========================
+
+Archivos que usa el juego (ya incluidos):
+
+  menu.wav       -> menú (loop)
+  historia.wav   -> historia (loop)
+  combate.ogg    -> pelea
+  crowd.mp3      -> multitud de boxeo de fondo en la pelea
+  victoria.ogg   -> opcional; si no existe se usa campana + impacto
+
+No hay que asignarlos en el Inspector: MusicDirector los carga
+automáticamente según la escena.
+
+Si quieres cambiarlos, reemplaza el archivo manteniendo el nombre.
+Formatos válidos: OGG, WAV, MP3 (Unity los importa).
+
+Créditos y licencias: Assets/Audio/CREDITOS.md

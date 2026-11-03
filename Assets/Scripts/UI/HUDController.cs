@@ -14,6 +14,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private Health  wallyHealth;
     [SerializeField] private Health  rivalHealth;
     [SerializeField] private Stamina wallyStamina;
+    [SerializeField] private Stamina rivalStamina;
 
     [Header("Barras Wally — izquierda (fillOrigin=Left)")]
     [SerializeField] private Image wallyBar;
@@ -106,16 +107,30 @@ public class HUDController : MonoBehaviour
             var pip = Object.FindFirstObjectByType<PlayerInputHandler>();
             if (pip != null) wallyStamina = pip.GetComponent<Stamina>();
         }
+        if (rivalStamina == null)
+        {
+            var rai = Object.FindFirstObjectByType<RivalAI>();
+            if (rai != null) rivalStamina = rai.GetComponent<Stamina>();
+        }
 
-        // ── Layout KOF XV: barras arriba, timer centro ────────────
-        // Se aplica en runtime para no depender del FixKOF editor
-        AplicarRect(wallyBarGO,   new Vector2(0.03f, 0.87f), new Vector2(0.47f, 0.95f));
-        AplicarRect(rivalBarGO,   new Vector2(0.53f, 0.87f), new Vector2(0.97f, 0.95f));
-        AplicarRect(staminaBarGO, new Vector2(0.03f, 0.82f), new Vector2(0.38f, 0.87f));
-        AplicarRect(timerGO,      new Vector2(0.44f, 0.89f), new Vector2(0.56f, 0.97f));
+        // Si la escena no trae anunciador ni gemas, se crean al vuelo
+        if (anunciador == null) anunciador = gameObject.AddComponent<AnunciadorRound>();
+        if (GetComponent<ComboCounter>() == null) gameObject.AddComponent<ComboCounter>();
+        if (GetComponent<ControlsHint>() == null) gameObject.AddComponent<ControlsHint>();
+        CrearGemasSiFaltan();
 
-        // Rival: la barra se consume de derecha a izquierda
-        if (rivalBar != null) rivalBar.fillOrigin = (int)Image.OriginHorizontal.Right;
+        // El cartel viejo "Round 1" se quedaba encima de la pelea; ahora lo
+        // muestra el anunciador nuevo, así que se oculta.
+        GameObject roundViejo = GameObject.Find("RoundText");
+        if (roundViejo != null) roundViejo.SetActive(false);
+
+        // Look KOF XV: barras finas, 99 al centro, GUARD y MAXIMUM abajo
+        KofHudSkin skin = GetComponent<KofHudSkin>();
+        if (skin == null) skin = gameObject.AddComponent<KofHudSkin>();
+        skin.Init(wallyBar, rivalBar, wallyStaminaBar, timerText, wallyStamina, rivalStamina, wallyGemas, rivalGemas);
+
+        // El layout se define en la escena (Canvas). No se reescribe en runtime:
+        // así los ajustes hechos en el Inspector se respetan al dar Play.
     }
 
     // Encuentra un GO tolerando espacio al inicio en el nombre (bug del Inspector)
@@ -126,18 +141,6 @@ public class HUDController : MonoBehaviour
         go = GameObject.Find(" " + n);
         if (go != null) go.name = n; // corrige el nombre en runtime
         return go;
-    }
-
-    // Aplica anclaje stretch al RectTransform de un contenedor UI
-    static void AplicarRect(GameObject go, Vector2 anchorMin, Vector2 anchorMax)
-    {
-        if (go == null) return;
-        RectTransform rt = go.GetComponent<RectTransform>();
-        if (rt == null) return;
-        rt.anchorMin        = anchorMin;
-        rt.anchorMax        = anchorMax;
-        rt.anchoredPosition = Vector2.zero;
-        rt.sizeDelta        = Vector2.zero;
     }
 
     static Image    ImgHijo(GameObject go) => go == null ? null : (go.GetComponent<Image>() ?? go.GetComponentInChildren<Image>());
@@ -220,7 +223,8 @@ public class HUDController : MonoBehaviour
     /// <summary>Prepara el timer y dispara el cartel "ROUND X → FIGHT!". El timer NO arranca aún.</summary>
     public void IniciarRound(int round, int wallyWins, int rivalWins)
     {
-        tiempoRestante    = roundDuration;
+        // KOF cuenta 99: aunque la escena tenga otro valor guardado, se respeta el 99.
+        tiempoRestante    = Mathf.Min(roundDuration, 99f);
         timerActivo       = false;
         tiempoYaDisparado = false;
 
@@ -231,6 +235,12 @@ public class HUDController : MonoBehaviour
         ActualizarGemas(wallyWins, rivalWins);
         anunciador?.MostrarRoundYFight(round);
     }
+
+    /// <summary>Cartel grande de K.O. cuando un peleador cae.</summary>
+    public void MostrarKO() => anunciador?.MostrarKO();
+
+    /// <summary>Cartel del súper MAXIMUM.</summary>
+    public void MostrarMaximum() => anunciador?.MostrarMaximum();
 
     /// <summary>Arranca el contador. FightManager llama esto justo cuando activa la IA.</summary>
     public void IniciarTimer()
@@ -249,29 +259,52 @@ public class HUDController : MonoBehaviour
 
     public void OcultarEntreRounds() { /* gemas ya actualizadas, nada más que ocultar */ }
 
-    /// <summary>Muestra el cartel de victoria/derrota y después el panel con botones.</summary>
+    /// <summary>Pantalla final de victoria/derrota con botones.</summary>
     public void MostrarResultado(bool wallyGana, int wallyWins, int rivalWins)
     {
         timerActivo = false;
         if (timerText != null) timerText.text = "--";
         ActualizarGemas(wallyWins, rivalWins);
 
-        if (wallyGana) anunciador?.MostrarWin();
-        else           anunciador?.MostrarDerrota();
-
-        StartCoroutine(MostrarPanelConDelay(wallyGana, wallyWins, rivalWins));
+        // La pantalla final se construye por código: así SIEMPRE aparece,
+        // aunque la escena no traiga panel asignado en el Inspector.
+        anunciador?.Ocultar();
+        GameOverScreen.Show(wallyGana, wallyWins, rivalWins);
     }
 
     // ── PRIVADOS ──────────────────────────────────────────────────
 
-    private IEnumerator MostrarPanelConDelay(bool wallyGana, int w, int r)
+    // Crea las dos gemas de round de cada lado si la escena no las tiene
+    private void CrearGemasSiFaltan()
     {
-        yield return new WaitForSeconds(2.2f);
-        if (resultPanel != null) resultPanel.SetActive(true);
-        if (resultText  != null)
-            resultText.text = wallyGana
-                ? $"¡WALLY GANA!\n{w}  -  {r}"
-                : $"¡DERROTA!\n{w}  -  {r}";
+        if (wallyGemas == null || wallyGemas.Length < 2) wallyGemas = new Image[2];
+        if (rivalGemas == null || rivalGemas.Length < 2) rivalGemas = new Image[2];
+
+        Canvas canvas = wallyBar != null ? wallyBar.canvas : Object.FindFirstObjectByType<Canvas>();
+        if (canvas == null) return;
+
+        for (int i = 0; i < wallyGemas.Length; i++)
+        {
+            if (wallyGemas[i] == null) wallyGemas[i] = CrearGema(canvas.transform, true, i);
+            if (rivalGemas[i] == null) rivalGemas[i] = CrearGema(canvas.transform, false, i);
+        }
+    }
+
+    private Image CrearGema(Transform parent, bool left, int index)
+    {
+        GameObject go = new GameObject(left ? "WallyGema" + index : "RivalGema" + index);
+        go.transform.SetParent(parent, false);
+
+        RectTransform rt = go.AddComponent<RectTransform>();
+        float x = left ? 0.045f + index * 0.022f : 0.955f - index * 0.022f;
+        rt.anchorMin = new Vector2(x, 0.795f);
+        rt.anchorMax = new Vector2(x, 0.795f);
+        rt.sizeDelta = new Vector2(28f, 28f);
+        rt.localRotation = Quaternion.Euler(0f, 0f, 45f);
+
+        Image img = go.AddComponent<Image>();
+        img.color = cGemaVacia;
+        return img;
     }
 
     private void ActualizarGemas(int wallyWins, int rivalWins)

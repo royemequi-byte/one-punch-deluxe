@@ -1,0 +1,5486 @@
+fileFormatVersion: 2
+guid: e290276e7c656d949bd3c456398349bf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4908026628448268275
+    second: Wally_GameOver_Screen_0
+  - first:
+      213: 6175042004758490011
+    second: Wally_GameOver_Screen_1
+  - first:
+      213: -2294724105573972087
+    second: Wally_GameOver_Screen_2
+  - first:
+      213: -1636399818412694501
+    second: Wally_GameOver_Screen_3
+  - first:
+      213: 2573186667343127206
+    second: Wally_GameOver_Screen_4
+  - first:
+      213: -1375799633572948833
+    second: Wally_GameOver_Screen_5
+  - first:
+      213: 5952751099371118443
+    second: Wally_GameOver_Screen_6
+  - first:
+      213: 1728521876513061534
+    second: Wally_GameOver_Screen_7
+  - first:
+      213: -6738706948109415362
+    second: Wally_GameOver_Screen_8
+  - first:
+      213: -5601911325507363205
+    second: Wally_GameOver_Screen_9
+  - first:
+      213: -8922881391762831350
+    second: Wally_GameOver_Screen_10
+  - first:
+      213: -5962500866135123993
+    second: Wally_GameOver_Screen_11
+  - first:
+      213: -7979234791190814179
+    second: Wally_GameOver_Screen_12
+  - first:
+      213: 1240165366136024747
+    second: Wally_GameOver_Screen_13
+  - first:
+      213: 5375364062125465554
+    second: Wally_GameOver_Screen_14
+  - first:
+      213: -5851435220471655751
+    second: Wally_GameOver_Screen_15
+  - first:
+      213: -3231370736610119662
+    second: Wally_GameOver_Screen_16
+  - first:
+      213: -5463559253133620815
+    second: Wally_GameOver_Screen_17
+  - first:
+      213: 5839516995265919724
+    second: Wally_GameOver_Screen_18
+  - first:
+      213: 4435603118584874565
+    second: Wally_GameOver_Screen_19
+  - first:
+      213: -8304682299864923309
+    second: Wally_GameOver_Screen_20
+  - first:
+      213: -2957090301859147165
+    second: Wally_GameOver_Screen_21
+  - first:
+      213: -4456163519609591568
+    second: Wally_GameOver_Screen_22
+  - first:
+      213: -8866400640656591957
+    second: Wally_GameOver_Screen_23
+  - first:
+      213: 3948217863188264253
+    second: Wally_GameOver_Screen_24
+  - first:
+      213: -6816535998087039052
+    second: Wally_GameOver_Screen_25
+  - first:
+      213: -3533283214196325578
+    second: Wally_GameOver_Screen_26
+  - first:
+      213: 4213612282100848888
+    second: Wally_GameOver_Screen_27
+  - first:
+      213: -1366287357905220635
+    second: Wally_GameOver_Screen_28
+  - first:
+      213: 6487795555551042602
+    second: Wally_GameOver_Screen_29
+  - first:
+      213: 2868659456179808357
+    second: Wally_GameOver_Screen_30
+  - first:
+      213: -5013973295166588362
+    second: Wally_GameOver_Screen_31
+  - first:
+      213: 9215163961858095433
+    second: Wally_GameOver_Screen_32
+  - first:
+      213: -6359612578732538645
+    second: Wally_GameOver_Screen_33
+  - first:
+      213: -3491595259608623070
+    second: Wally_GameOver_Screen_34
+  - first:
+      213: 5360752762121063044
+    second: Wally_GameOver_Screen_35
+  - first:
+      213: -931096141998694104
+    second: Wally_GameOver_Screen_36
+  - first:
+      213: -7741281500085156468
+    second: Wally_GameOver_Screen_37
+  - first:
+      213: -7201221672230699387
+    second: Wally_GameOver_Screen_38
+  - first:
+      213: 5425188212524948722
+    second: Wally_GameOver_Screen_39
+  - first:
+      213: -1582326834713357015
+    second: Wally_GameOver_Screen_40
+  - first:
+      213: -4895381298455522662
+    second: Wally_GameOver_Screen_41
+  - first:
+      213: 3001307199964823022
+    second: Wally_GameOver_Screen_42
+  - first:
+      213: -8463775794359823146
+    second: Wally_GameOver_Screen_43
+  - first:
+      213: -7532982417040802704
+    second: Wally_GameOver_Screen_44
+  - first:
+      213: -865121970763261779
+    second: Wally_GameOver_Screen_45
+  - first:
+      213: 255166773487588793
+    second: Wally_GameOver_Screen_46
+  - first:
+      213: -2881784096781141118
+    second: Wally_GameOver_Screen_47
+  - first:
+      213: 803883134694960417
+    second: Wally_GameOver_Screen_48
+  - first:
+      213: 3475133265050012510
+    second: Wally_GameOver_Screen_49
+  - first:
+      213: 1250364596663919477
+    second: Wally_GameOver_Screen_50
+  - first:
+      213: -5891140756402942777
+    second: Wally_GameOver_Screen_51
+  - first:
+      213: -7582003930344295378
+    second: Wally_GameOver_Screen_52
+  - first:
+      213: -3235970705073270215
+    second: Wally_GameOver_Screen_53
+  - first:
+      213: -1428339826077099039
+    second: Wally_GameOver_Screen_54
+  - first:
+      213: 6339540573791837500
+    second: Wally_GameOver_Screen_55
+  - first:
+      213: -9166019495304375077
+    second: Wally_GameOver_Screen_56
+  - first:
+      213: -1942842729916322977
+    second: Wally_GameOver_Screen_57
+  - first:
+      213: 9193166281119984537
+    second: Wally_GameOver_Screen_58
+  - first:
+      213: -68679643620851317
+    second: Wally_GameOver_Screen_59
+  - first:
+      213: 2013841645351645736
+    second: Wally_GameOver_Screen_60
+  - first:
+      213: 3096025474859260205
+    second: Wally_GameOver_Screen_61
+  - first:
+      213: -4317738487522260320
+    second: Wally_GameOver_Screen_62
+  - first:
+      213: -6989497212975965377
+    second: Wally_GameOver_Screen_63
+  - first:
+      213: 1174763589802791645
+    second: Wally_GameOver_Screen_64
+  - first:
+      213: 9095061112283474765
+    second: Wally_GameOver_Screen_65
+  - first:
+      213: -3349420919734552091
+    second: Wally_GameOver_Screen_66
+  - first:
+      213: -8631625829780977350
+    second: Wally_GameOver_Screen_67
+  - first:
+      213: 157781568234112122
+    second: Wally_GameOver_Screen_68
+  - first:
+      213: -3441912494038897951
+    second: Wally_GameOver_Screen_69
+  - first:
+      213: 7178153905484265206
+    second: Wally_GameOver_Screen_70
+  - first:
+      213: -1189309534454005339
+    second: Wally_GameOver_Screen_71
+  - first:
+      213: 7949363246178292032
+    second: Wally_GameOver_Screen_72
+  - first:
+      213: -3781026907296768083
+    second: Wally_GameOver_Screen_73
+  - first:
+      213: 7879865615884124606
+    second: Wally_GameOver_Screen_74
+  - first:
+      213: 891048269038552340
+    second: Wally_GameOver_Screen_75
+  - first:
+      213: -5627113084437136320
+    second: Wally_GameOver_Screen_76
+  - first:
+      213: -2335500862791403094
+    second: Wally_GameOver_Screen_77
+  - first:
+      213: -5541518101492301072
+    second: Wally_GameOver_Screen_78
+  - first:
+      213: -769789309407022363
+    second: Wally_GameOver_Screen_79
+  - first:
+      213: -4896075333619782449
+    second: Wally_GameOver_Screen_80
+  - first:
+      213: -1210671551135901227
+    second: Wally_GameOver_Screen_81
+  - first:
+      213: 9070465925013854814
+    second: Wally_GameOver_Screen_82
+  - first:
+      213: 7566150381100487523
+    second: Wally_GameOver_Screen_83
+  - first:
+      213: 8270876635705255059
+    second: Wally_GameOver_Screen_84
+  - first:
+      213: 5360349845060371207
+    second: Wally_GameOver_Screen_85
+  - first:
+      213: -6746146051262137228
+    second: Wally_GameOver_Screen_86
+  - first:
+      213: -9142330556690419778
+    second: Wally_GameOver_Screen_87
+  - first:
+      213: -3039492462581937409
+    second: Wally_GameOver_Screen_88
+  - first:
+      213: -7894419999783479808
+    second: Wally_GameOver_Screen_89
+  - first:
+      213: -957606160826829086
+    second: Wally_GameOver_Screen_90
+  - first:
+      213: 2042168761328131303
+    second: Wally_GameOver_Screen_91
+  - first:
+      213: 8519367407109832401
+    second: Wally_GameOver_Screen_92
+  - first:
+      213: -2910309584315097687
+    second: Wally_GameOver_Screen_93
+  - first:
+      213: 7124859335608870132
+    second: Wally_GameOver_Screen_94
+  - first:
+      213: 2651393461830404336
+    second: Wally_GameOver_Screen_95
+  - first:
+      213: 5717410733949569104
+    second: Wally_GameOver_Screen_96
+  - first:
+      213: 3740118375332370762
+    second: Wally_GameOver_Screen_97
+  - first:
+      213: -6328715338239554102
+    second: Wally_GameOver_Screen_98
+  - first:
+      213: 4944277745114029964
+    second: Wally_GameOver_Screen_99
+  - first:
+      213: 3573170031154732600
+    second: Wally_GameOver_Screen_100
+  - first:
+      213: -1189934037883605950
+    second: Wally_GameOver_Screen_101
+  - first:
+      213: -5880645653851155311
+    second: Wally_GameOver_Screen_102
+  - first:
+      213: 8795700585687084538
+    second: Wally_GameOver_Screen_103
+  - first:
+      213: -4294002949331069387
+    second: Wally_GameOver_Screen_104
+  - first:
+      213: 4624848183267218937
+    second: Wally_GameOver_Screen_105
+  - first:
+      213: -2358209843003561767
+    second: Wally_GameOver_Screen_106
+  - first:
+      213: 1288208297373038083
+    second: Wally_GameOver_Screen_107
+  - first:
+      213: 4493838108129032189
+    second: Wally_GameOver_Screen_108
+  - first:
+      213: -8572497992908912880
+    second: Wally_GameOver_Screen_109
+  - first:
+      213: -3718123875579039293
+    second: Wally_GameOver_Screen_110
+  - first:
+      213: 7746050283935765402
+    second: Wally_GameOver_Screen_111
+  - first:
+      213: -3653481498238373707
+    second: Wally_GameOver_Screen_112
+  - first:
+      213: 1557035447189880293
+    second: Wally_GameOver_Screen_113
+  - first:
+      213: 7163160647678734537
+    second: Wally_GameOver_Screen_114
+  - first:
+      213: 244864901722916886
+    second: Wally_GameOver_Screen_115
+  - first:
+      213: -3416050801052028097
+    second: Wally_GameOver_Screen_116
+  - first:
+      213: -2400776752232830764
+    second: Wally_GameOver_Screen_117
+  - first:
+      213: 1712058753815884461
+    second: Wally_GameOver_Screen_118
+  - first:
+      213: -2283378318584081997
+    second: Wally_GameOver_Screen_119
+  - first:
+      213: 6267271889229875017
+    second: Wally_GameOver_Screen_120
+  - first:
+      213: 341009846248600115
+    second: Wally_GameOver_Screen_121
+  - first:
+      213: 3680001345760204007
+    second: Wally_GameOver_Screen_122
+  - first:
+      213: 6544806231173212881
+    second: Wally_GameOver_Screen_123
+  - first:
+      213: 3824867565016913528
+    second: Wally_GameOver_Screen_124
+  - first:
+      213: -7110150738613843289
+    second: Wally_GameOver_Screen_125
+  - first:
+      213: -4586882120636686729
+    second: Wally_GameOver_Screen_126
+  - first:
+      213: 948587166355208084
+    second: Wally_GameOver_Screen_127
+  - first:
+      213: 4060998814390196262
+    second: Wally_GameOver_Screen_128
+  - first:
+      213: -1853249417237723414
+    second: Wally_GameOver_Screen_129
+  - first:
+      213: 8993617063540552022
+    second: Wally_GameOver_Screen_130
+  - first:
+      213: 6384949456021354795
+    second: Wally_GameOver_Screen_131
+  - first:
+      213: 2953739163287490981
+    second: Wally_GameOver_Screen_132
+  - first:
+      213: 1409316227810515550
+    second: Wally_GameOver_Screen_133
+  - first:
+      213: -3693055513844886901
+    second: Wally_GameOver_Screen_134
+  - first:
+      213: -6559297878726090289
+    second: Wally_GameOver_Screen_135
+  - first:
+      213: 8631239928386048249
+    second: Wally_GameOver_Screen_136
+  - first:
+      213: 9121881796107786022
+    second: Wally_GameOver_Screen_137
+  - first:
+      213: 4648353139273369378
+    second: Wally_GameOver_Screen_138
+  - first:
+      213: -5980596561795971812
+    second: Wally_GameOver_Screen_139
+  - first:
+      213: 5726148241647737416
+    second: Wally_GameOver_Screen_140
+  - first:
+      213: 1299395678776052526
+    second: Wally_GameOver_Screen_141
+  - first:
+      213: 3585941657470341281
+    second: Wally_GameOver_Screen_142
+  - first:
+      213: -3972991817092628334
+    second: Wally_GameOver_Screen_143
+  - first:
+      213: -6893479005204234150
+    second: Wally_GameOver_Screen_144
+  - first:
+      213: 2774449980641421610
+    second: Wally_GameOver_Screen_145
+  - first:
+      213: 2834573475049178603
+    second: Wally_GameOver_Screen_146
+  - first:
+      213: 5393594601319167342
+    second: Wally_GameOver_Screen_147
+  - first:
+      213: 8241928396592948263
+    second: Wally_GameOver_Screen_148
+  - first:
+      213: -4385153722166123696
+    second: Wally_GameOver_Screen_149
+  - first:
+      213: 7621849144200822979
+    second: Wally_GameOver_Screen_150
+  - first:
+      213: 3230546538449566974
+    second: Wally_GameOver_Screen_151
+  - first:
+      213: 8059221067728282024
+    second: Wally_GameOver_Screen_152
+  - first:
+      213: -6602003774195537751
+    second: Wally_GameOver_Screen_153
+  - first:
+      213: 8838363440341394740
+    second: Wally_GameOver_Screen_154
+  - first:
+      213: 8279642244831041686
+    second: Wally_GameOver_Screen_155
+  - first:
+      213: 8837093591841557156
+    second: Wally_GameOver_Screen_156
+  - first:
+      213: 1772441757660255137
+    second: Wally_GameOver_Screen_157
+  - first:
+      213: 4736384784977514203
+    second: Wally_GameOver_Screen_158
+  - first:
+      213: 3990726504678803471
+    second: Wally_GameOver_Screen_159
+  - first:
+      213: -3103530781132444309
+    second: Wally_GameOver_Screen_160
+  - first:
+      213: -8941767536934984873
+    second: Wally_GameOver_Screen_161
+  - first:
+      213: 4166433585160534962
+    second: Wally_GameOver_Screen_162
+  - first:
+      213: 7087631504805510087
+    second: Wally_GameOver_Screen_163
+  - first:
+      213: 8962763957855108970
+    second: Wally_GameOver_Screen_164
+  - first:
+      213: 8133654092454160135
+    second: Wally_GameOver_Screen_165
+  - first:
+      213: -3778108140656100310
+    second: Wally_GameOver_Screen_166
+  - first:
+      213: -4023842182966360561
+    second: Wally_GameOver_Screen_167
+  - first:
+      213: 9219453249764655156
+    second: Wally_GameOver_Screen_168
+  - first:
+      213: -806393493182904044
+    second: Wally_GameOver_Screen_169
+  - first:
+      213: 2317053627895171456
+    second: Wally_GameOver_Screen_170
+  - first:
+      213: 392861879591278441
+    second: Wally_GameOver_Screen_171
+  - first:
+      213: 1117756251584925703
+    second: Wally_GameOver_Screen_172
+  - first:
+      213: -5721838391738582768
+    second: Wally_GameOver_Screen_173
+  - first:
+      213: -6558833713594103895
+    second: Wally_GameOver_Screen_174
+  - first:
+      213: -4737429392602855961
+    second: Wally_GameOver_Screen_175
+  - first:
+      213: -3934302320559868200
+    second: Wally_GameOver_Screen_176
+  - first:
+      213: 8334138450812338875
+    second: Wally_GameOver_Screen_177
+  - first:
+      213: -3169046024446256333
+    second: Wally_GameOver_Screen_178
+  - first:
+      213: 1735170955703033326
+    second: Wally_GameOver_Screen_179
+  - first:
+      213: -3887050117593976113
+    second: Wally_GameOver_Screen_180
+  - first:
+      213: -137472709871812756
+    second: Wally_GameOver_Screen_181
+  - first:
+      213: -1813758505464963963
+    second: Wally_GameOver_Screen_182
+  - first:
+      213: 6380164987591720491
+    second: Wally_GameOver_Screen_183
+  - first:
+      213: 3284623677156629752
+    second: Wally_GameOver_Screen_184
+  - first:
+      213: 8739519005856126514
+    second: Wally_GameOver_Screen_185
+  - first:
+      213: -5300881185502052643
+    second: Wally_GameOver_Screen_186
+  - first:
+      213: 1276578397499738686
+    second: Wally_GameOver_Screen_187
+  - first:
+      213: -2176827983679515090
+    second: Wally_GameOver_Screen_188
+  - first:
+      213: -613202840034175608
+    second: Wally_GameOver_Screen_189
+  - first:
+      213: -1062387672566417002
+    second: Wally_GameOver_Screen_190
+  - first:
+      213: 6783483491611503493
+    second: Wally_GameOver_Screen_191
+  - first:
+      213: -6923651231947347100
+    second: Wally_GameOver_Screen_192
+  - first:
+      213: -4142440176613897472
+    second: Wally_GameOver_Screen_193
+  - first:
+      213: 565633545404699733
+    second: Wally_GameOver_Screen_194
+  - first:
+      213: -724419777382376970
+    second: Wally_GameOver_Screen_195
+  - first:
+      213: -8640981944524286344
+    second: Wally_GameOver_Screen_196
+  - first:
+      213: 3230205159357235581
+    second: Wally_GameOver_Screen_197
+  - first:
+      213: 5744919672166179044
+    second: Wally_GameOver_Screen_198
+  - first:
+      213: 5278191847985847862
+    second: Wally_GameOver_Screen_199
+  - first:
+      213: 5746235902702828224
+    second: Wally_GameOver_Screen_200
+  - first:
+      213: 1613997387789112813
+    second: Wally_GameOver_Screen_201
+  - first:
+      213: -5679028229817804959
+    second: Wally_GameOver_Screen_202
+  - first:
+      213: 3392880109130599107
+    second: Wally_GameOver_Screen_203
+  - first:
+      213: 459573737566338594
+    second: Wally_GameOver_Screen_204
+  - first:
+      213: 1751109176006932095
+    second: Wally_GameOver_Screen_205
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 695
+        width: 163
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ff21d8f630dc1440800000000000000
+      internalID: 4908026628448268275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 573
+        width: 252
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9beebe8cf722b550800000000000000
+      internalID: 6175042004758490011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 728
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 987ccbd75908720e0800000000000000
+      internalID: -2294724105573972087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_3
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 734
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b146ff009075a49e0800000000000000
+      internalID: -1636399818412694501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_4
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 742
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a222cff3abc5b320800000000000000
+      internalID: 2573186667343127206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 735
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9495c6c58d28ece0800000000000000
+      internalID: -1375799633572948833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_6
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 698
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6fd45af59b6c9250800000000000000
+      internalID: 5952751099371118443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_7
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 725
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9a7d041d71fcf710800000000000000
+      internalID: 1728521876513061534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_8
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 691
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3c4b70ebbd4b72a0800000000000000
+      internalID: -6738706948109415362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_9
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 750
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7e55e364530242b0800000000000000
+      internalID: -5601911325507363205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_10
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 724
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a08880f46ae8b2480800000000000000
+      internalID: -8922881391762831350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_11
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 715
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e79e0d8d01f04da0800000000000000
+      internalID: -5962500866135123993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_12
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 699
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1222a3bb30144190800000000000000
+      internalID: -7979234791190814179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_13
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 703
+        width: 340
+        height: 365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baea74f64d3f53110800000000000000
+      internalID: 1240165366136024747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_14
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 728
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2df93657221299a40800000000000000
+      internalID: 5375364062125465554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_15
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 746
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b2d3915ba68bcea0800000000000000
+      internalID: -5851435220471655751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_16
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 741
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 210f2c28f6dd723d0800000000000000
+      internalID: -3231370736610119662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_17
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 727
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b90ca37ec98d24b0800000000000000
+      internalID: -5463559253133620815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_18
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 722
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea7ea2a4c12a0150800000000000000
+      internalID: 5839516995265919724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_19
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 595
+        width: 252
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 546cdd7198d6e8d30800000000000000
+      internalID: 4435603118584874565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_20
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 717
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 353c318c277dfbc80800000000000000
+      internalID: -8304682299864923309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_21
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 726
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362deeca90e46f6d0800000000000000
+      internalID: -2957090301859147165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_22
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 716
+        width: 24
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f8ad9083e68822c0800000000000000
+      internalID: -4456163519609591568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_23
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 718
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba33e51f79734f480800000000000000
+      internalID: -8866400640656591957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_24
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 708
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d35303f5a33eac630800000000000000
+      internalID: 3948217863188264253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_25
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 719
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b7fb5310acc661a0800000000000000
+      internalID: -6816535998087039052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_26
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 716
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6334af603a147fec0800000000000000
+      internalID: -3533283214196325578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_27
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 717
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f818dfbb02c97a30800000000000000
+      internalID: 4213612282100848888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_28
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 720
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ebc3fa03e8f90de0800000000000000
+      internalID: -1366287357905220635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_29
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 718
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2c5af71fa7490a50800000000000000
+      internalID: 6487795555551042602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_30
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 714
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 568a92b93968fc720800000000000000
+      internalID: 2868659456179808357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_31
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 718
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63afc4c6ad9ca6ab0800000000000000
+      internalID: -5013973295166588362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_32
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 759
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 949788d9cc6d2ef70800000000000000
+      internalID: 9215163961858095433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_33
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 776
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be48a87ed0e1eb7a0800000000000000
+      internalID: -6359612578732538645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_34
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 776
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22817935c9c5b8fc0800000000000000
+      internalID: -3491595259608623070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_35
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 747
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48a8be21c38356a40800000000000000
+      internalID: 5360752762121063044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_36
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 735
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8216e64fdf41413f0800000000000000
+      internalID: -931096141998694104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_37
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 791
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c850f11ad71719490800000000000000
+      internalID: -7741281500085156468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_38
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 730
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58e38d5fa0f101c90800000000000000
+      internalID: -7201221672230699387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_39
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 670
+        width: 252
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fc9f277fe32a4b40800000000000000
+      internalID: 5425188212524948722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_40
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 720
+        width: 252
+        height: 385
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925975a90227a0ae0800000000000000
+      internalID: -1582326834713357015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_41
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 19
+        width: 252
+        height: 801
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a92d77955ac101cb0800000000000000
+      internalID: -4895381298455522662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_42
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 800
+        width: 252
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eedb9bb2ff8c6a920800000000000000
+      internalID: 3001307199964823022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_43
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 289
+        width: 70
+        height: 538
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d412ae02c0aa8a80800000000000000
+      internalID: -8463775794359823146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_44
+      rect:
+        serializedVersion: 2
+        x: 1237
+        y: 654
+        width: 194
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07cf4053768757790800000000000000
+      internalID: -7532982417040802704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_45
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 795
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da81545b6287ef3f0800000000000000
+      internalID: -865121970763261779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_46
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 631
+        width: 22
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b5d53c14d88a8300800000000000000
+      internalID: 255166773487588793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_47
+      rect:
+        serializedVersion: 2
+        x: 1307
+        y: 699
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28b7dffd1a8d108d0800000000000000
+      internalID: -2881784096781141118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_48
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 705
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12dab6ca377f72b00800000000000000
+      internalID: 803883134694960417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_49
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 725
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b0372ea472a3030800000000000000
+      internalID: 3475133265050012510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_50
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 696
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 573a0e7d9ff2a5110800000000000000
+      internalID: 1250364596663919477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_51
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 772
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ccc6c4d1b67e3ea0800000000000000
+      internalID: -5891140756402942777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_52
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 693
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e247636b89f47c690800000000000000
+      internalID: -7582003930344295378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_53
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 708
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9329984e9c58713d0800000000000000
+      internalID: -3235970705073270215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_54
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 798
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eb9120fe748d2ce0800000000000000
+      internalID: -1428339826077099039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_55
+      rect:
+        serializedVersion: 2
+        x: 1361
+        y: 674
+        width: 36
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3dd90440929af750800000000000000
+      internalID: 6339540573791837500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_56
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 816
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd4d31a25d1cbc080800000000000000
+      internalID: -9166019495304375077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_57
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 799
+        width: 26
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5b23eca4d2a905e0800000000000000
+      internalID: -1942842729916322977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_58
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 791
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b61437600b49f70800000000000000
+      internalID: 9193166281119984537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_59
+      rect:
+        serializedVersion: 2
+        x: 1410
+        y: 700
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b81cdae5a300c0ff0800000000000000
+      internalID: -68679643620851317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_60
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 716
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 822b2118e4a92fb10800000000000000
+      internalID: 2013841645351645736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_61
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 701
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d29db8414ca47fa20800000000000000
+      internalID: 3096025474859260205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_62
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 668
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aa0432d8bf4414c0800000000000000
+      internalID: -4317738487522260320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_63
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 678
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3b1cf51151500f90800000000000000
+      internalID: -6989497212975965377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_64
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 674
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd21241c2499d4010800000000000000
+      internalID: 1174763589802791645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_65
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 669
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4b2028d4e5283e70800000000000000
+      internalID: 9095061112283474765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_66
+      rect:
+        serializedVersion: 2
+        x: 1381
+        y: 665
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e9b5f36b677481d0800000000000000
+      internalID: -3349420919734552091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_67
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 658
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3981d54a0e463880800000000000000
+      internalID: -8631625829780977350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_68
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 666
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a74c2b6108d803200800000000000000
+      internalID: 157781568234112122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_69
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 663
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ea25dc92dedb30d0800000000000000
+      internalID: -3441912494038897951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_70
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 647
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f6f87f02fced9360800000000000000
+      internalID: 7178153905484265206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_71
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 659
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a142e69749be7fe0800000000000000
+      internalID: -1189309534454005339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_72
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 661
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041d00f31cfc15e60800000000000000
+      internalID: 7949363246178292032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_73
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 660
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dafd1608f08178bc0800000000000000
+      internalID: -3781026907296768083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_74
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 19
+        width: 252
+        height: 654
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb186904708ea5d60800000000000000
+      internalID: 7879865615884124606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_75
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 664
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41505c10ea3ad5c00800000000000000
+      internalID: 891048269038552340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_76
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 660
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04cfb23a67a78e1b0800000000000000
+      internalID: -5627113084437136320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_77
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 651
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa933bcd652a69fd0800000000000000
+      internalID: -2335500862791403094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_78
+      rect:
+        serializedVersion: 2
+        x: 1336
+        y: 658
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f2872c95a29813b0800000000000000
+      internalID: -5541518101492301072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_79
+      rect:
+        serializedVersion: 2
+        x: 1374
+        y: 662
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e2b6ec93b82155f0800000000000000
+      internalID: -769789309407022363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_80
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 648
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcc6a02bc65ad0cb0800000000000000
+      internalID: -4896075333619782449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_81
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 656
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d99fde73a4d23fe0800000000000000
+      internalID: -1210671551135901227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_82
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 648
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5a5cbf83b4c0ed70800000000000000
+      internalID: 9070465925013854814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_83
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 652
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3635ea63fad500960800000000000000
+      internalID: 7566150381100487523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_84
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 651
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3942a4caa7e08c270800000000000000
+      internalID: 8270876635705255059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_85
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 654
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 703c4a2a8c9c36a40800000000000000
+      internalID: 5360349845060371207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_86
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 643
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47cbd93b8efd062a0800000000000000
+      internalID: -6746146051262137228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_87
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 646
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebfa44dfbcaef1180800000000000000
+      internalID: -9142330556690419778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_88
+      rect:
+        serializedVersion: 2
+        x: 1298
+        y: 655
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffa835e85bd81d5d0800000000000000
+      internalID: -3039492462581937409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_89
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 641
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0069a2d26d2617290800000000000000
+      internalID: -7894419999783479808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_90
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 649
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e6f0353546e5b2f0800000000000000
+      internalID: -957606160826829086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_91
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 624
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ecdc562bad375c10800000000000000
+      internalID: 2042168761328131303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_92
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 637
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1de72dbe48fda3670800000000000000
+      internalID: 8519367407109832401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_93
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 638
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9addb704ad08c97d0800000000000000
+      internalID: -2910309584315097687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_94
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 637
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f4a79d01d590e260800000000000000
+      internalID: 7124859335608870132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_95
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 609
+        width: 192
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f8c13c4e44abc420800000000000000
+      internalID: 2651393461830404336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_96
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 622
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 058c11835c2585f40800000000000000
+      internalID: 5717410733949569104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_97
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 623
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a49d89ba8d197e330800000000000000
+      internalID: 3740118375332370762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_98
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 620
+        width: 20
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acd4aab4ee2eb28a0800000000000000
+      internalID: -6328715338239554102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_99
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 588
+        width: 83
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8f146cc96a9d9440800000000000000
+      internalID: 4944277745114029964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_100
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 628
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83e9c0d3633769130800000000000000
+      internalID: 3573170031154732600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_101
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 617
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24c2dcd0c418c7fe0800000000000000
+      internalID: -1189934037883605950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_102
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 585
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 194d1405fefb36ea0800000000000000
+      internalID: -5880645653851155311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_103
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 614
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afde290c41b901a70800000000000000
+      internalID: 8795700585687084538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_104
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 608
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53654a47113a864c0800000000000000
+      internalID: -4294002949331069387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_105
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 608
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f5d0cf4be2ce2040800000000000000
+      internalID: 4624848183267218937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_106
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 614
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d861f164a4f54fd0800000000000000
+      internalID: -2358209843003561767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_107
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 603
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30671a90f92a0e110800000000000000
+      internalID: 1288208297373038083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_108
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 614
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df7f42133f15d5e30800000000000000
+      internalID: 4493838108129032189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_109
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 606
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0174ae69e7e580980800000000000000
+      internalID: -8572497992908912880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_110
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 611
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c1763dd802966cc0800000000000000
+      internalID: -3718123875579039293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_111
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 605
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a931e4261bf7f7b60800000000000000
+      internalID: 7746050283935765402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_112
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 601
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b03a003fe93c4dc0800000000000000
+      internalID: -3653481498238373707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_113
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 598
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5edb17c5d73bb9510800000000000000
+      internalID: 1557035447189880293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_114
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 598
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c0b2f138a8a86360800000000000000
+      internalID: 7163160647678734537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_115
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 592
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 618c72da45fe56300800000000000000
+      internalID: 244864901722916886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_116
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 581
+        width: 10
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f33fa9c35efb790d0800000000000000
+      internalID: -3416050801052028097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_117
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 600
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d86522834abeaed0800000000000000
+      internalID: -2400776752232830764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_118
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 606
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da23bcf9d5472c710800000000000000
+      internalID: 1712058753815884461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_119
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 601
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b197f0648fcf40e0800000000000000
+      internalID: -2283378318584081997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_120
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 489
+        width: 192
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 947865ce392d9f650800000000000000
+      internalID: 6267271889229875017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_121
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 575
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 332fe8ef5a28bb400800000000000000
+      internalID: 341009846248600115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_122
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 593
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e41ffaf9bdf11330800000000000000
+      internalID: 3680001345760204007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_123
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 597
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1daa7d46792d3da50800000000000000
+      internalID: 6544806231173212881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_124
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 590
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8761fbd09c8a41530800000000000000
+      internalID: 3824867565016913528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_125
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 590
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aac07d039ba35d90800000000000000
+      internalID: -7110150738613843289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_126
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 592
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77e1cdc730f1850c0800000000000000
+      internalID: -4586882120636686729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_127
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 583
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 497b811800f0a2d00800000000000000
+      internalID: 948587166355208084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_128
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 599
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6289205d7e09b5830800000000000000
+      internalID: 4060998814390196262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_129
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 596
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae68855597fe746e0800000000000000
+      internalID: -1853249417237723414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_130
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 586
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 651f93ea11fbfcc70800000000000000
+      internalID: 8993617063540552022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_131
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 582
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b29f9fa83b5eb9850800000000000000
+      internalID: 6384949456021354795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_132
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 588
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a119e29e1acdf820800000000000000
+      internalID: 2953739163287490981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_133
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 582
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5ad6de64a5ee8310800000000000000
+      internalID: 1409316227810515550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_134
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 501
+        width: 252
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b825a79a391afbcc0800000000000000
+      internalID: -3693055513844886901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_135
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 586
+        width: 24
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc1ee8af451b8f4a0800000000000000
+      internalID: -6559297878726090289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_136
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 579
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f05e9e0cf258c770800000000000000
+      internalID: 8631239928386048249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_137
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 572
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6275b1ce92f679e70800000000000000
+      internalID: 9121881796107786022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_138
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 468
+        width: 252
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22706f85d84428040800000000000000
+      internalID: 4648353139273369378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_139
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 564
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c158a351d17a00da0800000000000000
+      internalID: -5980596561795971812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_140
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 566
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84a14a2cc7d577f40800000000000000
+      internalID: 5726148241647737416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_141
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 572
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2bcf104c71680210800000000000000
+      internalID: 1299395678776052526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_142
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 550
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a09bc630f2d3c130800000000000000
+      internalID: 3585941657470341281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_143
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 528
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29009aefdf81dd8c0800000000000000
+      internalID: -3972991817092628334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_144
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 527
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5040343e517550a0800000000000000
+      internalID: -6893479005204234150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_145
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 530
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a29a837ce83d08620800000000000000
+      internalID: 2774449980641421610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_146
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 502
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be50d0eae8d665720800000000000000
+      internalID: 2834573475049178603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_147
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 526
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e65f712a6b5e9da40800000000000000
+      internalID: 5393594601319167342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_148
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 516
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 724a0278536316270800000000000000
+      internalID: 8241928396592948263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_149
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 514
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0536ec85cedc423c0800000000000000
+      internalID: -4385153722166123696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_150
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 504
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c084b31a6f36c960800000000000000
+      internalID: 7621849144200822979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_151
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 502
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc77a6e5f435dc20800000000000000
+      internalID: 3230546538449566974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_152
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 498
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a1e94c8cda18df60800000000000000
+      internalID: 8059221067728282024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_153
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 504
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a86949db88f064a0800000000000000
+      internalID: -6602003774195537751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_154
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 418
+        width: 252
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4352959a8bc28aa70800000000000000
+      internalID: 8838363440341394740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_155
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 501
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 698d87611c237e270800000000000000
+      internalID: 8279642244831041686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_156
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 496
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aac8940dc9a3aa70800000000000000
+      internalID: 8837093591841557156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_157
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 495
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a39866436af89810800000000000000
+      internalID: 1772441757660255137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_158
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 493
+        width: 20
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bde46241ed40bb140800000000000000
+      internalID: 4736384784977514203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_159
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 479
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f08cd1bbc98e16730800000000000000
+      internalID: 3990726504678803471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_160
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 495
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6d2c11a23b0ee4d0800000000000000
+      internalID: -3103530781132444309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_161
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 486
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 753eed8fcc578e380800000000000000
+      internalID: -8941767536934984873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_162
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 495
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bb30cf554522d930800000000000000
+      internalID: 4166433585160534962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_163
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 455
+        width: 27
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cbbcce3d435c5260800000000000000
+      internalID: 7087631504805510087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_164
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 494
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6fb0a93552226c70800000000000000
+      internalID: 8962763957855108970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_165
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 473
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 707e1aa9d4b80e070800000000000000
+      internalID: 8133654092454160135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_166
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 469
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2c7e21d9a6719bc0800000000000000
+      internalID: -3778108140656100310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_167
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 474
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06ce049ad07828c0800000000000000
+      internalID: -4023842182966360561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_168
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 465
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4300b8742e312ff70800000000000000
+      internalID: 9219453249764655156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_169
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 479
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41985a1f36d1fc4f0800000000000000
+      internalID: -806393493182904044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_170
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 315
+        width: 192
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 089c8309ff3d72020800000000000000
+      internalID: 2317053627895171456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_171
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 362
+        width: 252
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96794da4cc9b37500800000000000000
+      internalID: 392861879591278441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_172
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 358
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70011318361138f00800000000000000
+      internalID: 1117756251584925703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_173
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 358
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 019ba3e5c42f790b0800000000000000
+      internalID: -5721838391738582768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_174
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 369
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a70e58dc775af4a0800000000000000
+      internalID: -6558833713594103895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_175
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 360
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e589614115414eb0800000000000000
+      internalID: -4737429392602855961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_176
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 369
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d6b80062ec8669c0800000000000000
+      internalID: -3934302320559868200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_177
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 346
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb2089dc3cec8a370800000000000000
+      internalID: 8334138450812338875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_178
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 405
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33b540c5e694504d0800000000000000
+      internalID: -3169046024446256333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_179
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 399
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eed11477ac0941810800000000000000
+      internalID: 1735170955703033326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_180
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 388
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc2bba4338c6e0ac0800000000000000
+      internalID: -3887050117593976113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_181
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 363
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6fb7c97c49971ef0800000000000000
+      internalID: -137472709871812756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_182
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 390
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58cda6dbf3c34d6e0800000000000000
+      internalID: -1813758505464963963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_183
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 369
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2ef9cda046ea8850800000000000000
+      internalID: 6380164987591720491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_184
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 361
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc12c9e4d3559d20800000000000000
+      internalID: 3284623677156629752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_185
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 357
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23654db5b32094970800000000000000
+      internalID: 8739519005856126514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_186
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 359
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dde3995a5ac7f66b0800000000000000
+      internalID: -5300881185502052643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_187
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 403
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3ac8e6f94157b110800000000000000
+      internalID: 1276578397499738686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_188
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 403
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2617af6b7a5ac1e0800000000000000
+      internalID: -2176827983679515090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_189
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 393
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 885908014477d77f0800000000000000
+      internalID: -613202840034175608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_190
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 19
+        width: 252
+        height: 414
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 699bce26a04a141f0800000000000000
+      internalID: -1062387672566417002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_191
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 296
+        width: 21
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58bea319b46c32e50800000000000000
+      internalID: 6783483491611503493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_192
+      rect:
+        serializedVersion: 2
+        x: 1309
+        y: 358
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46b251b33ef3aef90800000000000000
+      internalID: -6923651231947347100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_193
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 355
+        width: 31
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00b4f916b981386c0800000000000000
+      internalID: -4142440176613897472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_194
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 316
+        width: 252
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55454e276b889d700800000000000000
+      internalID: 565633545404699733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_195
+      rect:
+        serializedVersion: 2
+        x: 1318
+        y: 339
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f91bd4fc0852f5f0800000000000000
+      internalID: -724419777382376970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_196
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 336
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 876d01e04b0151880800000000000000
+      internalID: -8640981944524286344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_197
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 321
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d714f136a7ef3dc20800000000000000
+      internalID: 3230205159357235581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_198
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 325
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e06e92010e0abf40800000000000000
+      internalID: 5744919672166179044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_199
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 320
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63e1f8b4587ef3940800000000000000
+      internalID: 5278191847985847862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_200
+      rect:
+        serializedVersion: 2
+        x: 1417
+        y: 318
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cab230db1bbebf40800000000000000
+      internalID: 5746235902702828224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_201
+      rect:
+        serializedVersion: 2
+        x: 1419
+        y: 322
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de51497a212166610800000000000000
+      internalID: 1613997387789112813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_202
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 19
+        width: 252
+        height: 305
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1675b4ce9e90031b0800000000000000
+      internalID: -5679028229817804959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_203
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 19
+        width: 252
+        height: 297
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cac736ab7ee51f20800000000000000
+      internalID: 3392880109130599107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_204
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 309
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22e7dbf11ebb06600800000000000000
+      internalID: 459573737566338594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_GameOver_Screen_205
+      rect:
+        serializedVersion: 2
+        x: 1379
+        y: 316
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76f1de84803d4810800000000000000
+      internalID: 1751109176006932095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Wally_GameOver_Screen_0: 4908026628448268275
+      Wally_GameOver_Screen_1: 6175042004758490011
+      Wally_GameOver_Screen_10: -8922881391762831350
+      Wally_GameOver_Screen_100: 3573170031154732600
+      Wally_GameOver_Screen_101: -1189934037883605950
+      Wally_GameOver_Screen_102: -5880645653851155311
+      Wally_GameOver_Screen_103: 8795700585687084538
+      Wally_GameOver_Screen_104: -4294002949331069387
+      Wally_GameOver_Screen_105: 4624848183267218937
+      Wally_GameOver_Screen_106: -2358209843003561767
+      Wally_GameOver_Screen_107: 1288208297373038083
+      Wally_GameOver_Screen_108: 4493838108129032189
+      Wally_GameOver_Screen_109: -8572497992908912880
+      Wally_GameOver_Screen_11: -5962500866135123993
+      Wally_GameOver_Screen_110: -3718123875579039293
+      Wally_GameOver_Screen_111: 7746050283935765402
+      Wally_GameOver_Screen_112: -3653481498238373707
+      Wally_GameOver_Screen_113: 1557035447189880293
+      Wally_GameOver_Screen_114: 7163160647678734537
+      Wally_GameOver_Screen_115: 244864901722916886
+      Wally_GameOver_Screen_116: -3416050801052028097
+      Wally_GameOver_Screen_117: -2400776752232830764
+      Wally_GameOver_Screen_118: 1712058753815884461
+      Wally_GameOver_Screen_119: -2283378318584081997
+      Wally_GameOver_Screen_12: -7979234791190814179
+      Wally_GameOver_Screen_120: 6267271889229875017
+      Wally_GameOver_Screen_121: 341009846248600115
+      Wally_GameOver_Screen_122: 3680001345760204007
+      Wally_GameOver_Screen_123: 6544806231173212881
+      Wally_GameOver_Screen_124: 3824867565016913528
+      Wally_GameOver_Screen_125: -7110150738613843289
+      Wally_GameOver_Screen_126: -4586882120636686729
+      Wally_GameOver_Screen_127: 948587166355208084
+      Wally_GameOver_Screen_128: 4060998814390196262
+      Wally_GameOver_Screen_129: -1853249417237723414
+      Wally_GameOver_Screen_13: 1240165366136024747
+      Wally_GameOver_Screen_130: 8993617063540552022
+      Wally_GameOver_Screen_131: 6384949456021354795
+      Wally_GameOver_Screen_132: 2953739163287490981
+      Wally_GameOver_Screen_133: 1409316227810515550
+      Wally_GameOver_Screen_134: -3693055513844886901
+      Wally_GameOver_Screen_135: -6559297878726090289
+      Wally_GameOver_Screen_136: 8631239928386048249
+      Wally_GameOver_Screen_137: 9121881796107786022
+      Wally_GameOver_Screen_138: 4648353139273369378
+      Wally_GameOver_Screen_139: -5980596561795971812
+      Wally_GameOver_Screen_14: 5375364062125465554
+      Wally_GameOver_Screen_140: 5726148241647737416
+      Wally_GameOver_Screen_141: 1299395678776052526
+      Wally_GameOver_Screen_142: 3585941657470341281
+      Wally_GameOver_Screen_143: -3972991817092628334
+      Wally_GameOver_Screen_144: -6893479005204234150
+      Wally_GameOver_Screen_145: 2774449980641421610
+      Wally_GameOver_Screen_146: 2834573475049178603
+      Wally_GameOver_Screen_147: 5393594601319167342
+      Wally_GameOver_Screen_148: 8241928396592948263
+      Wally_GameOver_Screen_149: -4385153722166123696
+      Wally_GameOver_Screen_15: -5851435220471655751
+      Wally_GameOver_Screen_150: 7621849144200822979
+      Wally_GameOver_Screen_151: 3230546538449566974
+      Wally_GameOver_Screen_152: 8059221067728282024
+      Wally_GameOver_Screen_153: -6602003774195537751
+      Wally_GameOver_Screen_154: 8838363440341394740
+      Wally_GameOver_Screen_155: 8279642244831041686
+      Wally_GameOver_Screen_156: 8837093591841557156
+      Wally_GameOver_Screen_157: 1772441757660255137
+      Wally_GameOver_Screen_158: 4736384784977514203
+      Wally_GameOver_Screen_159: 3990726504678803471
+      Wally_GameOver_Screen_16: -3231370736610119662
+      Wally_GameOver_Screen_160: -3103530781132444309
+      Wally_GameOver_Screen_161: -8941767536934984873
+      Wally_GameOver_Screen_162: 4166433585160534962
+      Wally_GameOver_Screen_163: 7087631504805510087
+      Wally_GameOver_Screen_164: 8962763957855108970
+      Wally_GameOver_Screen_165: 8133654092454160135
+      Wally_GameOver_Screen_166: -3778108140656100310
+      Wally_GameOver_Screen_167: -4023842182966360561
+      Wally_GameOver_Screen_168: 9219453249764655156
+      Wally_GameOver_Screen_169: -806393493182904044
+      Wally_GameOver_Screen_17: -5463559253133620815
+      Wally_GameOver_Screen_170: 2317053627895171456
+      Wally_GameOver_Screen_171: 392861879591278441
+      Wally_GameOver_Screen_172: 1117756251584925703
+      Wally_GameOver_Screen_173: -5721838391738582768
+      Wally_GameOver_Screen_174: -6558833713594103895
+      Wally_GameOver_Screen_175: -4737429392602855961
+      Wally_GameOver_Screen_176: -3934302320559868200
+      Wally_GameOver_Screen_177: 8334138450812338875
+      Wally_GameOver_Screen_178: -3169046024446256333
+      Wally_GameOver_Screen_179: 1735170955703033326
+      Wally_GameOver_Screen_18: 5839516995265919724
+      Wally_GameOver_Screen_180: -3887050117593976113
+      Wally_GameOver_Screen_181: -137472709871812756
+      Wally_GameOver_Screen_182: -1813758505464963963
+      Wally_GameOver_Screen_183: 6380164987591720491
+      Wally_GameOver_Screen_184: 3284623677156629752
+      Wally_GameOver_Screen_185: 8739519005856126514
+      Wally_GameOver_Screen_186: -5300881185502052643
+      Wally_GameOver_Screen_187: 1276578397499738686
+      Wally_GameOver_Screen_188: -2176827983679515090
+      Wally_GameOver_Screen_189: -613202840034175608
+      Wally_GameOver_Screen_19: 4435603118584874565
+      Wally_GameOver_Screen_190: -1062387672566417002
+      Wally_GameOver_Screen_191: 6783483491611503493
+      Wally_GameOver_Screen_192: -6923651231947347100
+      Wally_GameOver_Screen_193: -4142440176613897472
+      Wally_GameOver_Screen_194: 565633545404699733
+      Wally_GameOver_Screen_195: -724419777382376970
+      Wally_GameOver_Screen_196: -8640981944524286344
+      Wally_GameOver_Screen_197: 3230205159357235581
+      Wally_GameOver_Screen_198: 5744919672166179044
+      Wally_GameOver_Screen_199: 5278191847985847862
+      Wally_GameOver_Screen_2: -2294724105573972087
+      Wally_GameOver_Screen_20: -8304682299864923309
+      Wally_GameOver_Screen_200: 5746235902702828224
+      Wally_GameOver_Screen_201: 1613997387789112813
+      Wally_GameOver_Screen_202: -5679028229817804959
+      Wally_GameOver_Screen_203: 3392880109130599107
+      Wally_GameOver_Screen_204: 459573737566338594
+      Wally_GameOver_Screen_205: 1751109176006932095
+      Wally_GameOver_Screen_21: -2957090301859147165
+      Wally_GameOver_Screen_22: -4456163519609591568
+      Wally_GameOver_Screen_23: -8866400640656591957
+      Wally_GameOver_Screen_24: 3948217863188264253
+      Wally_GameOver_Screen_25: -6816535998087039052
+      Wally_GameOver_Screen_26: -3533283214196325578
+      Wally_GameOver_Screen_27: 4213612282100848888
+      Wally_GameOver_Screen_28: -1366287357905220635
+      Wally_GameOver_Screen_29: 6487795555551042602
+      Wally_GameOver_Screen_3: -1636399818412694501
+      Wally_GameOver_Screen_30: 2868659456179808357
+      Wally_GameOver_Screen_31: -5013973295166588362
+      Wally_GameOver_Screen_32: 9215163961858095433
+      Wally_GameOver_Screen_33: -6359612578732538645
+      Wally_GameOver_Screen_34: -3491595259608623070
+      Wally_GameOver_Screen_35: 5360752762121063044
+      Wally_GameOver_Screen_36: -931096141998694104
+      Wally_GameOver_Screen_37: -7741281500085156468
+      Wally_GameOver_Screen_38: -7201221672230699387
+      Wally_GameOver_Screen_39: 5425188212524948722
+      Wally_GameOver_Screen_4: 2573186667343127206
+      Wally_GameOver_Screen_40: -1582326834713357015
+      Wally_GameOver_Screen_41: -4895381298455522662
+      Wally_GameOver_Screen_42: 3001307199964823022
+      Wally_GameOver_Screen_43: -8463775794359823146
+      Wally_GameOver_Screen_44: -7532982417040802704
+      Wally_GameOver_Screen_45: -865121970763261779
+      Wally_GameOver_Screen_46: 255166773487588793
+      Wally_GameOver_Screen_47: -2881784096781141118
+      Wally_GameOver_Screen_48: 803883134694960417
+      Wally_GameOver_Screen_49: 3475133265050012510
+      Wally_GameOver_Screen_5: -1375799633572948833
+      Wally_GameOver_Screen_50: 1250364596663919477
+      Wally_GameOver_Screen_51: -5891140756402942777
+      Wally_GameOver_Screen_52: -7582003930344295378
+      Wally_GameOver_Screen_53: -3235970705073270215
+      Wally_GameOver_Screen_54: -1428339826077099039
+      Wally_GameOver_Screen_55: 6339540573791837500
+      Wally_GameOver_Screen_56: -9166019495304375077
+      Wally_GameOver_Screen_57: -1942842729916322977
+      Wally_GameOver_Screen_58: 9193166281119984537
+      Wally_GameOver_Screen_59: -68679643620851317
+      Wally_GameOver_Screen_6: 5952751099371118443
+      Wally_GameOver_Screen_60: 2013841645351645736
+      Wally_GameOver_Screen_61: 3096025474859260205
+      Wally_GameOver_Screen_62: -4317738487522260320
+      Wally_GameOver_Screen_63: -6989497212975965377
+      Wally_GameOver_Screen_64: 1174763589802791645
+      Wally_GameOver_Screen_65: 9095061112283474765
+      Wally_GameOver_Screen_66: -3349420919734552091
+      Wally_GameOver_Screen_67: -8631625829780977350
+      Wally_GameOver_Screen_68: 157781568234112122
+      Wally_GameOver_Screen_69: -3441912494038897951
+      Wally_GameOver_Screen_7: 1728521876513061534
+      Wally_GameOver_Screen_70: 7178153905484265206
+      Wally_GameOver_Screen_71: -1189309534454005339
+      Wally_GameOver_Screen_72: 7949363246178292032
+      Wally_GameOver_Screen_73: -3781026907296768083
+      Wally_GameOver_Screen_74: 7879865615884124606
+      Wally_GameOver_Screen_75: 891048269038552340
+      Wally_GameOver_Screen_76: -5627113084437136320
+      Wally_GameOver_Screen_77: -2335500862791403094
+      Wally_GameOver_Screen_78: -5541518101492301072
+      Wally_GameOver_Screen_79: -769789309407022363
+      Wally_GameOver_Screen_8: -6738706948109415362
+      Wally_GameOver_Screen_80: -4896075333619782449
+      Wally_GameOver_Screen_81: -1210671551135901227
+      Wally_GameOver_Screen_82: 9070465925013854814
+      Wally_GameOver_Screen_83: 7566150381100487523
+      Wally_GameOver_Screen_84: 8270876635705255059
+      Wally_GameOver_Screen_85: 5360349845060371207
+      Wally_GameOver_Screen_86: -6746146051262137228
+      Wally_GameOver_Screen_87: -9142330556690419778
+      Wally_GameOver_Screen_88: -3039492462581937409
+      Wally_GameOver_Screen_89: -7894419999783479808
+      Wally_GameOver_Screen_9: -5601911325507363205
+      Wally_GameOver_Screen_90: -957606160826829086
+      Wally_GameOver_Screen_91: 2042168761328131303
+      Wally_GameOver_Screen_92: 8519367407109832401
+      Wally_GameOver_Screen_93: -2910309584315097687
+      Wally_GameOver_Screen_94: 7124859335608870132
+      Wally_GameOver_Screen_95: 2651393461830404336
+      Wally_GameOver_Screen_96: 5717410733949569104
+      Wally_GameOver_Screen_97: 3740118375332370762
+      Wally_GameOver_Screen_98: -6328715338239554102
+      Wally_GameOver_Screen_99: 4944277745114029964
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

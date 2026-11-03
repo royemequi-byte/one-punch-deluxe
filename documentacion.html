@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ONE PUNCH DELUXE — Documentación Técnica</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;900&display=swap');
+
+    :root {
+      --rojo:    #e53e3e;
+      --verde:   #38a169;
+      --amarillo:#d69e2e;
+      --azul:    #3182ce;
+      --gris1:   #1a1a1a;
+      --gris2:   #111111;
+      --gris3:   #222222;
+      --gris4:   #2d2d2d;
+      --texto:   #e2e8f0;
+      --muted:   #718096;
+      --accent:  #f6e05e;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gris2);
+      color: var(--texto);
+      line-height: 1.65;
+    }
+
+    /* ─── UTILIDADES ─── */
+    .tag {
+      display:inline-block;
+      padding:3px 10px;
+      border-radius:4px;
+      font-size:.72rem;
+      font-weight:700;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .tag-rojo    { background:rgba(229,62,62,.2);   color:#fc8181; }
+    .tag-verde   { background:rgba(56,161,105,.2);  color:#68d391; }
+    .tag-azul    { background:rgba(49,130,206,.2);  color:#90cdf4; }
+    .tag-amarillo{ background:rgba(214,158,46,.2);  color:#f6e05e; }
+    .tag-gris    { background:rgba(255,255,255,.08);color:#a0aec0; }
+
+    code {
+      background:rgba(255,255,255,.08);
+      color:#fbd38d;
+      padding:2px 7px;
+      border-radius:4px;
+      font-family:'Courier New',monospace;
+      font-size:.82em;
+    }
+
+    /* ─── PORTADA ─── */
+    .portada {
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      overflow:hidden;
+      page-break-after:always;
+    }
+
+    .portada-bg {
+      position:absolute;
+      inset:0;
+      background-image: url('Tools/capturas/07-pelea.png');
+      background-size:cover;
+      background-position:center 20%;
+      filter:brightness(.45) saturate(1.1);
+    }
+
+    .portada-overlay {
+      position:absolute;
+      inset:0;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 30%,
+        rgba(17,17,17,.7) 60%,
+        rgba(17,17,17,.97) 100%
+      );
+    }
+
+    .portada-contenido {
+      position:relative;
+      padding:60px 64px;
+    }
+
+    .portada-eyebrow {
+      font-size:.75rem;
+      font-weight:700;
+      letter-spacing:.25em;
+      text-transform:uppercase;
+      color:var(--accent);
+      margin-bottom:16px;
+    }
+
+    .portada h1 {
+      font-family:'Bebas Neue', sans-serif;
+      font-size:6rem;
+      line-height:.9;
+      letter-spacing:.02em;
+      color:#fff;
+      text-shadow: 0 4px 32px rgba(0,0,0,.8);
+      margin-bottom:8px;
+    }
+
+    .portada-sub {
+      font-size:1.1rem;
+      color:rgba(255,255,255,.55);
+      margin-bottom:40px;
+    }
+
+    .portada-pills {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:48px;
+    }
+
+    .portada-pill {
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.15);
+      color:rgba(255,255,255,.75);
+      font-size:.8rem;
+      font-weight:600;
+      padding:6px 14px;
+      border-radius:6px;
+    }
+
+    .portada-stats {
+      display:grid;
+      grid-template-columns:repeat(5,auto);
+      gap:0;
+      width:fit-content;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .stat {
+      padding:18px 28px;
+      background:rgba(255,255,255,.04);
+      border-right:1px solid rgba(255,255,255,.08);
+      text-align:center;
+    }
+    .stat:last-child { border-right:none; }
+    .stat-val {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:2rem;
+      color:var(--accent);
+      display:block;
+      line-height:1;
+    }
+    .stat-lbl {
+      font-size:.65rem;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.1em;
+      margin-top:4px;
+    }
+
+    .portada-credit {
+      position:absolute;
+      bottom:24px;
+      right:64px;
+      font-size:.75rem;
+      color:rgba(255,255,255,.3);
+      text-align:right;
+    }
+
+    /* ─── LAYOUT GENERAL ─── */
+    .pagina {
+      max-width:1000px;
+      margin:0 auto;
+      padding:64px 48px;
+    }
+
+    .pagina + .pagina {
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+
+    /* ─── ENCABEZADO DE SECCIÓN ─── */
+    .sec-head {
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:36px;
+    }
+
+    .sec-num {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:3rem;
+      line-height:1;
+      color:rgba(255,255,255,.08);
+      min-width:52px;
+    }
+
+    .sec-head h2 {
+      font-family:'Bebas Neue',sans-serif;
+      font-size:2rem;
+      letter-spacing:.06em;
+      color:#fff;
+    }
+
+    .sec-line {
+      flex:1;
+      height:1px;
+      background:rgba(255,255,255,.07);
+    }
+
+    /* ─── CAPTURAS ─── */
+    .screenshot-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-bottom:40px;
+    }
+
+    .screenshot-grid.triple {
+      grid-template-columns:1fr 1fr 1fr;
+    }
+
+    .screenshot-wrap {
+      position:relative;
+      border-radius:10px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .screenshot-wrap.span2 { grid-column:span 2; }
+
+    .screenshot-wrap img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .screenshot-label {
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      padding:8px 14px;
+      background:linear-gradient(transparent,rgba(0,0,0,.85));
+      font-size:.72rem;
+      font-weight:600;
+      color:rgba(255,255,255,.7);
+      letter-spacing:.04em;
+    }
+
+    /* ─── TABLA ─── */
+    table {
+      width:100%;
+      border-collapse:collapse;
+      font-size:.87rem;
+      margin:16px 0 28px;
+    }
+    thead tr { background:rgba(255,255,255,.04); }
+    th {
+      padding:11px 16px;
+      text-align:left;
+      font-size:.7rem;
+      font-weight:700;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      color:var(--muted);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    td {
+      padding:11px 16px;
+      border-bottom:1px solid rgba(255,255,255,.05);
+      color:rgba(226,232,240,.85);
+      vertical-align:middle;
+    }
+    tr:last-child td { border-bottom:none; }
+
+    /* ─── GRID SPRITES ─── */
+    .sprites-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+      gap:16px;
+      margin:20px 0 32px;
+    }
+
+    .scard {
+      background:var(--gris3);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .scard-img {
+      background: linear-gradient(135deg,#0d0d18,#141424);
+      padding:20px 16px;
+      min-height:130px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .scard.kiriku .scard-img {
+      background: linear-gradient(135deg,#0d1810,#142414);
+    }
+
+    .scard-img img {
+      max-width:100%;
+      max-height:110px;
+      object-fit:contain;
+      image-rendering:pixelated;
+      filter:drop-shadow(0 2px 12px rgba(0,0,0,.6));
+    }
+
+    .scard-body { padding:12px 14px; }
+    .scard-name { font-weight:700; font-size:.88rem; color:#fff; margin-bottom:3px; }
+    .scard-file { font-size:.68rem; color:var(--muted); font-family:monospace; margin-bottom:6px; }
+    .scard-desc { font-size:.75rem; color:rgba(200,200,220,.6); line-height:1.4; margin-bottom:8px; }
+
+    /* ─── INPUTS ─── */
+    .inputs-wrap {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+      margin:20px 0 28px;
+    }
+
+    .ikey {
+      background:var(--gris3);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:10px;
+      padding:16px 10px;
+      text-align:center;
+    }
+
+    .ikey-btn {
+      display:inline-block;
+      background:linear-gradient(180deg,#3a3a4a,#252535);
+      border:1px solid rgba(255,255,255,.15);
+      border-bottom:3px solid rgba(0,0,0,.5);
+      color:#fff;
+      font-weight:900;
+      font-size:1rem;
+      width:38px;
+      height:38px;
+      line-height:38px;
+      border-radius:7px;
+      margin-bottom:8px;
+    }
+
+    .ikey-accion {
+      display:block;
+      font-size:.78rem;
+      font-weight:700;
+      color:var(--accent);
+    }
+
+    .ikey-desc {
+      display:block;
+      font-size:.66rem;
+      color:var(--muted);
+      margin-top:3px;
+    }
+
+    /* ─── NOTA / AVISO ─── */
+    .nota {
+      background:rgba(246,224,94,.06);
+      border-left:3px solid var(--accent);
+      padding:12px 18px;
+      border-radius:0 8px 8px 0;
+      font-size:.85rem;
+      color:rgba(246,224,94,.85);
+      margin:16px 0 24px;
+    }
+
+    .nota.roja {
+      background:rgba(229,62,62,.06);
+      border-left-color:var(--rojo);
+      color:#fc8181;
+    }
+
+    .nota.verde {
+      background:rgba(56,161,105,.06);
+      border-left-color:var(--verde);
+      color:#68d391;
+    }
+
+    /* ─── TEXTO ─── */
+    p.t {
+      color:rgba(226,232,240,.7);
+      font-size:.92rem;
+      margin-bottom:16px;
+      max-width:740px;
+    }
+
+    h3.sub {
+      font-size:1rem;
+      font-weight:700;
+      color:rgba(255,255,255,.85);
+      margin:28px 0 12px;
+    }
+
+    /* ─── FLUJO DE TRABAJO ─── */
+    .flujo {
+      display:flex;
+      align-items:center;
+      gap:0;
+      flex-wrap:wrap;
+      margin:16px 0 28px;
+    }
+
+    .flujo-paso {
+      background:var(--gris3);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:8px;
+      padding:10px 16px;
+      font-size:.8rem;
+      color:rgba(255,255,255,.8);
+      white-space:nowrap;
+    }
+
+    .flujo-paso code { font-size:.75rem; }
+
+    .flujo-arr {
+      color:rgba(255,255,255,.2);
+      font-size:1.2rem;
+      padding:0 8px;
+    }
+
+    /* ─── SCRIPTS GRID ─── */
+    .scripts-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      margin:16px 0;
+    }
+
+    .script-card {
+      background:var(--gris3);
+      border:1px solid rgba(255,255,255,.07);
+      border-radius:10px;
+      padding:16px 18px;
+    }
+
+    .script-card .sc-name {
+      font-family:monospace;
+      font-size:.85rem;
+      color:#fbd38d;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
+    .script-card .sc-desc {
+      font-size:.8rem;
+      color:rgba(200,200,220,.65);
+      line-height:1.5;
+    }
+
+    /* ─── PRINT ─── */
+    @page {
+      size: A4;
+      margin: 14mm 12mm;
+    }
+
+    @media print {
+      body { background:#111 !important; -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+
+      .portada { page-break-after: always; break-after: always; height: 260mm; min-height: unset; }
+      .portada-bg { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+      .pagina { padding: 32px 24px; }
+
+      /* Evitar cortes dentro de estos elementos */
+      .screenshot-wrap  { break-inside: avoid; page-break-inside: avoid; }
+      .screenshot-grid  { break-inside: avoid; page-break-inside: avoid; }
+      .scard            { break-inside: avoid; page-break-inside: avoid; }
+      .script-card      { break-inside: avoid; page-break-inside: avoid; }
+      .ikey             { break-inside: avoid; page-break-inside: avoid; }
+      .nota             { break-inside: avoid; page-break-inside: avoid; }
+      table             { break-inside: avoid; page-break-inside: avoid; }
+      tr                { break-inside: avoid; page-break-inside: avoid; }
+      .flujo            { break-inside: avoid; page-break-inside: avoid; }
+      .sec-head         { break-inside: avoid; page-break-inside: avoid; break-before: avoid; }
+
+      /* Grids de sprites: permitir salto entre tarjetas, no dentro */
+      .sprites-grid     { break-inside: auto; }
+      .scripts-grid     { break-inside: auto; }
+      .inputs-wrap      { break-inside: avoid; page-break-inside: avoid; }
+
+      /* Forzar salto de página antes de cada sección */
+      .pagina + .pagina { break-before: page; page-break-before: always; border-top: none; }
+
+      /* Las capturas no deben escalar de más */
+      .screenshot-wrap img { max-height: 200px !important; width: 100%; object-fit: cover; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     PORTADA
+══════════════════════════════════════ -->
+<div class="portada">
+  <div class="portada-bg"></div>
+  <div class="portada-overlay"></div>
+
+  <div class="portada-contenido">
+    <div class="portada-eyebrow">Trabajo de Grado · 2026 · Unity 6 LTS</div>
+    <h1>ONE PUNCH<br>DELUXE</h1>
+    <p class="portada-sub">Documentación técnica completa — videojuego de boxeo 2D arcade</p>
+
+    <div class="portada-pills">
+      <span class="portada-pill">🥊 Vista lateral KOF</span>
+      <span class="portada-pill">🎭 Modo historia</span>
+      <span class="portada-pill">🤖 IA con FSM</span>
+      <span class="portada-pill">🎮 Soporte mando Xbox</span>
+      <span class="portada-pill">🐍 Pipeline Python (Pillow + rembg)</span>
+      <span class="portada-pill">🎵 Sistema de audio completo</span>
+    </div>
+
+    <div class="portada-stats">
+      <div class="stat"><span class="stat-val">Unity 6</span><span class="stat-lbl">Motor</span></div>
+      <div class="stat"><span class="stat-val">C#</span><span class="stat-lbl">Lenguaje</span></div>
+      <div class="stat"><span class="stat-val">19</span><span class="stat-lbl">Sprites</span></div>
+      <div class="stat"><span class="stat-val">18</span><span class="stat-lbl">Animaciones</span></div>
+      <div class="stat"><span class="stat-val">15+</span><span class="stat-lbl">Scripts Python</span></div>
+    </div>
+  </div>
+
+  <div class="portada-credit">
+    Ronald Medina · Ing. de Sistemas<br>
+    github.com/royemequi-byte/one-punch-deluxe
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     1. RESUMEN DEL JUEGO
+══════════════════════════════════════ -->
+<div class="pagina">
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <h2>El juego</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="t">
+    <strong style="color:#fff">ONE PUNCH DELUXE</strong> es un videojuego de boxeo 2D arcade estilo
+    <strong style="color:#f6e05e">KOF (King of Fighters)</strong> — vista lateral con los dos personajes
+    enfrentados — desarrollado en Unity 6 como trabajo de grado universitario. El jugador controla a
+    <strong style="color:#90cdf4">Wally</strong>, un boxeador con historia propia, contra el rival
+    <strong style="color:#fc8181">Máximo / Kirikú</strong> en un ring profesional con multitud animada.
+  </p>
+  <p class="t">
+    El juego cuenta con modo historia completo (paneles de arte manga con narrativa), sistema de combate
+    con tres golpes + esquives + bloqueo, HUD con barra de vida y stamina, sistema de rounds, pantalla
+    de game over, guardado en JSON y soporte para mando Xbox.
+  </p>
+
+  <!-- Capturas principales -->
+  <div class="screenshot-grid" style="grid-template-columns:2fr 1fr; margin-top:28px;">
+    <div class="screenshot-wrap">
+      <img src="Tools/capturas/07-pelea.png" alt="Combate en el ring" style="height:280px;" />
+      <div class="screenshot-label">Combate — Ring con multitud, HUD completo, timer</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="Tools/capturas/01-menu.png" alt="Menú principal" style="height:280px;" />
+      <div class="screenshot-label">Menú principal</div>
+    </div>
+  </div>
+
+  <div class="screenshot-grid triple">
+    <div class="screenshot-wrap">
+      <img src="Tools/capturas/03-pelea.png" alt="Modo historia" style="height:180px;" />
+      <div class="screenshot-label">Modo historia — paneles manga</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="Tools/capturas/04-pelea.png" alt="Combate 2" style="height:180px;" />
+      <div class="screenshot-label">Wally vs Máximo — gancho</div>
+    </div>
+    <div class="screenshot-wrap">
+      <img src="Tools/capturas/08-gameover.png" alt="Game Over" style="height:180px;" />
+      <div class="screenshot-label">Pantalla Game Over</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     2. STACK TECNOLÓGICO
+══════════════════════════════════════ -->
+<div class="pagina">
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <h2>Stack tecnológico</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Categoría</th><th>Tecnología</th><th>Uso específico en el proyecto</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="tag tag-azul">Motor</span></td><td><strong>Unity 6 LTS · URP 2D</strong></td><td>Universal Render Pipeline, modo 2D ortográfico</td></tr>
+      <tr><td><span class="tag tag-azul">Lenguaje</span></td><td><strong>C#</strong></td><td>Scripts MonoBehaviour, ScriptableObjects, FSM de IA</td></tr>
+      <tr><td><span class="tag tag-azul">Input</span></td><td><strong>Unity Input System</strong></td><td>Teclado + mando Xbox / PlayStation</td></tr>
+      <tr><td><span class="tag tag-azul">UI</span></td><td><strong>TextMeshPro + Canvas</strong></td><td>HUD, menús, pantalla de game over</td></tr>
+      <tr><td><span class="tag tag-azul">Datos</span></td><td><strong>ScriptableObjects + JsonUtility</strong></td><td>Perfiles de IA, datos de ataque, guardado</td></tr>
+      <tr><td><span class="tag tag-amarillo">Arte</span></td><td><strong>Adobe Illustrator</strong></td><td>Diseño de interfaz: HUD, botones, barras de vida, elementos UI y composición visual del juego</td></tr>
+      <tr><td><span class="tag tag-amarillo">Arte</span></td><td><strong>Python + Pillow + rembg</strong></td><td>Pipeline completo de preparación de sprites</td></tr>
+      <tr><td><span class="tag tag-amarillo">Arte</span></td><td><strong>IA generativa</strong></td><td>Fondos (ring, multitud), ilustraciones de historia</td></tr>
+      <tr><td><span class="tag tag-verde">Audio</span></td><td><strong>AudioMixer nativo Unity</strong></td><td>Música, SFX de golpes, efectos de ambiente</td></tr>
+      <tr><td><span class="tag tag-gris">Git</span></td><td><strong>Git + GitHub + Git LFS</strong></td><td>Control de versiones; LFS para PNG y WAV</td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     3. ARQUITECTURA DE ESCENA
+══════════════════════════════════════ -->
+<div class="pagina">
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <h2>Arquitectura de la escena</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="t">La escena principal es <code>Assets/dia 1.unity</code>. Organización por SortingOrder:</p>
+
+  <table>
+    <thead>
+      <tr><th>GameObject</th><th>Posición</th><th>Escala</th><th>Layer</th><th>Notas</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>BackgroundRing</strong></td>
+        <td><code>(0, 0, 0)</code></td>
+        <td><code>(0.926, 0.926, 1)</code></td>
+        <td>-3</td>
+        <td>ring_bg.png 1920×1080 · generado con Python</td>
+      </tr>
+      <tr>
+        <td><strong>Kiriku</strong></td>
+        <td><code>(3, -1.5, 0)</code></td>
+        <td><code>(-3, 3, 1)</code></td>
+        <td>1</td>
+        <td>Rival — flipX por escala X negativa</td>
+      </tr>
+      <tr>
+        <td><strong>Wally</strong></td>
+        <td><code>(-3, -1.5, 0)</code></td>
+        <td><code>(2.5, 2.5, 1)</code></td>
+        <td>2</td>
+        <td>Jugador — lado izquierdo</td>
+      </tr>
+      <tr>
+        <td><strong>Canvas / HUD</strong></td>
+        <td>—</td>
+        <td>—</td>
+        <td>Overlay</td>
+        <td>HUDController: barras de vida, stamina, timer, controles</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="nota">
+    <strong>Flipeo de Kiriku:</strong> la escala X negativa (<code>-3</code>) voltea el sprite automáticamente
+    para que mire a la izquierda — sin necesidad de sprites espejo ni código adicional.
+  </div>
+
+  <h3 class="sub">Pantallas implementadas</h3>
+  <table>
+    <thead><tr><th>Pantalla</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag tag-gris">Splash</span></td><td>Pantalla de inicio con logo</td></tr>
+      <tr><td><span class="tag tag-azul">Menú principal</span></td><td>Ring desde arriba con opciones NUEVA PARTIDA / CONTINUAR / SALIR</td></tr>
+      <tr><td><span class="tag tag-amarillo">Historia</span></td><td>Paneles de arte manga con texto narrativo de la historia de Wally</td></tr>
+      <tr><td><span class="tag tag-rojo">Combate</span></td><td>Ring lateral KOF con HUD completo, timer, barras y controles</td></tr>
+      <tr><td><span class="tag tag-rojo">Game Over</span></td><td>Banner rojo, marcador de rounds, botones REINTENTAR / MENÚ PRINCIPAL</td></tr>
+      <tr><td><span class="tag tag-verde">Resultado</span></td><td>Pantalla de victoria con estadísticas</td></tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     4. SPRITES DE WALLY
+══════════════════════════════════════ -->
+<div class="pagina">
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <h2>Sprites de Wally</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="t">
+    Ruta: <code>Assets/Art/Personajes/Wally_Nuevos/</code> · Pivot: <strong>Bottom Center (0.5, 0)</strong>
+    · Pies en Y = -1.5 · Cabeza ≈ Y +3.375 con escala 2.5
+  </p>
+  <div class="nota roja">
+    Los sprites de <code>Assets/Art/Personajes/Wally/</code> (vista de espalda, estilo Punch-Out) están
+    <strong>descartados</strong>. No usar.
+  </div>
+
+  <div class="sprites-grid">
+    <div class="scard">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Wally_Nuevos/wally_idle.png" alt="Idle" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Idle</div>
+        <div class="scard-file">wally_idle.png</div>
+        <div class="scard-desc">Guardia en reposo. Puños en alto.</div>
+        <span class="tag tag-azul">Wally_Idle · 5 frames · loop</span>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Wally_Nuevos/wally_straight.png" alt="Straight" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Ataque</div>
+        <div class="scard-file">wally_straight.png</div>
+        <div class="scard-desc">Brazo extendido. Cubre Jab, Straight y Hook.</div>
+        <span class="tag tag-rojo">Jab · Straight · Hook</span>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Wally_Nuevos/wally_block.png" alt="Block" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Bloqueo</div>
+        <div class="scard-file">wally_block.png</div>
+        <div class="scard-desc">Antebrazos cruzados frente al rostro.</div>
+        <span class="tag tag-verde">Block · WeaveLeft</span>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Wally_Nuevos/wally_block2.png" alt="Duck" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Agachado</div>
+        <div class="scard-file">wally_block2.png</div>
+        <div class="scard-desc">Postura baja. Esquive y retroceso.</div>
+        <span class="tag tag-verde">Duck · Backstep · WeaveRight</span>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Wally_Nuevos/wally_hit.png" alt="Hit" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Recibir golpe</div>
+        <div class="scard-file">wally_hit.png</div>
+        <div class="scard-desc">Cabeza hacia atrás por impacto.</div>
+        <span class="tag tag-rojo">Wally_Hit.anim</span>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Wally_Nuevos/wally_hit2.png" alt="Hit2" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Golpe fuerte</div>
+        <div class="scard-file">wally_hit2.png</div>
+        <div class="scard-desc">Reacción exagerada a impacto de alto daño.</div>
+        <span class="tag tag-rojo">Hit alternativo</span>
+      </div>
+    </div>
+
+    <div class="scard">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Wally_Nuevos/wally_gameover_screen.png" alt="Knockdown" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Nocaut</div>
+        <div class="scard-file">wally_gameover_screen.png</div>
+        <div class="scard-desc">Wally en el suelo. Pantalla game over.</div>
+        <span class="tag tag-rojo">Knockdown · Defeat</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     5. SPRITES DE KIRIKÚ
+══════════════════════════════════════ -->
+<div class="pagina">
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <h2>Sprites de Kirikú</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="t">
+    Ruta: <code>Assets/Art/Personajes/Kiriku/</code> · Posición X = +3 · Escala <code>(-3, 3, 1)</code>
+    · Canvas de normalización: 1370 × 353 px
+  </p>
+
+  <div class="sprites-grid">
+    <div class="scard kiriku">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Kiriku/kiriku_idle.png" alt="Idle" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Idle</div>
+        <div class="scard-file">kiriku_idle.png</div>
+        <div class="scard-desc">Guardia base. Frame 1 del loop.</div>
+        <span class="tag tag-verde">Kiriku_Idle.anim</span>
+      </div>
+    </div>
+
+    <div class="scard kiriku">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Kiriku/kiriku_idle2.png" alt="Idle2" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Idle 2</div>
+        <div class="scard-file">kiriku_idle2.png</div>
+        <div class="scard-desc">Variación de respiro. Frame 2.</div>
+        <span class="tag tag-verde">Kiriku_Idle.anim</span>
+      </div>
+    </div>
+
+    <div class="scard kiriku">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Kiriku/kiriku_idle3.png" alt="Idle3" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Idle 3</div>
+        <div class="scard-file">kiriku_idle3.png</div>
+        <div class="scard-desc">Tercer frame del loop de idle.</div>
+        <span class="tag tag-verde">Kiriku_Idle.anim</span>
+      </div>
+    </div>
+
+    <div class="scard kiriku">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Kiriku/kiriku_jab.png" alt="Jab" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Jab</div>
+        <div class="scard-file">kiriku_jab.png</div>
+        <div class="scard-desc">Jab rápido. Bajo daño, alta velocidad.</div>
+        <span class="tag tag-rojo">Kiriku_Jab.anim</span>
+      </div>
+    </div>
+
+    <div class="scard kiriku">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Kiriku/kiriku_attack.png" alt="Straight" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Straight</div>
+        <div class="scard-file">kiriku_attack.png</div>
+        <div class="scard-desc">Golpe recto extendido. Daño medio.</div>
+        <span class="tag tag-rojo">Kiriku_Straight.anim</span>
+      </div>
+    </div>
+
+    <div class="scard kiriku">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Kiriku/kiriku_hook.png" alt="Hook" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Hook</div>
+        <div class="scard-file">kiriku_hook.png</div>
+        <div class="scard-desc">Gancho lateral. Mayor daño, más lento.</div>
+        <span class="tag tag-rojo">Kiriku_Hook.anim</span>
+      </div>
+    </div>
+
+    <div class="scard kiriku">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Kiriku/kiriku_block.png" alt="Block" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Bloqueo</div>
+        <div class="scard-file">kiriku_block.png</div>
+        <div class="scard-desc">Brazos en cruz. Reduce daño recibido.</div>
+        <span class="tag tag-verde">Kiriku_Block.anim</span>
+      </div>
+    </div>
+
+    <div class="scard kiriku">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Kiriku/kiriku_weave.png" alt="Weave" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Esquive</div>
+        <div class="scard-file">kiriku_weave.png</div>
+        <div class="scard-desc">Cuerpo inclinado para esquivar.</div>
+        <span class="tag tag-verde">Kiriku_Weave.anim</span>
+      </div>
+    </div>
+
+    <div class="scard kiriku">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Kiriku/kiriku_telegraph.png" alt="Telegraph" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Telegrafiar ⚡</div>
+        <div class="scard-file">kiriku_telegraph.png</div>
+        <div class="scard-desc">Aviso visible antes de ataque fuerte. Exclusivo de la IA.</div>
+        <span class="tag tag-amarillo">Telegraph · Solo IA</span>
+      </div>
+    </div>
+
+    <div class="scard kiriku">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Kiriku/kiriku_hit.png" alt="Hit" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Recibir golpe</div>
+        <div class="scard-file">kiriku_hit.png</div>
+        <div class="scard-desc">Cabeza hacia atrás por impacto.</div>
+        <span class="tag tag-rojo">Kiriku_Hit.anim</span>
+      </div>
+    </div>
+
+    <div class="scard kiriku">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Kiriku/kiriku_hit2.png" alt="Hit2" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Golpe fuerte</div>
+        <div class="scard-file">kiriku_hit2.png</div>
+        <div class="scard-desc">Reacción exagerada. Mayor impacto.</div>
+        <span class="tag tag-rojo">Hit variante</span>
+      </div>
+    </div>
+
+    <div class="scard kiriku">
+      <div class="scard-img"><img src="Assets/Art/Personajes/Kiriku/kiriku_knockdown.png" alt="Knockdown" /></div>
+      <div class="scard-body">
+        <div class="scard-name">Nocaut</div>
+        <div class="scard-file">kiriku_knockdown.png</div>
+        <div class="scard-desc">Kirikú en el suelo. Victoria del jugador.</div>
+        <span class="tag tag-rojo">Knockdown · Defeat</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     6. SISTEMA DE COMBATE
+══════════════════════════════════════ -->
+<div class="pagina">
+  <div class="sec-head">
+    <div class="sec-num">06</div>
+    <h2>Sistema de combate</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <div class="inputs-wrap">
+    <div class="ikey"><div class="ikey-btn">J</div><span class="ikey-accion">Jab</span><span class="ikey-desc">Rápido · bajo daño</span></div>
+    <div class="ikey"><div class="ikey-btn">K</div><span class="ikey-accion">Straight</span><span class="ikey-desc">Medio · equilibrado</span></div>
+    <div class="ikey"><div class="ikey-btn">L</div><span class="ikey-accion">Hook</span><span class="ikey-desc">Lento · alto daño</span></div>
+    <div class="ikey"><div class="ikey-btn">SP</div><span class="ikey-accion">Bloqueo</span><span class="ikey-desc">Space · reduce daño</span></div>
+    <div class="ikey"><div class="ikey-btn">W</div><span class="ikey-accion">WeaveLeft</span><span class="ikey-desc">Esquive izq.</span></div>
+    <div class="ikey"><div class="ikey-btn">A</div><span class="ikey-accion">Backstep</span><span class="ikey-desc">Retroceder</span></div>
+    <div class="ikey"><div class="ikey-btn">S</div><span class="ikey-accion">Duck</span><span class="ikey-desc">Agacharse</span></div>
+    <div class="ikey"><div class="ikey-btn">D</div><span class="ikey-accion">WeaveRight</span><span class="ikey-desc">Esquive der.</span></div>
+  </div>
+
+  <div class="nota">Los esquives son <strong>posturas fijas</strong>, no movimiento libre. También funciona con mando Xbox / PlayStation vía Unity Input System.</div>
+
+  <h3 class="sub">ScriptableObjects de ataque — <code>Assets/ScriptableObjects/Attacks/</code></h3>
+  <table>
+    <thead><tr><th>Asset</th><th>Ataque</th><th>Contenido</th></tr></thead>
+    <tbody>
+      <tr><td><code>JabData.asset</code></td><td>Jab</td><td>Daño, velocidad, frames activos, hitbox</td></tr>
+      <tr><td><code>StraightData.asset</code></td><td>Straight</td><td>Daño, velocidad, frames activos, hitbox</td></tr>
+      <tr><td><code>HookData.asset</code></td><td>Hook</td><td>Daño, velocidad, frames activos, hitbox</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub">IA de Kirikú — FSM de 7 estados</h3>
+  <p class="t">
+    <code>RivalAI.cs</code> carga <code>KirikuProfile.asset</code> y ejecuta una máquina de estados:
+    <strong>Idle → Telegraph → Attack → Recovery → Idle</strong>, con bifurcaciones a Block, Dodge y Stunned.
+    El estado <strong>Telegraph</strong> (0.25s) es visible para el jugador — la animación <code>kiriku_telegraph.png</code>
+    aparece antes de cada golpe fuerte, dando una ventana de esquive.
+  </p>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     7. PYTHON — PIPELINE DE ARTE
+══════════════════════════════════════ -->
+<div class="pagina">
+  <div class="sec-head">
+    <div class="sec-num">07</div>
+    <h2>Python — Pipeline de arte</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <p class="t">
+    Python se usó exclusivamente como herramienta de producción de assets en <code>Tools/</code>.
+    Regla del proyecto: <em style="color:#f6e05e">"C# ejecuta el juego, Python prepara lo que C# consume."</em>
+  </p>
+
+  <h3 class="sub">Librerías — <code>Tools/requirements.txt</code></h3>
+  <table>
+    <thead><tr><th>Librería</th><th>Versión</th><th>Para qué se usó</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Pillow</strong></td><td><code>≥10.0.0</code></td>
+        <td>Manipulación de imágenes: recorte, redimensionado, composición, gradientes, canal alpha</td>
+      </tr>
+      <tr>
+        <td><strong>NumPy</strong></td><td><code>≥1.24.0</code></td>
+        <td>Operaciones sobre arrays de píxeles — detección de contenido, alineación de pies entre frames</td>
+      </tr>
+      <tr>
+        <td><strong>rembg</strong></td><td><code>≥2.0.0</code></td>
+        <td>Eliminación de fondo con IA (modelo U²-Net) — hace los sprites transparentes</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub">Flujo completo de un sprite</h3>
+  <div class="flujo">
+    <div class="flujo-paso">Imagen original<br><small style="color:#718096">(con fondo)</small></div>
+    <div class="flujo-arr">→</div>
+    <div class="flujo-paso"><code>remove_bg.py</code><br><small style="color:#718096">IA quita fondo</small></div>
+    <div class="flujo-arr">→</div>
+    <div class="flujo-paso"><code>batch_normalize.py</code><br><small style="color:#718096">alinea pies · centra · celdas</small></div>
+    <div class="flujo-arr">→</div>
+    <div class="flujo-paso"><code>fix_*.py</code><br><small style="color:#718096">correcciones manuales</small></div>
+    <div class="flujo-arr">→</div>
+    <div class="flujo-paso"><code>organizar_sprites.py</code><br><small style="color:#718096">mueve a Assets/</small></div>
+    <div class="flujo-arr">→</div>
+    <div class="flujo-paso">Unity importa<br><small style="color:#718096">PNG transparente listo</small></div>
+  </div>
+
+  <h3 class="sub">Scripts implementados</h3>
+  <div class="scripts-grid">
+    <div class="script-card">
+      <div class="sc-name">remove_bg.py</div>
+      <div class="sc-desc">Usa rembg (IA) para eliminar el fondo. Guarda <code>_transparent.png</code> junto al original.</div>
+    </div>
+    <div class="script-card">
+      <div class="sc-name">batch_normalize.py</div>
+      <div class="sc-desc">Separa frames, alinea pies al mismo nivel base, centra en celda uniforme y exporta sprite sheet listo para Unity.</div>
+    </div>
+    <div class="script-card">
+      <div class="sc-name">normalizar_kiriku.py</div>
+      <div class="sc-desc">Detecta filas con contenido via canal alpha, recorta y escala a 353px de alto. No toca sprites que ya tienen ≥98% del alto.</div>
+    </div>
+    <div class="script-card">
+      <div class="sc-name">generar_ring.py</div>
+      <div class="sc-desc">Genera el ring 1920×1080 programáticamente: gradiente oscuro de arena, 350 siluetas de multitud, focos y cuerdas.</div>
+    </div>
+    <div class="script-card">
+      <div class="sc-name">make_transparent.py</div>
+      <div class="sc-desc">Convierte fondo de color sólido a transparente (alpha=0) para sprites que no pasaron por rembg.</div>
+    </div>
+    <div class="script-card">
+      <div class="sc-name">procesar_wally.py / procesar_kiriku.py</div>
+      <div class="sc-desc">Pipeline completo por personaje: remove_bg → normalizar → corregir → exportar a su carpeta en <code>Assets/</code>.</div>
+    </div>
+    <div class="script-card">
+      <div class="sc-name">fix_wally_ghosts.py</div>
+      <div class="sc-desc">Elimina píxeles fantasma (artefactos semitransparentes) que dejaba rembg en los bordes del sprite.</div>
+    </div>
+    <div class="script-card">
+      <div class="sc-name">organizar_sprites.py</div>
+      <div class="sc-desc">Mueve y renombra sprites procesados a las carpetas correctas de <code>Assets/Art/Personajes/</code>.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     8. SCRIPTS PRINCIPALES C#
+══════════════════════════════════════ -->
+<div class="pagina">
+  <div class="sec-head">
+    <div class="sec-num">08</div>
+    <h2>Scripts C# principales</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <table>
+    <thead><tr><th>Script</th><th>Responsabilidad</th><th>Nota clave</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><code>FightManager.cs</code></td>
+        <td>Posiciona personajes al iniciar el combate</td>
+        <td>Wally (-3,-1.5) · Kiriku (3,-1.5) con escala y flip correctos</td>
+      </tr>
+      <tr>
+        <td><code>HUDController.cs</code></td>
+        <td>Barras de vida, stamina, timer, controles en pantalla</td>
+        <td><code>BuscarGO()</code> tolera espacios al inicio del nombre del GO</td>
+      </tr>
+      <tr>
+        <td><code>RivalAI.cs</code></td>
+        <td>FSM de 7 estados para el comportamiento de Kirikú</td>
+        <td>Lee <code>KirikuProfile.asset</code> — agresividad y patrones configurables</td>
+      </tr>
+      <tr>
+        <td><code>AudioManager.cs</code></td>
+        <td>Reproduce música y SFX con pool de fuentes</td>
+        <td>Singleton null-safe con <code>?.</code> · usa AudioMixer con dB correcto</td>
+      </tr>
+      <tr>
+        <td><code>SaveManager.cs</code></td>
+        <td>Guarda y carga progreso con <code>JsonUtility</code></td>
+        <td>Singleton null-safe</td>
+      </tr>
+      <tr>
+        <td><code>GameManager.cs</code></td>
+        <td>Flujo general: escenas, estados, rounds</td>
+        <td>Singleton null-safe · gestiona transición entre pantallas</td>
+      </tr>
+      <tr>
+        <td><code>VisualJuice.cs</code></td>
+        <td>Efectos de cámara y ring</td>
+        <td><code>CrearFondoRing()</code> fija escala a 0.926 · pendiente de integrar en escena</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="nota verde">
+    <strong>Patrón null-safe:</strong> todos los Managers usan <code>?.</code> para que su ausencia
+    en escena no genere <code>NullReferenceException</code>. El juego no crashea si un sistema está
+    en desarrollo.
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     9. PIPELINE GIT
+══════════════════════════════════════ -->
+<div class="pagina">
+  <div class="sec-head">
+    <div class="sec-num">09</div>
+    <h2>Pipeline Git</h2>
+    <div class="sec-line"></div>
+  </div>
+
+  <table>
+    <thead><tr><th>Aspecto</th><th>Configuración</th></tr></thead>
+    <tbody>
+      <tr><td>Repositorio</td><td><code>github.com/royemequi-byte/one-punch-deluxe</code></td></tr>
+      <tr><td>Rama activa</td><td><code>main</code> (rama única)</td></tr>
+      <tr><td>Estado oct 2026</td><td>Limpio — sin cambios pendientes</td></tr>
+      <tr><td>Assets grandes</td><td>Git LFS — <code>*.png</code>, <code>*.wav</code> y binarios Unity</td></tr>
+    </tbody>
+  </table>
+
+  <div class="nota">
+    <strong>¿Por qué Git LFS?</strong> Los PNG y WAV de Unity pueden superar el límite de 100 MB de GitHub.
+    Git LFS reemplaza esos archivos por punteros ligeros y almacena el contenido real aparte,
+    manteniendo el historial ágil.
+  </div>
+
+  <h3 class="sub">Convención de commits</h3>
+  <table>
+    <thead><tr><th>Prefijo</th><th>Cuándo se usa</th></tr></thead>
+    <tbody>
+      <tr><td><code>feat:</code></td><td>Nueva funcionalidad</td></tr>
+      <tr><td><code>fix:</code></td><td>Corrección de bug</td></tr>
+      <tr><td><code>audio:</code></td><td>Cambios en AudioManager o clips</td></tr>
+      <tr><td><code>tools:</code></td><td>Scripts Python en <code>Tools/</code></td></tr>
+      <tr><td><code>docs:</code></td><td>Documentación</td></tr>
+      <tr><td><code>refactor:</code></td><td>Limpieza sin cambio de comportamiento</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

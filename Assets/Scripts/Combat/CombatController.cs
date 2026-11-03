@@ -1,135 +1,251 @@
 using UnityEngine;
-using System.Collections;
 
 /// <summary>
-/// Ejecuta los ataques de un peleador.
-/// Maneja el ciclo Windup → Active → Recovery de cada golpe.
-/// Durante la fase Active aplica daño al rival si no está esquivando ni bloqueando.
+/// Ejecuta los golpes de un peleador y decide si impactan.
+/// Un golpe pasa por Windup → Active → Recovery. Si impacta, el Recovery se puede
+/// cancelar con el siguiente golpe: así salen los combos (jab → recto → gancho).
+/// No usa colliders: el impacto se mide por distancia y por estado del rival.
 /// </summary>
 public class CombatController : MonoBehaviour
 {
+    private enum Phase { None, Windup, Active, Recovery }
+
     [Header("Referencias")]
     [SerializeField] private Stamina stamina;
     [SerializeField] private Animator animator;
 
     [Header("Objetivo")]
     [SerializeField] private Health targetHealth;
+    [SerializeField] private CombatController targetCombat;
 
     [Header("Bloqueo")]
-    [Tooltip("Multiplicador de daño cuando el objetivo está bloqueando (0.25 = 75% reducción).")]
-    [SerializeField] private float blockDamageMultiplier = 0.25f;
+    [SerializeField] private float blockDamageMultiplier = 0.2f;
 
-    // Posición de esquive actual del objetivo (la informa PlayerInputHandler o RivalAI)
-    private DodgePosition targetDodge = DodgePosition.Neutral;
+    private Phase phase = Phase.None;
+    private AttackData current;
+    private AttackData buffered;
+    private float bufferedAt;
+    private float phaseTimer;
+    private float hitstunTimer;
+    private float blockstunTimer;
+    private bool blocking;
+    private bool hitConfirmed;
+    private bool hasBlockParameter;
+    private FighterBody body;
 
-    // Si el objetivo está bloqueando activamente
-    private bool targetIsBlocking = false;
+    private int comboHits;
+    private float lastHitAt;
 
-    // Verdadero mientras se está ejecutando un golpe
-    private bool isAttacking = false;
+    /// <summary>Se dispara cuando un golpe conecta. true = lo bloquearon.</summary>
+    public event System.Action<bool> OnHitLanded;
 
-    public bool IsAttacking => isAttacking;
+    public bool IsAttacking => phase != Phase.None;
+    public bool CanAct => phase == Phase.None && hitstunTimer <= 0f && blockstunTimer <= 0f;
+    public bool IsBlocking => blocking && hitstunTimer <= 0f && blockstunTimer <= 0f;
 
-    /// <summary>
-    /// Asigna el objetivo que recibirá el daño. Lo llama FightManager.
-    /// </summary>
-    public void SetTarget(Health target)
+    private bool invulnerable;
+    private float hitInvulnTimer;
+
+    /// <summary>Invulnerable por esquive o por el instante de recuperación tras un stun.</summary>
+    public bool IsInvulnerable
     {
-        targetHealth = target;
+        get => invulnerable || hitInvulnTimer > 0f;
+        set => invulnerable = value;
+    }
+    public AttackData CurrentAttack => current;
+
+    /// <summary>Progreso del golpe actual de 0 a 1. Lo usa el animador de perfil.</summary>
+    public float AttackProgress
+    {
+        get
+        {
+            if (phase == Phase.None || current == null) return 0f;
+            float total = current.windupTime + current.activeTime + current.recoveryTime;
+            if (total <= 0f) return 0f;
+
+            float elapsed = phaseTimer;
+            if (phase == Phase.Active) elapsed += current.windupTime;
+            else if (phase == Phase.Recovery) elapsed += current.windupTime + current.activeTime;
+
+            return Mathf.Clamp01(elapsed / total);
+        }
+    }
+
+    /// <summary>Golpes encadenados en los últimos 0.8 s. Lo muestra el contador de combos.</summary>
+    public int ComboHits => comboHits;
+
+    private void Awake()
+    {
+        // Si el Inspector no las conectó, se buscan en el mismo objeto
+        if (animator == null) animator = GetComponent<Animator>();
+        if (stamina == null) stamina = GetComponent<Stamina>();
+
+        body = GetComponent<FighterBody>();
+        hasBlockParameter = animator != null &&
+            System.Array.Exists(animator.parameters, p => p.name == "IsBlocking");
+    }
+
+    private void Start()
+    {
+        // FighterBody puede añadirse en el Awake de otro script
+        if (body == null) body = GetComponent<FighterBody>();
+    }
+
+    /// <summary>Asigna a quién golpea este peleador. Lo llama FightManager.</summary>
+    public void SetTarget(Health health) { targetHealth = health; }
+
+    /// <summary>Asigna objetivo y su controlador de combate (para bloqueo y stun).</summary>
+    public void SetTarget(Health health, CombatController combat)
+    {
+        targetHealth = health;
+        targetCombat = combat;
+    }
+
+    /// <summary>El peleador mantiene la guardia (dirección contraria al rival).</summary>
+    public void SetBlocking(bool value)
+    {
+        blocking = value && CanAct;
+        if (hasBlockParameter && animator.enabled) animator.SetBool("IsBlocking", blocking);
     }
 
     /// <summary>
-    /// Informa la posición de esquive del objetivo.
-    /// Lo llama PlayerInputHandler (para el rival) o RivalAI (para Wally).
+    /// Intenta ejecutar un ataque. Si ya está atacando, lo guarda como buffer
+    /// para encadenarlo en cuanto el golpe actual confirme impacto.
     /// </summary>
-    public void SetTargetDodge(DodgePosition dodge)
+    public bool TryAttack(AttackData attack)
     {
-        targetDodge = dodge;
+        if (attack == null) return false;
+
+        // Cancelación de combo: si el golpe anterior impactó, el recovery se corta.
+        if (phase == Phase.Recovery && hitConfirmed)
+        {
+            if (stamina != null && !stamina.UseStamina(attack.staminaCost)) return false;
+            StartAttack(attack);
+            return true;
+        }
+
+        if (!CanAct)
+        {
+            if (IsAttacking) { buffered = attack; bufferedAt = Time.time; }
+            return false;
+        }
+
+        if (stamina != null && !stamina.UseStamina(attack.staminaCost)) return false;
+        StartAttack(attack);
+        return true;
     }
 
-    /// <summary>
-    /// Informa si el objetivo está bloqueando.
-    /// Un bloqueo activo no anula el golpe — lo reduce a un 25% del daño.
-    /// </summary>
-    public void SetTargetBlocking(bool blocking)
+    /// <summary>Recibe un golpe: queda aturdido y pierde la acción actual.</summary>
+    public void ApplyHitstun(float seconds)
     {
-        targetIsBlocking = blocking;
+        hitstunTimer = Mathf.Max(hitstunTimer, seconds);
+        phase = Phase.None;
+        current = null;
+        buffered = null;
+        blocking = false;
+        if (hasBlockParameter && animator.enabled) animator.SetBool("IsBlocking", false);
     }
 
-    /// <summary>
-    /// Intenta ejecutar un ataque. Si no hay stamina o ya está atacando, no hace nada.
-    /// </summary>
-    public void TryAttack(AttackData attack)
+    /// <summary>Bloqueó un golpe: no puede actuar un instante, pero no recibe stun completo.</summary>
+    public void ApplyBlockstun(float seconds)
     {
-        if (isAttacking) return;
-        if (attack == null) return;
-        if (stamina == null) return;
-        if (!stamina.UseStamina(attack.staminaCost)) return;
-
-        StartCoroutine(ExecuteAttack(attack));
+        blockstunTimer = Mathf.Max(blockstunTimer, seconds);
+        phase = Phase.None;
+        current = null;
     }
 
-    private IEnumerator ExecuteAttack(AttackData attack)
+    private void StartAttack(AttackData attack)
     {
-        isAttacking = true;
+        current = attack;
+        phase = Phase.Windup;
+        phaseTimer = 0f;
+        hitConfirmed = false;
+        buffered = null;
+        blocking = false;
+        IsInvulnerable = false;
+        if (hasBlockParameter && animator.enabled) animator.SetBool("IsBlocking", false);
 
-        if (animator != null)
+        if (animator != null && animator.enabled && !string.IsNullOrEmpty(attack.animationTrigger))
             animator.SetTrigger(attack.animationTrigger);
 
-        // Fase Windup: preparación, aún no golpea
-        yield return new WaitForSeconds(attack.windupTime);
-
-        // Reproducir sonido del golpe al lanzarlo
-        AudioManager.Instance?.PlaySFX(attack.hitSound);
-
-        // Fase Active: ventana donde el golpe puede impactar
-        bool impacta = EvaluarImpacto(attack);
-        if (impacta && targetHealth != null)
-        {
-            // Si el objetivo bloquea, solo pasa el 25% del daño
-            int danoFinal = targetIsBlocking
-                ? Mathf.Max(1, Mathf.RoundToInt(attack.damage * blockDamageMultiplier))
-                : attack.damage;
-
-            string estado = targetIsBlocking ? "(BLOQUEADO)" : "";
-            Debug.Log($"[Combate] {attack.attackName} impacta {targetHealth.name} → {danoFinal} daño {estado}");
-
-            targetHealth.TakeDamage(danoFinal);
-
-            // Sonido de impacto: diferente si bloqueó o recibió el golpe limpio
-            AudioLibrary lib = AudioManager.Instance?.Library;
-            AudioManager.Instance?.PlaySFX(targetIsBlocking ? lib?.sfxBloqueo : lib?.sfxImpacto);
-        }
-        else if (!impacta)
-        {
-            // El objetivo esquivó — sonido de golpe al aire
-            AudioManager.Instance?.PlaySFX(AudioManager.Instance?.Library?.sfxWhiff);
-        }
-
-        yield return new WaitForSeconds(attack.activeTime);
-
-        // Fase Recovery: vulnerable, no puede hacer nada
-        yield return new WaitForSeconds(attack.recoveryTime);
-
-        isAttacking = false;
+        // Whoosh de aire al lanzar; el impacto suena recién cuando conecta
+        AudioClip swing = AudioManager.Instance?.Library?.sfxSwing;
+        AudioManager.Instance?.PlaySFX(swing, 0.55f, Random.Range(1f, 1.12f));
     }
 
-    /// <summary>
-    /// El golpe impacta si el objetivo no está muerto ni en posición correcta de esquive.
-    /// </summary>
-    private bool EvaluarImpacto(AttackData attack)
+    private void Update()
     {
-        if (targetHealth == null || targetHealth.IsDead) return false;
+        float dt = Time.deltaTime;
 
-        foreach (DodgePosition esquive in attack.dodgesThatAvoid)
+        // El combo se reinicia si pasa casi un segundo sin conectar
+        if (comboHits > 0 && Time.time - lastHitAt > 0.9f) comboHits = 0;
+        bool estabaAturdido = hitstunTimer > 0f;
+        if (hitstunTimer > 0f) hitstunTimer -= dt;
+        if (estabaAturdido && hitstunTimer <= 0f) hitInvulnTimer = 0.22f;
+        if (hitInvulnTimer > 0f) hitInvulnTimer -= dt;
+        if (blockstunTimer > 0f) blockstunTimer -= dt;
+
+        if (phase == Phase.None)
         {
-            if (targetDodge == esquive)
+            if (buffered != null && Time.time - bufferedAt <= 0.18f && CanAct)
             {
-                Debug.Log($"[Combate] {attack.attackName} esquivado con {esquive}");
-                return false;
+                AttackData next = buffered;
+                buffered = null;
+                if (stamina == null || stamina.UseStamina(next.staminaCost)) StartAttack(next);
             }
+            return;
         }
 
-        return true;
+        phaseTimer += dt;
+
+        if (phase == Phase.Windup && phaseTimer >= current.windupTime)
+        {
+            phase = Phase.Active;
+            phaseTimer = 0f;
+            ResolveHit();
+        }
+        else if (phase == Phase.Active && phaseTimer >= current.activeTime)
+        {
+            phase = Phase.Recovery;
+            phaseTimer = 0f;
+
+            // Si el golpe impactó y el jugador ya pidió el siguiente, se encadena.
+            if (hitConfirmed && buffered != null && Time.time - bufferedAt <= 0.25f)
+            {
+                AttackData next = buffered;
+                buffered = null;
+                if (stamina == null || stamina.UseStamina(next.staminaCost)) StartAttack(next);
+            }
+        }
+        else if (phase == Phase.Recovery && phaseTimer >= current.recoveryTime)
+        {
+            phase = Phase.None;
+            current = null;
+            hitConfirmed = false;
+        }
+    }
+
+    private void ResolveHit()
+    {
+        // La lógica de impacto vive en HitResolver para mantener este script corto.
+        FighterBody ownBody = body != null ? body : GetComponent<FighterBody>();
+        bool blocked = targetCombat != null && targetCombat.IsBlocking;
+
+        hitConfirmed = HitResolver.Resolve(
+            current, transform, targetHealth, targetCombat, ownBody, blockDamageMultiplier);
+
+        if (hitConfirmed)
+        {
+            RegistrarGolpeDeCombo();
+            OnHitLanded?.Invoke(blocked);
+        }
+    }
+
+    private void RegistrarGolpeDeCombo()
+    {
+        if (Time.time - lastHitAt <= 0.8f) comboHits++;
+        else comboHits = 1;
+
+        lastHitAt = Time.time;
     }
 }

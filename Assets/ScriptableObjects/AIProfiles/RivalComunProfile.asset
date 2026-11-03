@@ -14,8 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AIProfile
   rivalName: Rival
   telegraphDuration: 1.5
-  minCooldown: 2
-  maxCooldown: 4
+  minCooldown: 0.45
+  maxCooldown: 0.95
+  reactionTime: 0.24
+  aggressiveness: 0.28
+  blockChance: 0.2
+  dodgeChance: 0.1
+  comboLength: 2
   attacks:
   - {fileID: 11400000, guid: 2baf7cecddbf9274baff01b27ec23704, type: 2}
   - {fileID: 11400000, guid: a6ea5125b24f1014c8743cfd72739cd9, type: 2}

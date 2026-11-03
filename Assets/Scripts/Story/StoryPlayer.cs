@@ -61,8 +61,13 @@ public class StoryPlayer : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
-            teclaPulsada = true;
+        // Avanza con teclado, con cualquier botón del mando o con un clic.
+        bool tecla = Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame;
+        bool mando = PadInput.ConfirmarPulsado || PadInput.CancelarPulsado || PadInput.InicioPulsado;
+        bool raton = Mouse.current != null &&
+                     (Mouse.current.leftButton.wasPressedThisFrame || Mouse.current.rightButton.wasPressedThisFrame);
+
+        if (tecla || mando || raton) teclaPulsada = true;
     }
 
     /// <summary>

@@ -29,14 +29,6 @@ public class FightManager : MonoBehaviour
     [Header("Input del jugador")]
     [SerializeField] private PlayerInputHandler playerInput;
 
-    // WallyNuevos idle: 313x390 a PPU=200, pivot=base → 1.565x1.95u por escala-1
-    // Kiriku idle: 254x353 a PPU=200, escala=3 → 3.81x5.295u (pies y=-1.5, cabeza y=+3.8)
-    // Wally escala=2.5 → 3.91x4.875u (pies y=-1.5, cabeza y=+3.375) — alturas similares
-    private readonly Vector3 wallyPosicion = new Vector3(-3f, -1.5f, 0f);
-    private readonly Vector3 wallyEscala   = new Vector3(2.5f, 2.5f, 1f);
-    private readonly Vector3 rivalPosicion = new Vector3(3f, -1.5f, 0f);
-    private readonly Vector3 rivalEscala   = new Vector3(-3f, 3f, 1f);
-
     [Header("Configuración de rounds")]
     [SerializeField] private int   roundsParaGanar   = 2;
     [SerializeField] private float pausaEntreRounds  = 3.5f;
@@ -45,6 +37,11 @@ public class FightManager : MonoBehaviour
     private int  rivalRoundsWon = 0;
     private int  roundActual    = 0;
     private bool roundActivo    = false;
+
+    private FighterBody wallyBody;
+    private FighterBody rivalBody;
+    private CombatController wallyCombat;
+    private CombatController rivalCombat;
 
     private System.Action wallyDeathHandler;
     private System.Action rivalDeathHandler;
@@ -70,6 +67,10 @@ public class FightManager : MonoBehaviour
             if (wallyStamina  == null) wallyStamina  = playerInput.GetComponent<Stamina>();
             if (wallyAnimator == null) wallyAnimator = playerInput.GetComponent<Animator>();
         }
+
+        // Balance: la pelea dura lo suficiente para aprender y conectar combos
+        if (wallyHealth != null) wallyHealth.SetMaxHealth(300);
+        if (rivalHealth != null) rivalHealth.SetMaxHealth(300);
     }
 
     private IEnumerator Start()
@@ -79,14 +80,56 @@ public class FightManager : MonoBehaviour
         if (playerInput != null && rivalAI != null)
         {
             CombatController rivalCC = rivalAI.GetCombatController();
+            CombatController wallyCC = playerInput.GetComponent<CombatController>();
+            wallyCombat = wallyCC;
+            rivalCombat = rivalCC;
             if (rivalCC != null) playerInput.SetRivalCombat(rivalCC);
+
+            // Cada peleador conoce a su objetivo: así el combate sabe a quién golpear
+            if (rivalCC != null && wallyCC != null)
+            {
+                wallyCC.SetTarget(rivalHealth, rivalCC);
+                rivalCC.SetTarget(wallyHealth, wallyCC);
+            }
+
+            wallyBody = playerInput.GetComponent<FighterBody>();
+            rivalBody = rivalAI.GetComponent<FighterBody>();
         }
+
+        // Modo perfil: sprites laterales nuevos + ring lateral del mismo lugar
+        if (wallyBody != null && wallyBody.GetComponent<ProfileFighterAnimator>() == null)
+            wallyBody.gameObject.AddComponent<ProfileFighterAnimator>();
+        if (rivalBody != null && rivalBody.GetComponent<ProfileFighterAnimator>() == null)
+            rivalBody.gameObject.AddComponent<ProfileFighterAnimator>();
+        if (GetComponent<StageSwitcher>() == null)
+            gameObject.AddComponent<StageSwitcher>();
 
         PrepararCombatientes();
         if (playerInput != null) playerInput.enabled = false;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         yield return StartCoroutine(IniciarRound(1));
+    }
+
+    // Evita que los cuerpos se atraviesen: separación mínima entre peleadores
+    private void LateUpdate()
+    {
+        if (wallyBody == null || rivalBody == null) return;
+        if (!roundActivo) return;
+        if (wallyHealth != null && wallyHealth.IsDead) return;
+        if (rivalHealth != null && rivalHealth.IsDead) return;
+
+        float dx = rivalBody.X - wallyBody.X;
+        // 1.35 deja aire entre los dos cuerpos: antes se solapaban y se veía sucio.
+        const float minDistance = 1.35f;
+
+        if (Mathf.Abs(dx) < minDistance)
+        {
+            float dir = dx >= 0f ? 1f : -1f;
+            float overlap = minDistance - Mathf.Abs(dx);
+            wallyBody.Push(-dir * overlap * 0.5f);
+            rivalBody.Push(dir * overlap * 0.5f);
+        }
     }
 
     // ── FLUJO PRINCIPAL ────────────────────────────────────────────
@@ -140,20 +183,17 @@ public class FightManager : MonoBehaviour
         rivalAI?.Deactivate();
         if (playerInput != null) playerInput.enabled = false;
 
-        if (wallyGana)
-        {
-            wallyRoundsWon++;
-            wallyAnimator?.SetTrigger("Victory");
-            rivalAnimator?.SetTrigger("Defeat");
-        }
-        else
-        {
-            rivalRoundsWon++;
-            wallyAnimator?.SetTrigger("Knockdown");
-            rivalAnimator?.SetTrigger("Victory");
-        }
+        // El perdedor se queda quieto en el suelo
+        wallyBody?.Move(0f);
+        rivalBody?.Move(0f);
 
-        VisualJuice.Instance?.KnockOut();
+        if (wallyGana) wallyRoundsWon++;
+        else rivalRoundsWon++;
+
+        // El perdedor cae con una animación procedural (FighterVisual).
+        // No se usan Victory/Knockdown del Animator: sus hojas son traslúcidas.
+
+        // El K.O. visual ya lo dispara Health al llegar a cero
         Debug.Log($"[FightManager] Round {roundActual} — Wally:{wallyRoundsWon} Rival:{rivalRoundsWon}");
 
         bool peleatTerminada = wallyRoundsWon >= roundsParaGanar || rivalRoundsWon >= roundsParaGanar;
@@ -179,7 +219,20 @@ public class FightManager : MonoBehaviour
         hud?.MostrarResultado(wallyGanaFinal, wallyRoundsWon, rivalRoundsWon);
 
         AudioLibrary lib = AudioManager.Instance?.Library;
-        AudioManager.Instance?.PlayMusic(wallyGanaFinal ? lib?.musicaVictoria : lib?.musicaCombate);
+
+        // Se corta la música en ambos casos: la pantalla final y la voz del
+        // locutor necesitan silencio para pegar fuerte.
+        AudioManager.Instance?.StopMusic();
+
+        if (wallyGanaFinal)
+        {
+            AudioManager.Instance?.PlaySFX(lib?.sfxCampana, 1f);
+            AudioManager.Instance?.PlaySFX(lib?.sfxImpacto, 0.6f, 0.9f);
+        }
+        else
+        {
+            AudioManager.Instance?.PlaySFX(lib?.sfxCaida, 0.8f, 0.85f);
+        }
     }
 
     // ── HELPERS ────────────────────────────────────────────────────
@@ -191,30 +244,23 @@ public class FightManager : MonoBehaviour
         wallyStamina?.ResetStamina();
         rivalStamina?.ResetStamina();
 
-        if (wallyHealth != null)
-        {
-            wallyHealth.transform.position   = wallyPosicion;
-            wallyHealth.transform.localScale = wallyEscala;
-        }
+        // La posición y la escala viven en la escena, no aquí.
+        // Si el código las reescribe, cualquier ajuste del Inspector se pierde al dar Play.
 
-        if (rivalHealth != null)
-        {
-            rivalHealth.transform.position   = rivalPosicion;
-            rivalHealth.transform.localScale = rivalEscala;
-        }
-
-        wallyAnimator?.Play("WallyIdle", 0, 0f);
-        rivalAnimator?.Play("Idle", 0, 0f);
+        if (wallyAnimator != null && wallyAnimator.enabled) wallyAnimator.Play("WallyIdle", 0, 0f);
+        if (rivalAnimator != null && rivalAnimator.enabled) rivalAnimator.Play("Idle", 0, 0f);
 
         if (playerInput != null) playerInput.enabled = true;
     }
 
     private void SuscribirEventos()
     {
-        wallyDeathHandler  = () => TerminarRound(wallyGana: false);
-        rivalDeathHandler  = () => TerminarRound(wallyGana: true);
-        wallyDamageHandler = () => wallyAnimator?.SetTrigger("Hit");
-        rivalDamageHandler = () => rivalAnimator?.SetTrigger("Hit");
+        wallyDeathHandler  = () => { hud?.MostrarKO(); TerminarRound(wallyGana: false); };
+        rivalDeathHandler  = () => { hud?.MostrarKO(); TerminarRound(wallyGana: true); };
+        // El daño se reacciona con flash y retroceso (FighterVisual), sin usar
+        // las hojas "hit" que son traslúcidas y se veían azules sobre el ring.
+        wallyDamageHandler = () => { };
+        rivalDamageHandler = () => { };
 
         wallyHealth.OnDeath  += wallyDeathHandler;
         rivalHealth.OnDeath  += rivalDeathHandler;

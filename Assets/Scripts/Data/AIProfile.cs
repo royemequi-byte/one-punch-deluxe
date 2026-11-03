@@ -20,6 +20,18 @@ public class AIProfile : ScriptableObject
     [Tooltip("Máximo de segundos entre ataques.")]
     public float maxCooldown = 2.5f;
 
+    [Header("Comportamiento de pelea (KOF)")]
+    [Tooltip("Tiempo en segundos que tarda en reaccionar a un ataque del jugador.")]
+    public float reactionTime = 0.18f;
+    [Tooltip("0 = pasivo, 1 = ataca en cuanto puede.")]
+    public float aggressiveness = 0.6f;
+    [Tooltip("Probabilidad de bloquear cuando el jugador ataca.")]
+    public float blockChance = 0.3f;
+    [Tooltip("Probabilidad de esquivar con la pose de weave.")]
+    public float dodgeChance = 0.15f;
+    [Tooltip("Golpes seguidos que encadena en un combo.")]
+    public int comboLength = 2;
+
     [Header("Ataques disponibles")]
     [Tooltip("El rival elige uno al azar de esta lista en cada turno.")]
     public AttackData[] attacks;

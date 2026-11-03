@@ -1,0 +1,624 @@
+fileFormatVersion: 2
+guid: 5417e2d44cf808444ab732252bd5afc3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3118128488233146626
+    second: Wally_Hit_Sheet_0
+  - first:
+      213: -8215148351356412193
+    second: Wally_Hit_Sheet_1
+  - first:
+      213: -1775404303061053206
+    second: Wally_Hit_Sheet_2
+  - first:
+      213: 7402447837300095892
+    second: Wally_Hit_Sheet_3
+  - first:
+      213: -2781172738498019964
+    second: Wally_Hit_Sheet_4
+  - first:
+      213: 5476891332844867794
+    second: Wally_Hit_Sheet_5
+  - first:
+      213: -3663650866881349363
+    second: Wally_Hit_Sheet_6
+  - first:
+      213: -5068295449519345348
+    second: Wally_Hit_Sheet_7
+  - first:
+      213: -5953267775577181682
+    second: Wally_Hit_Sheet_8
+  - first:
+      213: 4226898811827420459
+    second: Wally_Hit_Sheet_9
+  - first:
+      213: 6435825384486230513
+    second: Wally_Hit_Sheet_10
+  - first:
+      213: -2123897628302182960
+    second: Wally_Hit_Sheet_11
+  - first:
+      213: 2888894987740040331
+    second: Wally_Hit_Sheet_12
+  - first:
+      213: 2837779274798288334
+    second: Wally_Hit_Sheet_13
+  - first:
+      213: 7838509196042131075
+    second: Wally_Hit_Sheet_14
+  - first:
+      213: 8747254462404498438
+    second: Wally_Hit_Sheet_15
+  - first:
+      213: -3180157010881398855
+    second: Wally_Hit_Sheet_16
+  - first:
+      213: -6794579166035037497
+    second: Wally_Hit_Sheet_17
+  - first:
+      213: 5118962575974171304
+    second: Wally_Hit_Sheet_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 29
+        width: 60
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef666d619ae2ab4d0800000000000000
+      internalID: -3118128488233146626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 125
+        width: 228
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fded344a91eedfd80800000000000000
+      internalID: -8215148351356412193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 19
+        width: 45
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae0985f513f7c57e0800000000000000
+      internalID: -1775404303061053206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 29
+        width: 64
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49b71a29617cab660800000000000000
+      internalID: 7402447837300095892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 125
+        width: 228
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48d33de212a4769d0800000000000000
+      internalID: -2781172738498019964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 19
+        width: 41
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d052af36a3d10c40800000000000000
+      internalID: 5476891332844867794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 29
+        width: 64
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d093c7a82f8182dc0800000000000000
+      internalID: -3663650866881349363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 126
+        width: 227
+        height: 421
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31bba2442cc9a9b0800000000000000
+      internalID: -5068295449519345348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 19
+        width: 59
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0231f7ff7eb16da0800000000000000
+      internalID: -5953267775577181682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 30
+        width: 65
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2d7e740316f8aa30800000000000000
+      internalID: 4226898811827420459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 125
+        width: 228
+        height: 422
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f95eb6b615a05950800000000000000
+      internalID: 6435825384486230513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 19
+        width: 64
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d5f0c52c566682e0800000000000000
+      internalID: -2123897628302182960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 33
+        width: 60
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8cc6a17faa671820800000000000000
+      internalID: 2888894987740040331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1522
+        y: 125
+        width: 224
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd41591731d16720800000000000000
+      internalID: 2837779274798288334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1706
+        y: 19
+        width: 68
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38659b6659af7cc60800000000000000
+      internalID: 7838509196042131075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 33
+        width: 26
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 604129fa69d746970800000000000000
+      internalID: 8747254462404498438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 20
+        width: 30
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b7327c3c00ddd3d0800000000000000
+      internalID: -3180157010881398855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 29
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c2363a6f3ec4b1a0800000000000000
+      internalID: -6794579166035037497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wally_Hit_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1465
+        y: 22
+        width: 7
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a2857767553a0740800000000000000
+      internalID: 5118962575974171304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Wally_Hit_Sheet_0: -3118128488233146626
+      Wally_Hit_Sheet_1: -8215148351356412193
+      Wally_Hit_Sheet_10: 6435825384486230513
+      Wally_Hit_Sheet_11: -2123897628302182960
+      Wally_Hit_Sheet_12: 2888894987740040331
+      Wally_Hit_Sheet_13: 2837779274798288334
+      Wally_Hit_Sheet_14: 7838509196042131075
+      Wally_Hit_Sheet_15: 8747254462404498438
+      Wally_Hit_Sheet_16: -3180157010881398855
+      Wally_Hit_Sheet_17: -6794579166035037497
+      Wally_Hit_Sheet_18: 5118962575974171304
+      Wally_Hit_Sheet_2: -1775404303061053206
+      Wally_Hit_Sheet_3: 7402447837300095892
+      Wally_Hit_Sheet_4: -2781172738498019964
+      Wally_Hit_Sheet_5: 5476891332844867794
+      Wally_Hit_Sheet_6: -3663650866881349363
+      Wally_Hit_Sheet_7: -5068295449519345348
+      Wally_Hit_Sheet_8: -5953267775577181682
+      Wally_Hit_Sheet_9: 4226898811827420459
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

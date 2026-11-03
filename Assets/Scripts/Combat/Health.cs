@@ -63,6 +63,14 @@ public class Health : MonoBehaviour
         }
     }
 
+    /// <summary>Ajusta la vida máxima (balance de la pelea) y la deja llena.</summary>
+    public void SetMaxHealth(int value)
+    {
+        maxHealth = Mathf.Max(1, value);
+        currentHealth = maxHealth;
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+    }
+
     /// <summary>
     /// Restaura la vida al máximo. Útil al iniciar una nueva pelea.
     /// </summary>

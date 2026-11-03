@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: HookData
   m_EditorClassIdentifier: Assembly-CSharp::AttackData
   attackName: Hook
-  damage: 20
-  staminaCost: 25
-  windupTime: 0.2
-  activeTime: 1.15
-  recoveryTime: 0.25
+  damage: 17
+  staminaCost: 22
+  windupTime: 0.18
+  activeTime: 0.12
+  recoveryTime: 0.24
+  reach: 1.45
+  hitstun: 0.24
+  blockstun: 0.12
+  knockback: 0.4
   animationTrigger: Hook
   hitSound: {fileID: 8300000, guid: 66a02b9c0082f304e8b3d83b530309a5, type: 3}
   dodgesThatAvoid: 
