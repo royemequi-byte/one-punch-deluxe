@@ -10,6 +10,7 @@ public static class BuildGame
 {
     private static readonly string[] Scenes =
     {
+        "Assets/splash.unity",
         "Assets/menu.unity",
         "Assets/historia.unity",
         "Assets/dia 1.unity"
