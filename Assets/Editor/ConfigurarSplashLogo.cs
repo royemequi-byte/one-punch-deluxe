@@ -105,7 +105,7 @@ public static class ConfigurarSplashLogo
             rt.anchorMax = new Vector2(0.5f, 0.5f);
             rt.pivot = new Vector2(0.5f, 0.5f);
             rt.anchoredPosition = Vector2.zero;
-            rt.sizeDelta = new Vector2(1920f, 1080f);
+            rt.sizeDelta = new Vector2(1536f, 864f);
         }
 
         // 8. Marcar la escena como modificada y guardarla
