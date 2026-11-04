@@ -96,8 +96,8 @@ public static class ConfigurarSplashLogo
             imagen.color = Color.white;
         }
 
-        // 7. Centrado perfecto con ratio 4:3 exacto (1152x864 = 4:3, misma proporción que el PNG 1024x768)
-        // Deja ~108px de margen arriba/abajo y ~384px a los lados en base 1920x1080
+        // 7. Box a pantalla completa (1920x1080). PreserveAspect escala la imagen 4:3
+        // al máximo que cabe: 1440x1080, mostrando llamas y destellos sin recorte.
         RectTransform rt = logoGO.GetComponent<RectTransform>();
         if (rt != null)
         {
@@ -105,7 +105,7 @@ public static class ConfigurarSplashLogo
             rt.anchorMax = new Vector2(0.5f, 0.5f);
             rt.pivot = new Vector2(0.5f, 0.5f);
             rt.anchoredPosition = Vector2.zero;
-            rt.sizeDelta = new Vector2(1152f, 864f);
+            rt.sizeDelta = new Vector2(1920f, 1080f);
         }
 
         // 8. Marcar la escena como modificada y guardarla
