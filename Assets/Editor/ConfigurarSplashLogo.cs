@@ -21,11 +21,21 @@ public static class ConfigurarSplashLogo
         TextureImporter importer = AssetImporter.GetAtPath(RUTA_LOGO) as TextureImporter;
         if (importer != null)
         {
+            bool necesitaReimportar = false;
             if (importer.textureType != TextureImporterType.Sprite)
             {
                 importer.textureType = TextureImporterType.Sprite;
+                necesitaReimportar = true;
+            }
+            if (importer.alphaIsTransparency != true)
+            {
+                importer.alphaIsTransparency = true;
+                necesitaReimportar = true;
+            }
+            if (necesitaReimportar)
+            {
                 importer.SaveAndReimport();
-                Debug.Log("[OnePunch] La imagen del logo fue configurada como Sprite (2D y UI).");
+                Debug.Log("[OnePunch] La imagen del logo fue reconfigurada con canal alfa transparente.");
             }
         }
         else
@@ -40,7 +50,8 @@ public static class ConfigurarSplashLogo
 
         var escena = EditorSceneManager.OpenScene(RUTA_ESCENA_SPLASH);
 
-        // 3. Cargar el Sprite procesado
+        // 3. Forzar refresco y cargar el Sprite procesado
+        AssetDatabase.ImportAsset(RUTA_LOGO, ImportAssetOptions.ForceUpdate);
         Sprite logoSprite = AssetDatabase.LoadAssetAtPath<Sprite>(RUTA_LOGO);
         if (logoSprite == null)
         {
@@ -62,9 +73,10 @@ public static class ConfigurarSplashLogo
         {
             imagen.sprite = logoSprite;
             imagen.preserveAspect = true;
+            imagen.color = Color.white;
         }
 
-        // 6. Ajustar dimensiones para que se vea claro y centrado (proporción 16:10 / 16:9)
+        // 6. Ajustar dimensiones para que se vea nítido, imponente y centrado
         RectTransform rt = logoGO.GetComponent<RectTransform>();
         if (rt != null)
         {
@@ -72,17 +84,17 @@ public static class ConfigurarSplashLogo
             rt.anchorMax = new Vector2(0.5f, 0.5f);
             rt.pivot = new Vector2(0.5f, 0.5f);
             rt.anchoredPosition = Vector2.zero;
-            rt.sizeDelta = new Vector2(1200f, 764f);
+            rt.sizeDelta = new Vector2(1100f, 825f);
         }
 
         // 7. Marcar la escena como modificada y guardarla
         EditorSceneManager.MarkSceneDirty(escena);
         EditorSceneManager.SaveScene(escena);
 
-        Debug.Log("[OnePunch] ¡Logo configurado exitosamente en la escena Splash!");
+        Debug.Log("[OnePunch] ¡Logo recortado configurado exitosamente en la escena Splash!");
         if (!Application.isBatchMode)
         {
-            EditorUtility.DisplayDialog("One Punch Deluxe", "¡El logo fue asignado y centrado exitosamente en la escena Splash!", "Excelente");
+            EditorUtility.DisplayDialog("One Punch Deluxe", "¡El logo recortado fue asignado y centrado exitosamente en la escena Splash!", "Excelente");
         }
     }
 }
