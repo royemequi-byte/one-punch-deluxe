@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Herramienta de Editor para configurar el logo en la escena Splash a pantalla completa.
-/// Ajusta el CanvasScaler a ScaleWithScreenSize (1920x1080) y estira la imagen
-/// para que abarque toda la pantalla sin cortarse en ninguna resolución.
+/// Configura el logo en la escena Splash con tamaño proporcionado cinematográfico.
+/// Utiliza CanvasScaler (1920x1080) y fija un tamaño de 1150x860 centrado para que
+/// el logo luzca imponente pero con margen de respiro en los bordes, sin tocar nunca los extremos.
 /// </summary>
 public static class ConfigurarSplashLogo
 {
@@ -18,7 +18,7 @@ public static class ConfigurarSplashLogo
     [MenuItem("Tools/Configurar Logo en Splash")]
     public static void AplicarLogo()
     {
-        // 1. Asegurar que la textura esté configurada como Sprite (2D y UI) con canal alfa
+        // 1. Asegurar que la textura esté como Sprite UI con alfa
         TextureImporter importer = AssetImporter.GetAtPath(RUTA_LOGO) as TextureImporter;
         if (importer != null)
         {
@@ -50,7 +50,7 @@ public static class ConfigurarSplashLogo
             return;
         }
 
-        // 2. Guardar escena actual y abrir la escena de Splash
+        // 2. Guardar escena actual y abrir Splash
         if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
             return;
 
@@ -65,7 +65,7 @@ public static class ConfigurarSplashLogo
             return;
         }
 
-        // 4. Configurar el CanvasScaler para que escale con cualquier tamaño de pantalla
+        // 4. Configurar CanvasScaler con resolución de referencia 1920x1080
         GameObject canvasGO = GameObject.Find("Canvas");
         if (canvasGO != null)
         {
@@ -79,7 +79,7 @@ public static class ConfigurarSplashLogo
             }
         }
 
-        // 5. Buscar el objeto LogoImage en la jerarquía
+        // 5. Buscar LogoImage
         GameObject logoGO = GameObject.Find("LogoImage");
         if (logoGO == null)
         {
@@ -87,7 +87,7 @@ public static class ConfigurarSplashLogo
             return;
         }
 
-        // 6. Asignar el sprite
+        // 6. Asignar el sprite y color
         Image imagen = logoGO.GetComponent<Image>();
         if (imagen != null)
         {
@@ -96,28 +96,26 @@ public static class ConfigurarSplashLogo
             imagen.color = Color.white;
         }
 
-        // 7. Configurar anclajes a PANTALLA COMPLETA (Stretch total)
-        // Se ancla de 0 a 1 en X e Y para que use el 100% de la pantalla sin cortarse nunca
+        // 7. Centrado perfecto con ratio 4:3 exacto (1152x864 = 4:3, misma proporción que el PNG 1024x768)
+        // Deja ~108px de margen arriba/abajo y ~384px a los lados en base 1920x1080
         RectTransform rt = logoGO.GetComponent<RectTransform>();
         if (rt != null)
         {
-            rt.anchorMin = Vector2.zero; // Esquina inferior izquierda (0,0)
-            rt.anchorMax = Vector2.one;  // Esquina superior derecha (1,1)
+            rt.anchorMin = new Vector2(0.5f, 0.5f);
+            rt.anchorMax = new Vector2(0.5f, 0.5f);
             rt.pivot = new Vector2(0.5f, 0.5f);
-            rt.offsetMin = Vector2.zero; // Sin márgenes que lo encojan
-            rt.offsetMax = Vector2.zero;
             rt.anchoredPosition = Vector2.zero;
-            rt.sizeDelta = Vector2.zero;
+            rt.sizeDelta = new Vector2(1152f, 864f);
         }
 
         // 8. Marcar la escena como modificada y guardarla
         EditorSceneManager.MarkSceneDirty(escena);
         EditorSceneManager.SaveScene(escena);
 
-        Debug.Log("[OnePunch] ¡Logo configurado a pantalla completa sin cortes en la escena Splash!");
+        Debug.Log("[OnePunch] ¡Logo centrado y proporcionado exitosamente en la escena Splash!");
         if (!Application.isBatchMode)
         {
-            EditorUtility.DisplayDialog("One Punch Deluxe", "¡El logo fue configurado a pantalla completa sin cortes!", "Excelente");
+            EditorUtility.DisplayDialog("One Punch Deluxe", "¡El logo fue ajustado con márgenes limpios!", "Excelente");
         }
     }
 }
