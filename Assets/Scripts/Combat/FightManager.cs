@@ -42,6 +42,7 @@ public class FightManager : MonoBehaviour
     private FighterBody rivalBody;
     private CombatController wallyCombat;
     private CombatController rivalCombat;
+    private PauseManager pauseManager;
 
     private System.Action wallyDeathHandler;
     private System.Action rivalDeathHandler;
@@ -67,6 +68,8 @@ public class FightManager : MonoBehaviour
             if (wallyStamina  == null) wallyStamina  = playerInput.GetComponent<Stamina>();
             if (wallyAnimator == null) wallyAnimator = playerInput.GetComponent<Animator>();
         }
+
+        pauseManager = GetComponent<PauseManager>() ?? gameObject.AddComponent<PauseManager>();
 
         // Balance: la pelea dura lo suficiente para aprender y conectar combos
         if (wallyHealth != null) wallyHealth.SetMaxHealth(300);
@@ -153,6 +156,7 @@ public class FightManager : MonoBehaviour
 
         // ¡Ahora comienza la pelea!
         roundActivo = true;
+        pauseManager?.Habilitar();
         SuscribirEventos();
         rivalAI?.Activate();
         hud?.IniciarTimer();
@@ -179,6 +183,8 @@ public class FightManager : MonoBehaviour
         if (!roundActivo) return;
         roundActivo = false;
 
+        pauseManager?.Deshabilitar();
+        pauseManager?.Reanudar(); // por si el round terminó estando en pausa
         DesuscribirEventos();
         rivalAI?.Deactivate();
         if (playerInput != null) playerInput.enabled = false;

@@ -17,6 +17,7 @@ public class GameOverScreen : MonoBehaviour
     private const float AltoBoton  = 104f;
 
     private static GameOverScreen activa;
+    public  static bool IsShowing => activa != null;
 
     // ── Estado ───────────────────────────────────────────────────
     private bool  wallyGana;
